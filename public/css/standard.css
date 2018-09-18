@@ -1,0 +1,79 @@
+.placeholder {
+  background-color: rgb(39, 42, 45);
+  border: 1px solid white;
+  /* color: rgb(113, 173, 234); */
+  color: white;
+  text-align: center;
+}
+
+section {
+  border: 3px solid rgb(0, 57, 99);
+  text-align: center;
+}
+
+section h2 {
+  font-size: 10pt;
+  color: white;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.data {
+  font-size: 22pt;
+  font-weight: bold;
+  color: dark-blue;
+}
+
+.label {
+  /* color: rgb(191, 110, 119); */
+  color: crimson;
+  font-size: 12pt;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+#taskTable>tbody>tr {
+  border-left: 12px solid white;
+  cursor: pointer;
+  ;
+}
+
+#taskTable>tbody>tr.current_sprint {
+  border-left: 12px solid teal;
+}
+
+/** tablesort **/
+th[role=columnheader]:not(.no-sort) {
+  cursor: pointer;
+  caret-color: crimson;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+  content: '';
+  float: right;
+  margin-top: 7px;
+  border-width: 0 4px 4px;
+  border-style: solid;
+  border-color: crimson transparent;
+  visibility: hidden;
+  opacity: 0;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+  border-bottom: none;
+  border-width: 4px 4px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+  visibility: visible;
+  opacity: 0.7;
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+  visibility: visible;
+  opacity: 1;
+}
