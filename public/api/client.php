@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   exit;
 }
 
-$clientId = intval($_GET['clientId'] ?? 0);
+$clientId = $_GET['clientId'] ?? 0;
 
 if ($clientId < 1) {
   throw new Exception('Invalid Client ID');
