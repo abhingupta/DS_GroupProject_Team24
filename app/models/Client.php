@@ -21,13 +21,13 @@ class Client{
     $sql = 'INSERT INTO client(clientId,clientName,clientDescription,gicsSector,gicsSubIndustry,headquarter) VALUES (?,?,?,?,?,?)';
 
     $statement = $db->prepare($sql);
-    $success = $statement->execute([
+    $success = $statement->execute(
     $this-> clientId,
     $this-> clientName,
     $this-> clientDescription,
     $this-> gicsSector,
     $this-> gicsSubIndustry,
-    $this-> headquarter]);
+    $this-> headquarter);
     if(!$success){
       die('bad sql on insert');
     }
