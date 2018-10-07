@@ -20,7 +20,7 @@ class Client{
     $db = new PDO(DB_SEVER, DB_USER, DB_PW);
     $sql = 'INSERT INTO client(clientId,clientName,clientDescription,gicsSector,gicsSubIndustry,headquarter) VALUES (?,?,?,?,?,?)';
 
-    $statement =  $db->prepare($sql);
+    $statement = $db->prepare($sql);
     $success = $statement->execute([
     $this-> clientId,
     $this-> clientName,
