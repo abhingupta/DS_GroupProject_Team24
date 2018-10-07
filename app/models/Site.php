@@ -58,7 +58,7 @@ class Site{
    // 1. Connect to the database
    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
    // 2. Prepare the query
-   $sql = 'SELECT * FROM client WHERE siteId = ?';
+   $sql = 'SELECT * FROM site WHERE siteId = ?';
    $statement = $db->prepare($sql);
    // 3. Run the query
    $success = $statement->execute(
