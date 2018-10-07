@@ -41,7 +41,7 @@ class Client{
    $statement = $db->prepare($sql);
    // 3. Run the query
    $success = $statement->execute(
-       [$clientId]
+       $clientId
    );
    // 4. Handle the results
    $arr = [];
