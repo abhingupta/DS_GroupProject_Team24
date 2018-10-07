@@ -28,7 +28,9 @@ class Client{
     $this-> gicsSector,
     $this-> gicsSubIndustry,
     $this-> headquarter]);
-
+    if(!$success){
+      die('bad sql on insert');
+    }
     $this->clientId = $db->lastInsertId();
   }
   public static function getClientById(int $clientId) {
