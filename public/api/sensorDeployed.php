@@ -12,3 +12,6 @@ $sensorDeployedId = intval($_GET['sensorDeployedId'] ?? 0);
 if ($sensorDeployedId < 1) {
   throw new Exception('Invalid sensorDeployed ID');
 }
+
+// 1. Go to the database and get all work associated with the $sensorDeployedId
+$sensorDeployedArr = SensorDeployed::getSensorDeployedById($sensorDeployedId);
