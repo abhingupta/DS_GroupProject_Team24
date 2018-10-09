@@ -15,3 +15,20 @@ class SensorDeployed{
     $this->deployedDate = $row['deployedDate'];
 
   }
+
+  public function create(){
+    $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+    $sql = 'INSERT INTO sensor_deployed(sensorDeployedId,sensorId,turbineDeployedId,serialNumber,deployedDate) VALUES (?,?,?,?,?)';
+
+    $statement = $db->prepare($sql);
+    $success = $statement->execute([
+    $this-> sensorDeployedId,
+    $this-> sensorId,
+    $this-> turbineDeployedId,
+    $this-> serialNumber,
+    $this-> deployedDate]);
+    if(!$success){
+      die('bad sql on insert');
+    }
+    $this->sensorDeployedId = $db->lastInsertId();
+  }
