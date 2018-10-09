@@ -15,7 +15,7 @@ if ($sensorTimeSeriesId < 1) {
 
 
 // 1. Go to the database and get all work associated with the $taskId
-$sensorTimeSeriesArr = SensorTimeSeries::getSensorTimeSeriesById($sensorTimeSeriesId);
+$sensorTimeSeriesArr = SensorTimeSeries::SensorTimeSeriesById($sensorTimeSeriesId);
 
 // 2. Convert to JSON
 $json = json_encode($sensorTimeSeriesArr, JSON_PRETTY_PRINT);
