@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS sensor;
 CREATE TABLE sensor (
   sensorId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   sensorName VARCHAR(32) NOT NULL,
-  sesorDescription varchar(128) NOT NULL,
+  sensorDescription varchar(128) NOT NULL,
   manufacturer varchar(64) NOT NULL,
   totalLifeExpectancyHours int NOT NULL
 );
@@ -37,7 +37,7 @@ CREATE TABLE site (
   siteDescription varchar(128) NOT NULL,
   primaryContact varchar(64)  NOT NULL,
   capacity int NOT NULL,
-  commercialDate datetime NOT NULL,
+  commercialDate date NOT NULL,
   addrLine1 varchar(128) NOT NULL,
   addrLine2 varchar (64),
   addrCity varchar(64) NOT NULL,
@@ -53,11 +53,11 @@ CREATE TABLE turbine_deployed (
   turbineId INT NOT NULL,
   siteId INT NOT NULL,
   serialNumber varchar(64) NOT NULL,
-  deployedDate datetime NOT NULL,
+  deployedDate date NOT NULL,
   totalFiredHours int NOT NULL,
   totalStarts int NOT NULL,
-  lastPlannedOutageDate datetime,
-  lastUnplannedOutageDate datetime,
+  lastPlannedOutageDate date,
+  lastUnplannedOutageDate date,
   FOREIGN KEY(turbineId) REFERENCES turbine(turbineId) ON DELETE CASCADE,
   FOREIGN KEY(siteId) REFERENCES site(siteId) ON DELETE CASCADE
 
@@ -69,7 +69,7 @@ CREATE TABLE sensor_deployed (
   sensorId INT NOT NULL,
   turbineDeployedId INT NOT NULL,
   serialNumber varchar(64) NOT NULL,
-  deployedDate datetime NOT NULL,
+  deployedDate date NOT NULL,
   FOREIGN KEY (sensorId) REFERENCES sensor(sensorId) ON DELETE CASCADE,
   FOREIGN KEY (turbineDeployedId) REFERENCES turbine_deployed(turbineDeployedId) ON DELETE CASCADE
 );
@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS sensor_timeseries;
 CREATE TABLE sensor_timeseries (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   sensorDeployedId INT NOT NULL,
-  dataCollectedDate datetime NOT NULL,
+  dataCollectedDate date NOT NULL,
   output decimal NOT NULL,
   heatrate decimal NOT NULL,
   compressorEfficiency decimal NOT NULL,
