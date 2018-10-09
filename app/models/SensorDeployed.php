@@ -1,5 +1,5 @@
 <?php
-
+// initializing the constructors
 class SensorDeployed{
   public $sensorDeployedId;
   public $sensorId;
@@ -15,7 +15,7 @@ class SensorDeployed{
     $this->deployedDate = $row['deployedDate'];
 
   }
-
+// connecting to the SQL database and posting information into DB
   public function create(){
     $db = new PDO(DB_SEVER, DB_USER, DB_PW);
     $sql = 'INSERT INTO sensor_deployed(sensorDeployedId,sensorId,turbineDeployedId,serialNumber,deployedDate) VALUES (?,?,?,?,?)';
@@ -32,3 +32,13 @@ class SensorDeployed{
     }
     $this->sensorDeployedId = $db->lastInsertId();
   }
+  public static function getClientById(int $sensorDeployedId) {
+     // 1. Connect to the database
+     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+     // 2. Prepare the query
+     $sql = 'SELECT * FROM sensor_deployed WHERE sensorDeployedId = ?';
+     $statement = $db->prepare($sql);
+     // 3. Run the query
+     $success = $statement->execute(
+         [$sensorDeployedId]
+     );
