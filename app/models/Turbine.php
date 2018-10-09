@@ -16,3 +16,21 @@ class Turbine{
     $this->rampUpTime = $row['rampUpTime'];
     $this->maintenanceInterval = $row['maintenanceInterval'];
   }
+
+  public function create(){
+    $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+    $sql = 'INSERT INTO turbine(turbineId,turbineName,turbineDescription,capacity,rampUpTime,maintenanceInterval) VALUES (?,?,?,?,?,?)';
+
+    $statement = $db->prepare($sql);
+    $success = $statement->execute([
+    $this-> turbineId,
+    $this-> turbineName,
+    $this-> turbineDescription,
+    $this-> capacity,
+    $this-> rampUpTime,
+    $this-> maintenanceInterval]);
+    if(!$success){
+      die('bad sql on insert');
+    }
+    $this->turbineId = $db->lastInsertId();
+  }
