@@ -60,7 +60,7 @@ class TurbineDeployed{
   // 1. Connect to the database
   $db = new PDO(DB_SERVER, DB_USER, DB_PW);
   // 2. Prepare the query
-  $sql = 'SELECT * FROM turbine_deployed;
+  $sql = 'SELECT * FROM turbine_deployed;'
   $statement = $db->prepare($sql);
   // 3. Run the query
   $success = $statement->execute();
