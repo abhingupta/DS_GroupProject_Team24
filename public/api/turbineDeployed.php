@@ -26,4 +26,5 @@ $json1 = json_encode($turbineDeployedArr1, JSON_PRETTY_PRINT);
 
 // 3. Print
 header('Content-Type: application/json');
-echo $json . "\n" . "New array" . $json1 .  "\n";
+echo $json;
+// echo $json . "\n" . "New array" . $json1 .  "\n";
