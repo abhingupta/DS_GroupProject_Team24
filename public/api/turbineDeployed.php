@@ -20,6 +20,10 @@ $turbineDeployedArr = TurbineDeployed::getTurbineDeployedById();
 // 2. Convert to JSON
 $json = json_encode($turbineDeployedArr, JSON_PRETTY_PRINT);
 
+$turbineDeployedArr1 = TurbineDeployed::getTurbineDeployedById();
+// 2. Convert to JSON
+$json1 = json_encode($turbineDeployedArr1, JSON_PRETTY_PRINT);
+
 // 3. Print
 header('Content-Type: application/json');
-echo $json;
+echo $json + '\n'+'New Array\n' + $json1;
