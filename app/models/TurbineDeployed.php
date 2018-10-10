@@ -45,7 +45,7 @@ class TurbineDeployed{
   $this->turbineDeployedId = $db->lastInsertId();
 }
 
-public static function getClientById(int $turbineDeployedId) {
+public static function getTurbineDeployedById(int $turbineDeployedId) {
  // 1. Connect to the database
  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
  // 2. Prepare the query
