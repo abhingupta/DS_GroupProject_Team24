@@ -64,7 +64,7 @@ class TurbineDeployed{
   $statement = $db->prepare($sql);
   // 3. Run the query
   $success = $statement->execute(
-      []
+      
   );
 
  // 4. Handle the results
