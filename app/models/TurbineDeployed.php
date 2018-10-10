@@ -45,16 +45,28 @@ class TurbineDeployed{
   $this->turbineDeployedId = $db->lastInsertId();
 }
 
-public static function getTurbineDeployedById(int $turbineDeployedId) {
- // 1. Connect to the database
- $db = new PDO(DB_SERVER, DB_USER, DB_PW);
- // 2. Prepare the query
- $sql = 'SELECT * FROM turbine_deployed WHERE turbineDeployedId = ?';
- $statement = $db->prepare($sql);
- // 3. Run the query
- $success = $statement->execute(
-     [$turbineDeployedId]
- );
+// public static function getTurbineDeployedById(int $turbineDeployedId) {
+//  // 1. Connect to the database
+//  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+//  // 2. Prepare the query
+//  $sql = 'SELECT * FROM turbine_deployed WHERE turbineDeployedId = ?';
+//  $statement = $db->prepare($sql);
+//  // 3. Run the query
+//  $success = $statement->execute(
+//      [$turbineDeployedId]
+//  );
+
+ public static function getTurbineDeployedById() {
+  // 1. Connect to the database
+  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+  // 2. Prepare the query
+  $sql = 'SELECT * FROM turbine_deployed;
+  $statement = $db->prepare($sql);
+  // 3. Run the query
+  $success = $statement->execute(
+      []
+  );
+
  // 4. Handle the results
  $arr = [];
  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {

@@ -14,7 +14,9 @@ if ($turbineDeployedId < 1) {
 }
 
 // 1. Go to the database and get all work associated with the $turbineDeployedId
-$turbineDeployedArr = TurbineDeployed::getTurbineDeployedById($turbineDeployedId);
+// $turbineDeployedArr = TurbineDeployed::getTurbineDeployedById($turbineDeployedId);
+
+$turbineDeployedArr = TurbineDeployed::getTurbineDeployedById();
 // 2. Convert to JSON
 $json = json_encode($turbineDeployedArr, JSON_PRETTY_PRINT);
 
