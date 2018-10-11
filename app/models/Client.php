@@ -33,11 +33,11 @@ class Client{
     }
     $this->clientId = $db->lastInsertId();
   }
-  public static function getClientById(int $clientId) {
+  public static function getClientById() {
    // 1. Connect to the database
    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
    // 2. Prepare the query
-   $sql = 'SELECT * FROM client WHERE clientId = ?';
+   $sql = 'SELECT * FROM client ';
    $statement = $db->prepare($sql);
    // 3. Run the query
    $success = $statement->execute(
