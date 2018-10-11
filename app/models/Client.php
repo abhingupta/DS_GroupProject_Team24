@@ -1,7 +1,7 @@
 <?php
 
 class Client{
-  public $clientId;
+  // public $clientId;
   public $clientName;
   public $clientDescription;
   public $gicsSector;
