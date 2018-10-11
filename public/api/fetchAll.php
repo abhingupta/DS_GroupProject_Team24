@@ -48,4 +48,4 @@ $turbineJson = json_encode($turbineArr, JSON_PRETTY_PRINT);
 // 3. Print
 header('Content-Type: application/json');
 // echo $json;
- echo $siteJson . "\n" . "Site data" . $clientJson .  "\n". "Turbine data" . $turbineJson .  "\n". "Sensor data" . $sensorJson .  "\n". "Sensor Deployed data" . $sensorDeployedJson .  "\n". "Turbine deployed data" . $turbineDeployedJson .  "\n". "Sensor Time series data" . $sensorTimeSeriesjson .  "\n";
+ echo $siteJson . "\n" . "Client data" . $clientJson .  "\n". "Turbine data" . $turbineJson .  "\n". "Sensor data" . $sensorJson .  "\n". "Sensor Deployed data" . $sensorDeployedJson .  "\n". "Turbine deployed data" . $turbineDeployedJson .  "\n". "Sensor Time series data" . $sensorTimeSeriesjson .  "\n";
