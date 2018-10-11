@@ -54,8 +54,8 @@ class SensorDeployed{
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
      // 4.a. For each row, make a new work object
-     $clientItem =  new Client($row);
-     array_push($arr, $clientItem);
+     $SensorDeployedItem =  new SensorDeployed($row);
+     array_push($arr, $SensorDeployedItem);
    }
    // 4.b. return the array of work objects
    return $arr;
