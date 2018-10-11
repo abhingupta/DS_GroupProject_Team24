@@ -1,0 +1,28 @@
+
+
+LINK TO REPO:
+https://github.com/abhingupta/DS_GroupProject_Team24
+
+GET EndPoints:
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com/api/site.php
+
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com/api/sensor.php
+
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com/api/sensorDeployed.php
+
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com/api/turbine.php
+
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com/api/turbineDeployed.php
+
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com/api/sensorTimeSeries.php
+
+//intentionally left for id because not sure whether to fetchAll or by Id, so here displaying that we know both methods.
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com/api/client.php?clientId=1
+
+POST Endpoints:
+/api/sitePost.php
+/api/clientPost.php
+/api/turbinePost.php
+/api/sensor.php
+/api/turbineDeployedPost.php
+/api/sensorTimeSeriesPost.php
