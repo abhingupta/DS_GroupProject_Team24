@@ -42,7 +42,7 @@ class SensorDeployed{
   //    $success = $statement->execute(
   //        [$sensorDeployedId]
   //    );
-     public static function getClientById() {
+     public static function getSensorDeployedById() {
         // 1. Connect to the database
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         // 2. Prepare the query
