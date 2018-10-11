@@ -7,15 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   exit;
 }
 
-$siteId = intval($_GET['siteId'] ?? 0);
-
-if ($siteId < 1) {
-  throw new Exception('Invalid site ID');
-}
+// $siteId = intval($_GET['siteId'] ?? 0);
+//
+// if ($siteId < 1) {
+//   throw new Exception('Invalid site ID');
+// }
 
 
 // 1. Go to the database and get all work associated with the $taskId
-$siteArr = Site::getSiteById($siteId);
+$siteArr = Site::getSiteById();
 
 // 2. Convert to JSON
 $json = json_encode($siteArr, JSON_PRETTY_PRINT);

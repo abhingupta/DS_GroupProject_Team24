@@ -7,14 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   exit;
 }
 
-$sensorDeployedId = intval($_GET['sensorDeployedId'] ?? 0);
-
-if ($sensorDeployedId < 1) {
-  throw new Exception('Invalid sensorDeployed ID');
-}
+// $sensorDeployedId = intval($_GET['sensorDeployedId'] ?? 0);
+//
+// if ($sensorDeployedId < 1) {
+//   throw new Exception('Invalid sensorDeployed ID');
+// }
 
 // 1. Go to the database and get all work associated with the $sensorDeployedId
-$sensorDeployedArr = SensorDeployed::getSensorDeployedById($sensorDeployedId);
+$sensorDeployedArr = SensorDeployed::getSensorDeployedById();
 
 // 2. Convert to JSON
 $json = json_encode($sensorDeployedArr, JSON_PRETTY_PRINT);
