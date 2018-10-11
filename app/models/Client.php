@@ -40,9 +40,7 @@ class Client{
    $sql = 'SELECT * FROM client ';
    $statement = $db->prepare($sql);
    // 3. Run the query
-   $success = $statement->execute(
-       [$clientId]
-   );
+   $success = $statement->execute();
 
    // public static function getClientById() {
    //  // 1. Connect to the database
