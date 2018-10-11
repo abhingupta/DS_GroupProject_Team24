@@ -54,16 +54,24 @@ class Site{
     }
     $this->siteId = $db->lastInsertId();
   }
-  public static function getSiteById(int $siteId) {
-   // 1. Connect to the database
-   $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-   // 2. Prepare the query
-   $sql = 'SELECT * FROM site WHERE siteId = ?';
-   $statement = $db->prepare($sql);
-   // 3. Run the query
-   $success = $statement->execute(
-       [$siteId]
-   );
+  // public static function getSiteById(int $siteId) {
+  //  // 1. Connect to the database
+  //  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+  //  // 2. Prepare the query
+  //  $sql = 'SELECT * FROM site WHERE siteId = ?';
+  //  $statement = $db->prepare($sql);
+  //  // 3. Run the query
+  //  $success = $statement->execute(
+  //      [$siteId]
+  //  );
+   public static function getSiteById() {
+    // 1. Connect to the database
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+    // 2. Prepare the query
+    $sql = 'SELECT * FROM site';
+    $statement = $db->prepare($sql);
+    // 3. Run the query
+    $success = $statement->execute();
    // 4. Handle the results
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {

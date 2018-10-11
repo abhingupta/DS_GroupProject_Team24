@@ -31,16 +31,25 @@ class Sensor{
     }
     $this->sensorId = $db->lastInsertId();
   }
-  public static function getSensorById(int $sensorId) {
-   // 1. Connect to the database
-   $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-   // 2. Prepare the query
-   $sql = 'SELECT * FROM sensor WHERE sensorId = ?';
-   $statement = $db->prepare($sql);
-   // 3. Run the query
-   $success = $statement->execute(
-       [$sensorId]
-   );
+  // public static function getSensorById(int $sensorId) {
+  //  // 1. Connect to the database
+  //  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+  //  // 2. Prepare the query
+  //  $sql = 'SELECT * FROM sensor WHERE sensorId = ?';
+  //  $statement = $db->prepare($sql);
+  //  // 3. Run the query
+  //  $success = $statement->execute(
+  //      [$sensorId]
+  //  );
+
+   public static function getSensorById() {
+    // 1. Connect to the database
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+    // 2. Prepare the query
+    $sql = 'SELECT * FROM sensor';
+    $statement = $db->prepare($sql);
+    // 3. Run the query
+    $success = $statement->execute();
    // 4. Handle the results
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
