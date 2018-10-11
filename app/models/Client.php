@@ -47,7 +47,7 @@ class Client{
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     // 4.a. For each row, make a new work object
     $clientItem =  new Client($row);
-    array_push($arr, clientItem);
+    array_push($arr, $clientItem);
   }
   // 4.b. return the array of work objects
   return $arr;
