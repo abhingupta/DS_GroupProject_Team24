@@ -29,7 +29,7 @@ class SensorTimeSeries{
 
   }
   public function create(){
-    $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     $sql = 'INSERT INTO sensorTimeSeries(sensorTimeSeriesId,sensorDeployedId,dataCollectedDate,output,heatRate,compressorEfficiency,availability,reliability,firedHours,trips,starts) VALUES (?,?,?,?,?,?,?,?,?,?,?)';
 
     $statement = $db->prepare($sql);
