@@ -16,7 +16,7 @@ class Sensor{
 
   }
   public function create(){
-    $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     $sql = 'INSERT INTO sensor(sensorId,sensorName,sensorDescription,manufacturer,totalLifeExpectancyHours) VALUES (?,?,?,?,?)';
 
     $statement = $db->prepare($sql);

@@ -31,7 +31,7 @@ class Site{
     $this->addrCountry = $row['addrCountry'];
   }
   public function create(){
-    $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     $sql = 'INSERT INTO client(siteId,clientId,siteName,siteDescription,primaryContact,capacity,commercialDate,addrLine1,addrLine2,addrCity,addrState,addrZip,addrCountry) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
     $statement = $db->prepare($sql);

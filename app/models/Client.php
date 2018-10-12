@@ -17,7 +17,7 @@ class Client{
     $this->headquarter = $row['headquarter'];
   }
   public function create(){
-    $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     $sql = 'INSERT INTO client(clientId,clientName,clientDescription,gicsSector,gicsSubIndustry,headquarter) VALUES (?,?,?,?,?,?)';
 
     $statement = $db->prepare($sql);

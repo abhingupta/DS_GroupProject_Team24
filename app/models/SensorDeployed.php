@@ -17,7 +17,7 @@ class SensorDeployed{
   }
 // connecting to the SQL database and posting information into DB
   public function create(){
-    $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     $sql = 'INSERT INTO sensor_deployed(sensorDeployedId,sensorId,turbineDeployedId,serialNumber,deployedDate) VALUES (?,?,?,?,?)';
 
     $statement = $db->prepare($sql);

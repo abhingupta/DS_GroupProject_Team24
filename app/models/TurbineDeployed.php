@@ -25,7 +25,7 @@ class TurbineDeployed{
   }
 
   public function create(){
-  $db = new PDO(DB_SEVER, DB_USER, DB_PW);
+  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
   $sql = 'INSERT INTO turbine_deployed(turbineDeployedId,turbineId,siteId,serialNumber,deployedDate,totalFiredHours,totalStarts,lastPlannedOutageDate,lastUnplannedOutageDate) VALUES (?,?,?,?,?,?,?,?,?)';
 
   $statement = $db->prepare($sql);
