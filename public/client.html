@@ -12,40 +12,75 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">D&S</a>
 
-    <h1><b>Alternative Green Systems</b></h1>
-    <h2>Client Information</h2>
-    <div class="container-fluid">
-      <table class=" table table-dark" border="4" id="clientTable">
-        <tr>
-          <th>Client ID</th>
-          <th>Client Name</th>
-          <th>Client Description</th>
-          <th>Gics Sector</th>
-          <th>Gics Sub Industry</th>
-          <th>Headquarters</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Hoosier Energy</td>
-          <td>Hoosier Energy is a generation and transmission cooperative providing wholesale electric wind power and services to 18 member distribution cooperatives in central and southern Indiana and southeastern Illinois. Based in Bloomington,
-            Indiana, Hoosier Energy operates renewable energy power plants and delivers power through nearly 1700 miles of transmission network.</td>
-          <td>Energy</td>
-          <td>Energy Production</td>
-          <td>Bloomington, IN</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><a href="clientInfo.html">Pacific Tidal Energy</a></td>
-          <td>Pacficic Tidal Energy makes life better for millions of people every day by providing sustainable tidal energy generation services – affordable, reliable and clean. Pacific Tidal is the largest tidal electric power holding company in
-            the United States, supplying and delivering energy through local utilities to approximately 7.4 million U.S. customers.</td>
-          <td>Energy</td>
-          <td>Energy Service</td>
-          <td>Charlotte, NC</td>
-        </tr>
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="userInformation.html">User Information</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="table.html">Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="comment.html">Comment Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="clientMain" class="container-fluid">
+      <div>
+        <h2 align="center" id="clientHeader">Comments</h2>
+      </div>
+
+
+      <table class="table" id="clientTable">
+        <thead>
+          <tr>
+            <th>clientId</th>
+            <th>clientName</th>
+            <th>clientDescription</th>
+            <th>gicsSector</th>
+            <th>gicsSubIndustry</th>
+            <th>headquarter</th>
+          </tr>
+        </thead>
+        <tbody v-for="c in client" :key="w.id" id="clientTableBody">
+          <td>{{c.clientId}}</td>
+          <td>{{c.clientName}}</td>
+          <td>{{c.clientDescription}}</td>
+          <td>{{c.gicsSector}}</td>
+          <td>{{c.gicsSubIndustry}}</td>
+          <td>{{c.headquarter}}</td>
+        </tbody>
       </table>
-    </div>
-  </body>
 
+    </main>
+
+    <!-- We need Bootstrap's modal JS, thus we also need jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- moment.js via CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/client.app.js"></script>
+
+  </body>
 
 </html>
