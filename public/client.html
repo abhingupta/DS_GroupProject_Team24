@@ -57,7 +57,7 @@
             <th>headquarter</th>
           </tr>
         </thead>
-        <tbody v-for="c in client" :key="w.id" id="clientTableBody">
+        <tbody v-for="c in client" :key="c.id" id="clientTableBody">
           <td>{{c.clientId}}</td>
           <td>{{c.clientName}}</td>
           <td>{{c.clientDescription}}</td>
