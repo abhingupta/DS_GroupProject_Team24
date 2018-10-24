@@ -21,9 +21,38 @@ $hello = Client1::getClientById();
 // 2. Convert to JSON
 $json1 = json_encode($hello, JSON_PRETTY_PRINT);
 
-$error = json_last_error();
+// $error = json_last_error();
 
-var_dump($json1, $error === JSON_ERROR_NONE);
+foreach ($json1 as $string) {
+    echo 'Decoding: ' . $string;
+    json_decode($string);
+
+    switch (json_last_error()) {
+        case JSON_ERROR_NONE:
+            echo ' - No errors';
+        break;
+        case JSON_ERROR_DEPTH:
+            echo ' - Maximum stack depth exceeded';
+        break;
+        case JSON_ERROR_STATE_MISMATCH:
+            echo ' - Underflow or the modes mismatch';
+        break;
+        case JSON_ERROR_CTRL_CHAR:
+            echo ' - Unexpected control character found';
+        break;
+        case JSON_ERROR_SYNTAX:
+            echo ' - Syntax error, malformed JSON';
+        break;
+        case JSON_ERROR_UTF8:
+            echo ' - Malformed UTF-8 characters, possibly incorrectly encoded';
+        break;
+        default:
+            echo ' - Unknown error';
+        break;
+    }
+
+    echo PHP_EOL;
+}
 
 
 // 3. Print
