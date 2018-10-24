@@ -64,8 +64,10 @@ class Client1{
      array_push($arr, $clientItem);
    }
    // 4.b. return the array of work objects
-   var_dump($sql);
-   echo($arr);
+   // var_dump($sql);
+   echo '<pre>';
+ print_r($arr);
+ echo '</pre>';
    return $arr;
  }
 }
