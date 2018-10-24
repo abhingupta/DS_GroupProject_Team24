@@ -57,8 +57,8 @@
             <th>headquarter</th>
           </tr>
         </thead>
-        <tbody v-for="c in client" :key="c.id" id="commentTableBody">
-          <tr v-for="s in site" :key="s.id" :id="'site-' + site.id" v-bind:class=" site.current_sprint ?  'current_sprint': '' " @click="gotoSite(client.id)">
+        <tbody>
+          <tr v-for="c in client" :key="c.id" :id="'client-' + client.id" @click="gotoSite(client.id)">
             <td>{{c.clientId}}</td>
             <td>{{c.clientName}}</td>
             <td>{{c.clientDescription}}</td>
