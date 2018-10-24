@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 // 1. Go to the database and get all work associated with the $taskId
-$siteArr = Site::getSiteById();
+$siteArr = Site::getSiteById($siteId);
 
 // 2. Convert to JSON
 $json = json_encode($siteArr, JSON_PRETTY_PRINT);
