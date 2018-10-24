@@ -17,12 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // 1. Go to the database and get all work associated with the $taskId
 
 $hello = Client1::getClientById();
-echo '<pre> buga buga buga';
-print_r($hello);
-echo '</pre>';
+
 // 2. Convert to JSON
 $json1 = json_encode($hello, JSON_PRETTY_PRINT);
 
 // 3. Print
 header('Content-Type: application/json');
 echo $json1;
+echo '<pre> buga buga buga';
+print_r($json1);
+echo '</pre>';
