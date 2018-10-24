@@ -57,13 +57,14 @@
             <th>headquarter</th>
           </tr>
         </thead>
-        <tbody v-for="c in client" :key="c.id" id="clientTableBody">
-          <td>{{c.clientId}}</td>
-          <td>{{c.clientName}}</td>
-          <td>{{c.clientDescription}}</td>
-          <td>{{c.gicsSector}}</td>
-          <td>{{c.gicsSubIndustry}}</td>
-          <td>{{c.headquarter}}</td>
+        <tbody>
+          <tr v-for="c in client" :key="c.id" :id="'client-' + client.id" v-bind:class=" client.current_sprint ?  'current_sprint': '' " @click="gotoSite(client.id)">
+            <td>{{c.clientId}}</td>
+            <td>{{c.clientName}}</td>
+            <td>{{c.clientDescription}}</td>
+            <td>{{c.gicsSector}}</td>
+            <td>{{c.gicsSubIndustry}}</td>
+            <td>{{c.headquarter}}</td>
         </tbody>
       </table>
 

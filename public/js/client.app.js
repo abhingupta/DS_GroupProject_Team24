@@ -54,6 +54,11 @@ var clientApp = new Vue({
 				headquarter: null
 
 			}
+		},
+		gotoSite(tid) {
+			console.log("site id:" +
+				tid);
+			window.location = 'site.html?siteId=' + tid;
 		}
 	},
 	created() {
