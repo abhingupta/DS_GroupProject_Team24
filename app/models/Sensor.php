@@ -58,9 +58,6 @@ class Sensor{
      array_push($arr, $sensorItem);
    }
    // 4.b. return the array of work objects
-   echo '<pre>';
- print_r($arr);
- echo '</pre>';
    return $arr;
  }
 }
