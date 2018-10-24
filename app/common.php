@@ -10,6 +10,8 @@ require 'environment.php';
 
 //MODELS
 require 'models/Client.php';
+require 'models/Client1.php';
+
 require 'models/Sensor.php';
 require 'models/Site.php';
 require 'models/Turbine.php';
