@@ -53,6 +53,9 @@ class Client1{
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute();
+    if(!$success){
+      die('bad sql on insert');
+    }
    // 4. Handle the results
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
