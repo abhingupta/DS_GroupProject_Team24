@@ -52,7 +52,7 @@ class Client{
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute();
-   4. Handle the results
+   // 4. Handle the results
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
      // 4.a. For each row, make a new work object
