@@ -22,4 +22,4 @@ $json = json_encode($clientArr1, JSON_PRETTY_PRINT);
 
 // 3. Print
 header('Content-Type: application/json');
-echo $json;
+echo $clientArr1;
