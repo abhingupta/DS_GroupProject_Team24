@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $clientArr1 = Client1::getClientById();
 
 // 2. Convert to JSON
-$json = json_decode($clientArr1, JSON_PRETTY_PRINT);
+$json = json_decode($clientArr1);
 
 // 3. Print
 header('Content-Type: application/json');
