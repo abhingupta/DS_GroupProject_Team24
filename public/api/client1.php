@@ -17,7 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // 1. Go to the database and get all work associated with the $taskId
 
 $hello = Client1::getClientById();
+echo '<pre>';
 print_r($hello);
+echo '</pre>';
 // 2. Convert to JSON
 $json1 = json_encode($hello, JSON_PRETTY_PRINT);
 
