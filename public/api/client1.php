@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $hello = Client1::getClientById();
 
 // 2. Convert to JSON
-// $json1 = json_encode($hello, JSON_PRETTY_PRINT);
+$json1 = json_encode($hello, JSON_PRETTY_PRINT);
 
 // $error = json_last_error();
 
-foreach ($json1 as $string) {
+foreach ($hello as $string) {
     echo 'Encoding: ' . $string;
-    json_decode($string);
+    json_encode($string);
 
     switch (json_last_error()) {
         case JSON_ERROR_NONE:
