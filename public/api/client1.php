@@ -24,6 +24,6 @@ $json1 = json_encode($hello, JSON_PRETTY_PRINT);
 // 3. Print
 header('Content-Type: application/json');
 echo $json1;
-echo '<pre> buga buga buga';
+echo '<pre> buga buga1 buga';
 print_r($json1);
 echo '</pre>';
