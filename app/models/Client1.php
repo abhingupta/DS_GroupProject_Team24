@@ -57,8 +57,8 @@ class Client1{
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
      // 4.a. For each row, make a new work object
-     $sensorItem =  new Client1($row);
-     array_push($arr, $sensorItem);
+     $clientItem =  new Client1($row);
+     array_push($arr, $clientItem);
    }
    // 4.b. return the array of work objects
    return $arr;
