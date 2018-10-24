@@ -23,7 +23,7 @@ $json1 = json_encode($hello, JSON_PRETTY_PRINT);
 
 $error = json_last_error();
 
-var_dump($json1, $error);
+var_dump($json1, $error === JSON_ERROR_NONE);
 
 
 // 3. Print
