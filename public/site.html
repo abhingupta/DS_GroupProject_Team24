@@ -50,21 +50,37 @@
         <thead>
           <tr>
             <th>siteId</th>
+            <th>clientId</th>
             <th>siteName</th>
             <th>siteDescription</th>
-            <th>gicsSector</th>
-            <th>gicsSubIndustry</th>
-            <th>headquarter</th>
+            <th>primaryContact</th>
+            <th>capacity</th>
+            <th>capacity</th>
+            <th>capacity</th>
+            <th>capacity</th>
+            <th>capacity</th>
+            <th>capacity</th>
+            <th>capacity</th>
+            <th>capacity</th>
+
+
           </tr>
         </thead>
         <tbody v-for="c in site" :key="c.id">
           <!-- <tr v-for="c in site" :key="c.id" :id="'site-' + site.id" v-bind:class=" site.current_sprint ?  'current_sprint': '' " @click="gotoSite(site.id)"> -->
           <td>{{c.siteId}}</td>
+          <td>{{c.clientId}}</td>
           <td>{{c.siteName}}</td>
           <td>{{c.siteDescription}}</td>
-          <td>{{c.gicsSector}}</td>
-          <td>{{c.gicsSubIndustry}}</td>
-          <td>{{c.headquarter}}</td>
+          <td>{{c.primaryContact}}</td>
+          <td>{{c.capacity}}</td>
+          <td>{{c.commercialDate}}</td>
+          <td>{{c.addrLine1}}</td>
+          <td>{{c.addrLine2}}</td>
+          <td>{{c.addrCity}}</td>
+          <td>{{c.addrState}}</td>
+          <td>{{c.addrZip}}</td>
+          <td>{{c.addrCountry}}</td>
         </tbody>
       </table>
 
