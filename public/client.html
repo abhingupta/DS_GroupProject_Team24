@@ -58,7 +58,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="c in client" :key="c.id" :id="'client-' + client.id" @click="gotoSite(client.id)">
+          <tr v-for="c in client" :key="c.id" :id="'client-' + clientData.clientId" @click="gotoSite(clientData.clientId)">
             <td>{{c.clientId}}</td>
             <td>{{c.clientName}}</td>
             <td>{{c.clientDescription}}</td>

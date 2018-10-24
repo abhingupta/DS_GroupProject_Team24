@@ -67,7 +67,7 @@ var clientApp = new Vue({
 		const url = new URL(window.location.href);
 		const clientId = url.searchParams.get('clientId');
 		console.log('Client: ' + clientId);
-		this.clientData.id = clientId;
+		this.clientData.clientId = clientId;
 
 		if (!clientId) {
 			//TODO: Error? 404?
