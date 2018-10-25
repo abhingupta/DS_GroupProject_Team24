@@ -3,10 +3,10 @@ var sensorDeployedApp = new Vue({
 	data: {
 		sensorDeployedData: {
 			sensorDeployedId: null,
-			sensorDeployedName: 'foo',
-			sensorDeployedDescription: 'foo',
-			manufacturer: 'foo',
-			totalLifeExpectancyHours: 'foo'
+			sensorId: null,
+			turbineDeployedId: null,
+			serialNumber: 'foo',
+			deployedDate: 'foo'
 		},
 		sensorDeployed: [],
 		sensorDeployedForm: {}, // populated by this.getEmptySensorForm()
@@ -46,10 +46,8 @@ var sensorDeployedApp = new Vue({
 			return {
 				// sensorDeployed_id: this.sensorDeployedData.id,
 				// sensorDeployedIdnull,
-				sensorDeployedName: null,
-				sensorDeployedDescription: null,
-				manufacturer: null,
-				totalLifeExpectancyHours: null
+				serialNumber: null,
+				deployedDate: null
 
 			}
 		},
