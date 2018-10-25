@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -13,28 +12,28 @@
   </head>
 
   <body>
-    <main id="turbineMain" class="container-fluid">
+    <main id="sensorMain" class="container-fluid">
       <div>
-        <h2 align="center" id="turbineHeader">Turbines</h2>
+        <h2 align="center" id="sensorHeader">Sensors</h2>
       </div>
 
 
-      <table class=" table table-dark" border="4" id="turbineTable">
+      <table class=" table table-dark" border="4" id="sensorTable">
         <thead>
           <tr>
-            <th>turbineId</th>
-            <th>turbineName</th>
-            <th>turbineDescription</th>
+            <th>sensorId</th>
+            <th>sensorName</th>
+            <th>sensorDescription</th>
             <th>capacity</th>
             <th>rampUpTime</th>
             <th>maintenanceInterval</th>
           </tr>
         </thead>
-        <tbody v-for="c in turbine" :key="c.id">
-          <!-- <tr v-for="c in turbine" :key="c.id" :id="'turbine-' + turbine.id" v-bind:class=" turbine.current_sprint ?  'current_sprint': '' " @click="gotoTurbine(turbine.id)"> -->
-          <td>{{c.turbineId}}</td>
-          <td>{{c.turbineName}}</td>
-          <td>{{c.turbineDescription}}</td>
+        <tbody v-for="c in sensor" :key="c.id">
+          <!-- <tr v-for="c in sensor" :key="c.id" :id="'sensor-' + sensor.id" v-bind:class=" sensor.current_sprint ?  'current_sprint': '' " @click="gotoSensor(sensor.id)"> -->
+          <td>{{c.sensorId}}</td>
+          <td>{{c.sensorName}}</td>
+          <td>{{c.sensorDescription}}</td>
           <td>{{c.capacity}}</td>
           <td>{{c.rampUpTime}}</td>
           <td>{{c.maintenanceInterval}}</td>
@@ -53,7 +52,7 @@
 
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/turbine.app.js"></script>
+    <script src="js/sensor.app.js"></script>
 
   </body>
 
