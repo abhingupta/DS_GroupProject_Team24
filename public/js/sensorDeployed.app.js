@@ -9,14 +9,14 @@ var sensorDeployedApp = new Vue({
 			deployedDate: 'foo'
 		},
 		sensorDeployed: [],
-		sensorDeployedForm: {}, // populated by this.getEmptySensorForm()
+		sensorDeployedForm: {}, // populated by this.getEmptySensorDeployedForm()
 	},
 	computed: {
 
 	},
 	methods: {
-		handleSensorForm(e) {
-			const s = JSON.stringify(this.SensorForm);
+		handleSensorDeployedForm(e) {
+			const s = JSON.stringify(this.SensorDeployedForm);
 
 			console.log(s);
 
@@ -33,16 +33,16 @@ var sensorDeployedApp = new Vue({
 					this.sensorDeployed.push(json)
 				})
 				.catch(err => {
-					console.error('Sensor POST ERROR:');
+					console.error('SensorDeployed POST ERROR:');
 					console.error(err);
 				})
 
 			// Reset sensorDeployedForm
-			this.sensorDeployedForm = this.getEmptySensorForm();
+			this.sensorDeployedForm = this.getEmptySensorDeployedForm();
 		},
 
 
-		getEmptySensorForm() {
+		getEmptySensorDeployedForm() {
 			return {
 				// sensorDeployed_id: this.sensorDeployedData.id,
 				// sensorDeployedIdnull,
@@ -51,7 +51,7 @@ var sensorDeployedApp = new Vue({
 
 			}
 		},
-		gotoSensor(tid) {
+		gotoSensorDeployed(tid) {
 			console.log("sensorDeployed id:" +
 				tid);
 			window.location = 'sensorDeployed.html?sensorDeployedId=' + tid;
@@ -62,7 +62,7 @@ var sensorDeployedApp = new Vue({
 		// Do data fetch
 		const url = new URL(window.location.href);
 		const sensorDeployedId = url.searchParams.get('sensorDeployedId');
-		console.log('Sensor: ' + sensorDeployedId);
+		console.log('SensorDeployed: ' + sensorDeployedId);
 		this.sensorDeployedData.id = sensorDeployedId;
 
 		if (!sensorDeployedId) {
@@ -71,7 +71,7 @@ var sensorDeployedApp = new Vue({
 		}
 
 		// Populate sensorDeployedForm with default values
-		this.sensorDeployedForm = this.getEmptySensorForm();
+		this.sensorDeployedForm = this.getEmptySensorDeployedForm();
 
 		// TODO: Fetch task-specific data
 		// fetch('api/task?id=4')
@@ -81,7 +81,7 @@ var sensorDeployedApp = new Vue({
 				sensorDeployedApp.sensorDeployed = json
 			})
 			.catch(err => {
-				console.error('Sensor FETCH ERROR:');
+				console.error('SensorDeployed FETCH ERROR:');
 				console.error(err);
 			})
 	}
