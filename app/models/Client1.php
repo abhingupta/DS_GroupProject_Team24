@@ -49,7 +49,6 @@ class Client1{
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    mysql_query('SET CHARACTER SET utf8');
     $sql = 'SELECT * FROM client';
     $statement = $db->prepare($sql);
     // 3. Run the query
