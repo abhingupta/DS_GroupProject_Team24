@@ -12,11 +12,11 @@ class Client1{
 
   public function __construct($row){
     $this->clientId = isset($row['clientId']) ? intval($row['clientId']) : null;
-    // $this->clientName = $row['clientName'];
-    // $this->clientDescription = $row['clientDescription'];
-    // $this->gicsSector = $row['gicsSector'];
-    // $this->gicsSubIndustry = $row['gicsSubIndustry'];
-    // $this->headquarter = $row['headquarter'];
+    $this->clientName = $row['clientName'];
+    $this->clientDescription = $row['clientDescription'];
+    $this->gicsSector = $row['gicsSector'];
+    $this->gicsSubIndustry = $row['gicsSubIndustry'];
+    $this->headquarter = $row['headquarter'];
     $this->notes = $row['notes'];
 
   }
