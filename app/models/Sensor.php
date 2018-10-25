@@ -35,7 +35,7 @@ class Sensor{
    // 1. Connect to the database
    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
    // 2. Prepare the query
-   $sql = 'SELECT * FROM sensor WHERE sensorId = ?';
+   $sql = 'SELECT * FROM sensor WHERE sensorDeployedId = ?';
    $statement = $db->prepare($sql);
    // 3. Run the query
    $success = $statement->execute(

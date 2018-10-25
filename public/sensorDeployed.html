@@ -28,13 +28,13 @@
             <th>deployedDate</th>
           </tr>
         </thead>
-        <tbody v-for="c in sensorDeployed" :key="c.id">
-          <!-- <tr v-for="c in sensorDeployed" :key="c.id" :id="'sensorDeployed-' + sensorDeployed.id" v-bind:class=" sensorDeployed.current_sprint ?  'current_sprint': '' " @click="gotoSensor(sensorDeployed.id)"> -->
-          <td>{{c.sensorDeployedId}}</td>
-          <td>{{c.sensorId}}</td>
-          <td>{{c.turbineDeployedId}}</td>
-          <td>{{c.serialNumber}}</td>
-          <td>{{c.deployedDate}}</td>
+        <tbody>
+          <tr v-for="c in sensorDeployed" :key="c.id" :id="'sensorDeployed-' + c.sensorDeployedid" @click="gotoSensor(c.sensorDeployedid)">
+            <td>{{c.sensorDeployedId}}</td>
+            <td>{{c.sensorId}}</td>
+            <td>{{c.turbineDeployedId}}</td>
+            <td>{{c.serialNumber}}</td>
+            <td>{{c.deployedDate}}</td>
         </tbody>
       </table>
 

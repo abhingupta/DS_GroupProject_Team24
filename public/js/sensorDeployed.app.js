@@ -51,10 +51,10 @@ var sensorDeployedApp = new Vue({
 
 			}
 		},
-		gotoSensorDeployed(tid) {
+		gotoSensor(tid) {
 			console.log("sensorDeployed id:" +
 				tid);
-			window.location = 'sensorDeployed.html?sensorDeployedId=' + tid;
+			window.location = 'sensor.html?sensorId=' + tid;
 		}
 	},
 	created() {
