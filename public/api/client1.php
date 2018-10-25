@@ -18,12 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $hello = Client1::getClientById();
 
-// 2. Convert to JSON
-foreach($hello as &$v) {
-  $v['order_item_name'] = utf8_encode($v['order_item_name']);
-}
+// // 2. Convert to JSON
+// foreach($hello as &$v) {
+//   $v['order_item_name'] = utf8_encode($v['order_item_name']);
+// }
 
-// $json1 = json_encode($hello, JSON_PRETTY_PRINT);
+$json1 = json_encode($hello, JSON_PRETTY_PRINT);
 
 // $error = json_last_error();
 
@@ -61,7 +61,7 @@ foreach($hello as &$v) {
 
 // 3. Print
 header('Content-Type: application/json');
-print json_encode($hello);
+print json_encode($json1);
 
 // echo $json1;
 // echo '<pre> buga buga1 buga';
