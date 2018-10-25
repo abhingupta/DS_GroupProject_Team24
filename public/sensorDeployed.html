@@ -22,19 +22,19 @@
         <thead>
           <tr>
             <th>sensorDeployedId</th>
-            <th>sensorDeployedName</th>
-            <th>sensorDeployedDescription</th>
-            <th>manufacturer</th>
-            <th>totalLifeExpectancyHours</th>
+            <th>sensorId</th>
+            <th>turbineDeployedId</th>
+            <th>serialNumber</th>
+            <th>deployedDate</th>
           </tr>
         </thead>
         <tbody v-for="c in sensorDeployed" :key="c.id">
           <!-- <tr v-for="c in sensorDeployed" :key="c.id" :id="'sensorDeployed-' + sensorDeployed.id" v-bind:class=" sensorDeployed.current_sprint ?  'current_sprint': '' " @click="gotoSensor(sensorDeployed.id)"> -->
           <td>{{c.sensorDeployedId}}</td>
-          <td>{{c.sensorDeployedName}}</td>
-          <td>{{c.sensorDeployedDescription}}</td>
-          <td>{{c.manufacturer}}</td>
-          <td>{{c.totalLifeExpectancyHours}}</td>
+          <td>{{c.sensorId}}</td>
+          <td>{{c.turbineDeployedId}}</td>
+          <td>{{c.serialNumber}}</td>
+          <td>{{c.deployedDate}}</td>
         </tbody>
       </table>
 
