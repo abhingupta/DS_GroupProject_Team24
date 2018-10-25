@@ -23,7 +23,7 @@ var clientApp = new Vue({
 			console.log(s);
 
 			// POST to remote server
-			fetch('api/client.php', {
+			fetch('api/client1.php', {
 					method: "POST", // *GET, POST, PUT, DELETE, etc.
 					headers: {
 						"Content-Type": "application/json; charset=utf-8"
