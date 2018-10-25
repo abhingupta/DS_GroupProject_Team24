@@ -22,7 +22,7 @@ class Client1{
   }
   public function create(){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT INTO client(clientId,clientName,clientDescription,gicsSector,gicsSubIndustry,headquarter,notes) VALUES (?,?,?,?,?,?,?)';
+    $sql = 'INSERT INTO client(clientId,notes) VALUES (?,?)';
 
     $statement = $db->prepare($sql);
     $success = $statement->execute([
