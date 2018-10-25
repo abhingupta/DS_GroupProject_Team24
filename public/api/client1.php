@@ -23,7 +23,7 @@ $hello = Client1::getClientById();
 //   $v['order_item_name'] = utf8_encode($v['order_item_name']);
 // }
 
-$json1 = json_encode($hello, JSON_PRETTY_PRINT);
+$json1 = json_encode($hello, JSON_PRETTY_PRINT| JSON_UNESCAPED_UNICODE);
 
 if (json_last_error() !== JSON_ERROR_NONE) {
   echo json_last_error_msg();
