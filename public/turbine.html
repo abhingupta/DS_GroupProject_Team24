@@ -22,37 +22,22 @@
         <thead>
           <tr>
             <th>turbineId</th>
-            <th>clientId</th>
             <th>turbineName</th>
             <th>turbineDescription</th>
-            <th>primaryContact</th>
             <th>capacity</th>
-            <th>commercialDate</th>
-            <th>addrLine1</th>
-            <th>addrLine2</th>
-            <th>addrCity</th>
-            <th>addrState</th>
-            <th>addrZip</th>
-            <th>addrCountry</th>
-
-
+            <th>rampUpTime</th>
+            <th>maintenanceInterval</th>
           </tr>
         </thead>
         <tbody v-for="c in turbine" :key="c.id">
           <!-- <tr v-for="c in turbine" :key="c.id" :id="'turbine-' + turbine.id" v-bind:class=" turbine.current_sprint ?  'current_sprint': '' " @click="gotoTurbine(turbine.id)"> -->
           <td>{{c.turbineId}}</td>
-          <td>{{c.clientId}}</td>
           <td>{{c.turbineName}}</td>
           <td>{{c.turbineDescription}}</td>
-          <td>{{c.primaryContact}}</td>
           <td>{{c.capacity}}</td>
+          <td>{{c.rampUpTime}}</td>
           <td>{{c.commercialDate}}</td>
-          <td>{{c.addrLine1}}</td>
-          <td>{{c.addrLine2}}</td>
-          <td>{{c.addrCity}}</td>
-          <td>{{c.addrState}}</td>
-          <td>{{c.addrZip}}</td>
-          <td>{{c.addrCountry}}</td>
+          <td>{{c.maintenanceInterval}}</td>
         </tbody>
       </table>
 
