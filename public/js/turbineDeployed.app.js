@@ -1,14 +1,17 @@
 
-var turbineApp = new Vue({
-	el: '#turbineMain',
+var turbineDeployedApp = new Vue({
+	el: '#turbineDeployedMain',
 	data: {
-		turbineData: {
-			turbineId: null,
-			turbineName: 'foo',
-			turbineDescription: 'foo',
-			capacity: 'foo',
-			rampUpTime: 'foo',
-			maintenanceInterval: 'foo'
+		turbineDeployedData: {
+			turbineDeployedId: null,
+			turbineId: 'foo',
+			siteId: 'foo',
+			serialNumber: 'foo',
+			deployedDate: 'foo',
+			totalFiredHours: 'foo',
+			totalStarts: 'foo',
+			lastPlannedOutageDate: 'foo',
+			lastUnplannedOutageDate: 'foo'
 		},
 		turbine: [],
 		turbineForm: {}, // populated by this.getEmptyTurbineForm()
