@@ -67,20 +67,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="c in site" :key="siteData.siteId" :id="'site-' + siteData.siteId" @click="gotoTurbineDeployed(siteData.siteId)">
-            <td>{{c.siteId}}</td>
-            <td>{{c.clientId}}</td>
-            <td>{{c.siteName}}</td>
-            <td>{{c.siteDescription}}</td>
-            <td>{{c.primaryContact}}</td>
-            <td>{{c.capacity}}</td>
-            <td>{{c.commercialDate}}</td>
-            <td>{{c.addrLine1}}</td>
-            <td>{{c.addrLine2}}</td>
-            <td>{{c.addrCity}}</td>
-            <td>{{c.addrState}}</td>
-            <td>{{c.addrZip}}</td>
-            <td>{{c.addrCountry}}</td>
+          <tr v-for="s in site" :key="s.id" :id="'site-' + siteData.siteId" @click="gotoTurbineDeployed(siteData.siteId)">
+            <td>{{s.siteId}}</td>
+            <td>{{s.clientId}}</td>
+            <td>{{s.siteName}}</td>
+            <td>{{s.siteDescription}}</td>
+            <td>{{s.primaryContact}}</td>
+            <td>{{s.capacity}}</td>
+            <td>{{s.commercialDate}}</td>
+            <td>{{s.addrLine1}}</td>
+            <td>{{s.addrLine2}}</td>
+            <td>{{s.addrCity}}</td>
+            <td>{{s.addrState}}</td>
+            <td>{{s.addrZip}}</td>
+            <td>{{s.addrCountry}}</td>
         </tbody>
       </table>
 
