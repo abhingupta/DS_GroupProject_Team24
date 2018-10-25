@@ -1,27 +1,32 @@
-var sensorApp = new Vue({
-	el: '#sensorMain',
+var sensorTimeSeriesApp = new Vue({
+	el: '#sensorTimeSeriesMain',
 	data: {
-		sensorData: {
-			sensorId: null,
-			sensorName: 'foo',
-			sensorDescription: 'foo',
-			manufacturer: 'foo',
-			totalLifeExpectancyHours: 'foo'
+		sensorTimeSeriesData: {
+			sensorTimeSeriesId: null,
+			sensorDeployedId: null,
+			dataCollectedDate: 'foo',
+			output: null,
+			heatRate: null,
+			compressorEfficiency: null,
+			availability: null,
+			reliability: null,
+			trips: null,
+			starts: null
 		},
-		sensor: [],
-		sensorForm: {}, // populated by this.getEmptySensorForm()
+		sensorTimeSeries: [],
+		sensorTimeSeriesForm: {}, // populated by this.getEmptySensorTimeSeriesForm()
 	},
 	computed: {
 
 	},
 	methods: {
-		handleSensorForm(e) {
-			const s = JSON.stringify(this.SensorForm);
+		handleSensorTimeSeriesForm(e) {
+			const s = JSON.stringify(this.SensorTimeSeriesForm);
 
 			console.log(s);
 
 			// POST to remote server
-			fetch('api/sensor.php', {
+			fetch('api/sensorTimeSeries.php', {
 					method: "POST", // *GET, POST, PUT, DELETE, etc.
 					headers: {
 						"Content-Type": "application/json; charset=utf-8"
@@ -30,60 +35,57 @@ var sensorApp = new Vue({
 				})
 				.then(response => response.json())
 				.then(json => {
-					this.sensor.push(json)
+					this.sensorTimeSeries.push(json)
 				})
 				.catch(err => {
-					console.error('Sensor POST ERROR:');
+					console.error('SensorTimeSeries POST ERROR:');
 					console.error(err);
 				})
 
-			// Reset sensorForm
-			this.sensorForm = this.getEmptySensorForm();
+			// Reset sensorTimeSeriesForm
+			this.sensorTimeSeriesForm = this.getEmptySensorTimeSeriesForm();
 		},
 
 
-		getEmptySensorForm() {
+		getEmptySensorTimeSeriesForm() {
 			return {
-				// sensor_id: this.sensorData.id,
-				// sensorIdnull,
-				sensorName: null,
-				sensorDescription: null,
-				manufacturer: null,
-				totalLifeExpectancyHours: null
+				// sensorTimeSeries_id: this.sensorTimeSeriesData.id,
+				// sensorTimeSeriesIdnull,
+				dataCollectedDate: null
 
 			}
 		},
-		gotoSensor(tid) {
-			console.log("sensor id:" +
+		gotoSensorTimeSeries(tid) {
+			console.log("sensorTimeSeries id:" +
 				tid);
-			window.location = 'sensor.html?sensorId=' + tid;
+			window.location = 'sensorTimeSeries.html?sensorTimeSeriesId=' + tid;
 		}
 	},
 	created() {
 
 		// Do data fetch
 		const url = new URL(window.location.href);
-		const sensorId = url.searchParams.get('sensorId');
-		console.log('Sensor: ' + sensorId);
-		this.sensorData.id = sensorId;
+		const sensorTimeSeriesId = url.searchParams.get('sensorTimeSeriesId');
+		console.log('SensorTimeSeries: ' + sensorTimeSeriesId);
+		this.sensorTimeSeriesData.id = sensorTimeSeriesId;
 
-		if (!sensorId) {
+		if (!sensorTimeSeriesId) {
 			//TODO: Error? 404?
 			//e.g., window.location = '404.html';
 		}
 
-		// Populate sensorForm with default values
-		this.sensorForm = this.getEmptySensorForm();
+		// Populate sensorTimeSeriesForm with default values
+		this.sensorTimeSeriesForm = this.getEmptySensorTimeSeriesForm();
 
 		// TODO: Fetch task-specific data
 		// fetch('api/task?id=4')
-		fetch('api/sensor.php?sensorId=' + sensorId)
+		fetch('api/sensorTimeSeries.php?sensorTimeSeriesId=' + sensorTimeSeriesId)
 			.then(response => response.json())
 			.then(json => {
-				sensorApp.sensor = json
+				sensorTimeSeriesApp.sensorTimeSeries = json
 			})
 			.catch(err => {
-				console.error('Sensor FETCH ERROR:');
+				console.error('SensorTimeSeries FETCH ERROR:');
 				console.error(err);
 			})
 	}
