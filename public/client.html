@@ -71,6 +71,18 @@
         </tbody>
       </table>
 
+      <form @submit.prevent="
+          handleClientForm" align="center" id="newClientForm">
+        <div class="form-group">
+          <label>Add a Notes</lable>
+            <input id="notes" type="textarea" v-model="clientForm.notes" class="form-control" required>
+        </div>
+
+
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <button type="submit" class="btn" id="submitNewComment">Save changes</button>
+      </form>
+
     </main>
 
     <!-- We need Bootstrap's modal JS, thus we also need jQuery -->
