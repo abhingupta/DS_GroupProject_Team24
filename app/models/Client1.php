@@ -48,6 +48,17 @@ class Client1{
   //  $success = $statement->execute(
   //      [$sensorId]
   //  );
+  public function update() {
+   // 1. Connect to the database
+   $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+   // 2. Prepare the query
+   $sql = 'UPDATE client INSERT INTO notes WHERE clientId=?';
+   $statement = $db->prepare($sql);
+   // 3. Run the query
+   $success = $statement->execute();
+   if(!$success){
+     die('bad sql on insert');
+   }
 
    public static function getClientById() {
     // 1. Connect to the database
@@ -61,7 +72,8 @@ class Client1{
       die('bad sql on insert');
     }
 
-  
+
+
    // 4. Handle the results
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
