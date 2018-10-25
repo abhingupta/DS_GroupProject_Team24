@@ -2,15 +2,15 @@ var turbineApp = new Vue({
 	el: '#turbineMain',
 	data: {
 		turbineData: {
-			siteId: null,
-			siteName: 'foo',
-			siteDescription: 'foo',
+			turbineId: null,
+			turbineName: 'foo',
+			turbineDescription: 'foo',
 			gicsSector: 'foo',
 			gicsSubIndustry: 'foo',
 			headquarter: 'foo'
 		},
 		turbine: [],
-		turbineForm: {}, // populated by this.getEmptySiteForm()
+		turbineForm: {}, // populated by this.getEmptyTurbineForm()
 	},
 	computed: {
 
@@ -31,24 +31,24 @@ var turbineApp = new Vue({
 				})
 				.then(response => response.json())
 				.then(json => {
-					this.site.push(json)
+					this.turbine.push(json)
 				})
 				.catch(err => {
 					console.error('Turbine POST ERROR:');
 					console.error(err);
 				})
 
-			// Reset siteForm
+			// Reset turbineForm
 			this.turbineForm = this.getEmptyTurbineForm();
 		},
 
 
 		getEmptyTurbineForm() {
 			return {
-				// site_id: this.siteData.id,
-				// siteIdnull,
+				// turbine_id: this.turbineData.id,
+				// turbineIdnull,
 				turbineName: null,
-				siteDescription: null,
+				turbineDescription: null,
 				gicsSector: null,
 				gicsSubIndustry: null,
 				headquarter: null
@@ -65,7 +65,7 @@ var turbineApp = new Vue({
 
 		// Do data fetch
 		const url = new URL(window.location.href);
-		const siteId = url.searchParams.get('turbineId');
+		const turbineId = url.searchParams.get('turbineId');
 		console.log('Turbine: ' + turbineId);
 		this.turbineData.id = turbineId;
 
@@ -74,7 +74,7 @@ var turbineApp = new Vue({
 			//e.g., window.location = '404.html';
 		}
 
-		// Populate siteForm with default values
+		// Populate turbineForm with default values
 		this.turbineForm = this.getEmptyTurbineForm();
 
 		// TODO: Fetch task-specific data
