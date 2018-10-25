@@ -12,11 +12,11 @@ class Client1{
 
   public function __construct($row){
     $this->clientId = isset($row['clientId']) ? intval($row['clientId']) : null;
-    $this->clientName = $row['clientName'];
-    $this->clientDescription = $row['clientDescription'];
-    $this->gicsSector = $row['gicsSector'];
-    $this->gicsSubIndustry = $row['gicsSubIndustry'];
-    $this->headquarter = $row['headquarter'];
+    // $this->clientName = $row['clientName'];
+    // $this->clientDescription = $row['clientDescription'];
+    // $this->gicsSector = $row['gicsSector'];
+    // $this->gicsSubIndustry = $row['gicsSubIndustry'];
+    // $this->headquarter = $row['headquarter'];
     $this->notes = $row['notes'];
 
   }
@@ -64,7 +64,7 @@ class Client1{
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM client';
+    $sql = 'SELECT c.*,cn.notes FROM client c INNER JOIN client_notes cn ON cn.clientId = c.clientId';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute();
