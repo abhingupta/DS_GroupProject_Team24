@@ -1,7 +1,7 @@
-var siteApp = new Vue({
-	el: '#siteMain',
+var turbineApp = new Vue({
+	el: '#turbineMain',
 	data: {
-		siteData: {
+		turbineData: {
 			siteId: null,
 			siteName: 'foo',
 			siteDescription: 'foo',
@@ -9,20 +9,20 @@ var siteApp = new Vue({
 			gicsSubIndustry: 'foo',
 			headquarter: 'foo'
 		},
-		site: [],
-		siteForm: {}, // populated by this.getEmptySiteForm()
+		turbine: [],
+		turbineForm: {}, // populated by this.getEmptySiteForm()
 	},
 	computed: {
 
 	},
 	methods: {
-		handleSiteForm(e) {
-			const s = JSON.stringify(this.siteForm);
+		handleTurbineForm(e) {
+			const s = JSON.stringify(this.TurbineForm);
 
 			console.log(s);
 
 			// POST to remote server
-			fetch('api/site.php', {
+			fetch('api/turbine.php', {
 					method: "POST", // *GET, POST, PUT, DELETE, etc.
 					headers: {
 						"Content-Type": "application/json; charset=utf-8"
@@ -34,20 +34,20 @@ var siteApp = new Vue({
 					this.site.push(json)
 				})
 				.catch(err => {
-					console.error('Site POST ERROR:');
+					console.error('Turbine POST ERROR:');
 					console.error(err);
 				})
 
 			// Reset siteForm
-			this.siteForm = this.getEmptySiteForm();
+			this.turbineForm = this.getEmptyTurbineForm();
 		},
 
 
-		getEmptySiteForm() {
+		getEmptyTurbineForm() {
 			return {
 				// site_id: this.siteData.id,
 				// siteIdnull,
-				siteName: null,
+				turbineName: null,
 				siteDescription: null,
 				gicsSector: null,
 				gicsSubIndustry: null,
@@ -55,37 +55,37 @@ var siteApp = new Vue({
 
 			}
 		},
-		gotoSite(tid) {
-			console.log("site id:" +
+		gotoTurbine(tid) {
+			console.log("turbine id:" +
 				tid);
-			window.location = 'site.html?siteId=' + tid;
+			window.location = 'turbine.html?turbineId=' + tid;
 		}
 	},
 	created() {
 
 		// Do data fetch
 		const url = new URL(window.location.href);
-		const siteId = url.searchParams.get('siteId');
-		console.log('Site: ' + siteId);
-		this.siteData.id = siteId;
+		const siteId = url.searchParams.get('turbineId');
+		console.log('Turbine: ' + turbineId);
+		this.turbineData.id = turbineId;
 
-		if (!siteId) {
+		if (!turbineId) {
 			//TODO: Error? 404?
 			//e.g., window.location = '404.html';
 		}
 
 		// Populate siteForm with default values
-		this.siteForm = this.getEmptySiteForm();
+		this.turbineForm = this.getEmptyTurbineForm();
 
 		// TODO: Fetch task-specific data
 		// fetch('api/task?id=4')
-		fetch('api/site.php?siteId=' + siteId)
+		fetch('api/turbine.php?turbineId=' + turbineId)
 			.then(response => response.json())
 			.then(json => {
-				siteApp.site = json
+				turbineApp.turbine = json
 			})
 			.catch(err => {
-				console.error('Site FETCH ERROR:');
+				console.error('Turbine FETCH ERROR:');
 				console.error(err);
 			})
 	}
