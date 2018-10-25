@@ -7,7 +7,8 @@ var clientApp = new Vue({
 			clientDescription: 'foo',
 			gicsSector: 'foo',
 			gicsSubIndustry: 'foo',
-			headquarter: 'foo'
+			headquarter: 'foo',
+			notes: 'foo'
 		},
 		client: [],
 		clientForm: {}, // populated by this.getEmptyClientForm()
@@ -51,7 +52,8 @@ var clientApp = new Vue({
 				clientDescription: null,
 				gicsSector: null,
 				gicsSubIndustry: null,
-				headquarter: null
+				headquarter: null,
+				notes: null
 
 			}
 		},

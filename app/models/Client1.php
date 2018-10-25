@@ -7,6 +7,8 @@ class Client1{
   public $gicsSector;
   public $gicsSubIndustry;
   public $headquarter;
+  public $notes;
+
 
   public function __construct($row){
     $this->clientId = isset($row['clientId']) ? intval($row['clientId']) : null;
@@ -15,11 +17,12 @@ class Client1{
     $this->gicsSector = $row['gicsSector'];
     $this->gicsSubIndustry = $row['gicsSubIndustry'];
     $this->headquarter = $row['headquarter'];
+    $this->notes = $row['notes'];
 
   }
   public function create(){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT INTO client(clientId,clientName,clientDescription,gicsSector,gicsSubIndustry,headquarter) VALUES (?,?,?,?,?,?)';
+    $sql = 'INSERT INTO client(clientId,clientName,clientDescription,gicsSector,gicsSubIndustry,headquarter,notes) VALUES (?,?,?,?,?,?,?)';
 
     $statement = $db->prepare($sql);
     $success = $statement->execute([
@@ -28,7 +31,8 @@ class Client1{
     $this-> clientDescription,
     $this-> gicsSector,
     $this-> gicsSubIndustry,
-    $this-> headquarter]);
+    $this-> headquarter,
+    $this-> notes]);
     if(!$success){
       die('bad sql on insert');
     }
