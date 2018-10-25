@@ -27,11 +27,11 @@ class Client1{
     $statement = $db->prepare($sql);
     $success = $statement->execute([
     $this-> clientId,
-    $this-> clientName,
-    $this-> clientDescription,
-    $this-> gicsSector,
-    $this-> gicsSubIndustry,
-    $this-> headquarter,
+    // $this-> clientName,
+    // $this-> clientDescription,
+    // $this-> gicsSector,
+    // $this-> gicsSubIndustry,
+    // $this-> headquarter,
     $this-> notes]);
     if(!$success){
       die('bad sql on insert');
