@@ -61,7 +61,7 @@ class Client1{
       die('bad sql on insert');
     }
 
-    public static function update() {
+    public function update() {
      // 1. Connect to the database
      $db = new PDO(DB_SERVER, DB_USER, DB_PW);
      // 2. Prepare the query
