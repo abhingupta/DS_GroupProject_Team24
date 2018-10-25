@@ -71,7 +71,7 @@ var turbineDeployedApp = new Vue({
 		const url = new URL(window.location.href);
 		const turbineDeployedId = url.searchParams.get('turbineDeployedId');
 		console.log('Turbine Deployed: ' + turbineDeployedId);
-		this.turbineDeployedData.id = turbineDeployedId;
+		this.turbineDeployedData.turbineDeployedId = turbineDeployedId;
 
 		if (!turbineDeployedId) {
 			//TODO: Error? 404?
