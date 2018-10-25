@@ -59,10 +59,10 @@ var turbineDeployedApp = new Vue({
 
 			}
 		},
-		gotoTurbineDeployed(tid) {
-			console.log("turbine deployed id:" +
+		gotoTurbine(tid) {
+			console.log("turbine id:" +
 				tid);
-			window.location = 'turbineDeployed.html?turbineDeployedId=' + tid;
+			window.location = 'turbine.html?turbineId=' + tid;
 		}
 	},
 	created() {

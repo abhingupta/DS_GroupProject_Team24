@@ -30,21 +30,22 @@
             <th>totalStarts</th>
             <th>lastPlannedOutageDate</th>
             <th>lastUnplannedOutageDate</th>
-         
-           
+
+
           </tr>
         </thead>
-        <tbody v-for="c in turbineDeployed" :key="c.id">
-          <!-- <tr v-for="c in turbineDeployed" :key="c.id" :id="'turbineDeployed-' + turbineDeployed.id" v-bind:class=" turbineDeployed.current_sprint ?  'current_sprint': '' " @click="gotoTurbineDeployed(turbineDeployed.id)"> -->
+        <tbody>
+
           <td>{{c.turbineDeployedId}}</td>
-          <td>{{c.turbineId}}</td>
-          <td>{{c.siteId}}</td>
-          <td>{{c.serialNumber}}</td>
-          <td>{{c.deployedDate}}</td>
-          <td>{{c.totalFiredHours}}</td>
-          <td>{{c.totalStarts}}</td>
-          <td>{{c.lastPlannedOutageDate}}</td>
-          <td>{{c.lastUnplannedOutageDate}}</td>
+          <tr v-for="c in turbineDeployed" :key="c.id" :id="'turbineDeployed-' + c.id" @click="gotoTurbine(c.id)">
+            <td>{{c.turbineId}}</td>
+            <td>{{c.siteId}}</td>
+            <td>{{c.serialNumber}}</td>
+            <td>{{c.deployedDate}}</td>
+            <td>{{c.totalFiredHours}}</td>
+            <td>{{c.totalStarts}}</td>
+            <td>{{c.lastPlannedOutageDate}}</td>
+            <td>{{c.lastUnplannedOutageDate}}</td>
         </tbody>
       </table>
 

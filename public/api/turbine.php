@@ -7,15 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   exit;
 }
 
-// $turbineId = intval($_GET['turbineId'] ?? 0);
-//
-// if ($turbineId < 1) {
-//   throw new Exception('Invalid Turbine ID');
-// }
+$turbineId = intval($_GET['turbineId'] ?? 0);
+
+if ($turbineId < 1) {
+  throw new Exception('Invalid Turbine ID');
+}
 
 
 // 1. Go to the database and get all work associated with the $taskId
-// $turbineArr = Turbine::getTurbineById($turbineId);
+$turbineArr = Turbine::getTurbineById($turbineId);
 //
 // // 2. Convert to JSON
 // $json = json_encode($turbineArr, JSON_PRETTY_PRINT);
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // header('Content-Type: application/json');
 // echo $json;
 
-$turbineArr = Turbine::getTurbineById();
+// $turbineArr = Turbine::getTurbineById();
 
 // 2. Convert to JSON
 $json = json_encode($turbineArr, JSON_PRETTY_PRINT);

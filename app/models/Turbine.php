@@ -35,24 +35,24 @@ class Turbine{
     $this->turbineId = $db->lastInsertId();
   }
 
-  // public static function getTurbineById(int $turbineId) {
-  //    // 1. Connect to the database
-  //    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-  //    // 2. Prepare the query
-  //    $sql = 'SELECT * FROM turbine WHERE turbineId = ?';
-  //    $statement = $db->prepare($sql);
-  //    // 3. Run the query
-  //    $success = $statement->execute(
-  //        [$turbineId]
-  //    );
-     public static function getTurbineById() {
-        // 1. Connect to the database
-        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        // 2. Prepare the query
-        $sql = 'SELECT * FROM turbine';
-        $statement = $db->prepare($sql);
-        // 3. Run the query
-        $success = $statement->execute();
+  public static function getTurbineById(int $turbineId) {
+     // 1. Connect to the database
+     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+     // 2. Prepare the query
+     $sql = 'SELECT * FROM turbine WHERE turbineId = ?';
+     $statement = $db->prepare($sql);
+     // 3. Run the query
+     $success = $statement->execute(
+         [$turbineId]
+     );
+     // public static function getTurbineById() {
+     //    // 1. Connect to the database
+     //    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+     //    // 2. Prepare the query
+     //    $sql = 'SELECT * FROM turbine';
+     //    $statement = $db->prepare($sql);
+     //    // 3. Run the query
+     //    $success = $statement->execute();
      // 4. Handle the results
      $arr = [];
      while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
