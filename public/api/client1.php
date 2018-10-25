@@ -24,7 +24,7 @@ $hello = Client1::getClientById();
 // }
 
 $json1 = json_encode($hello, JSON_PRETTY_PRINT);
-string json_last_error_msg();
+echo( json_last_error_msg());
 // $error = json_last_error();
 
 // foreach ($hello as $string) {
