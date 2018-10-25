@@ -84,3 +84,16 @@ th[role=columnheader]:not(.no-sort):hover:after {
   visibility: visible;
   opacity: 1;
 }
+
+.navigation a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 17px;
+    background-color: lightgrey;
+}
+
+footer {
+  background-color: lightgrey;
+}
