@@ -1,28 +1,27 @@
-var turbineApp = new Vue({
-	el: '#turbineMain',
+var sensorApp = new Vue({
+	el: '#sensorMain',
 	data: {
-		turbineData: {
-			turbineId: null,
-			turbineName: 'foo',
-			turbineDescription: 'foo',
-			capacity: 'foo',
-			rampUpTime: 'foo',
-			maintenanceInterval: 'foo'
+		sensorData: {
+			sensorId: null,
+			sensorName: 'foo',
+			sensorDescription: 'foo',
+			manufacturer: 'foo',
+			totalLifeExpectancyHours: 'foo'
 		},
-		turbine: [],
-		turbineForm: {}, // populated by this.getEmptyTurbineForm()
+		sensor: [],
+		sensorForm: {}, // populated by this.getEmptySensorForm()
 	},
 	computed: {
 
 	},
 	methods: {
-		handleTurbineForm(e) {
-			const s = JSON.stringify(this.TurbineForm);
+		handleSensorForm(e) {
+			const s = JSON.stringify(this.SensorForm);
 
 			console.log(s);
 
 			// POST to remote server
-			fetch('api/turbine.php', {
+			fetch('api/sensor.php', {
 					method: "POST", // *GET, POST, PUT, DELETE, etc.
 					headers: {
 						"Content-Type": "application/json; charset=utf-8"
@@ -31,61 +30,60 @@ var turbineApp = new Vue({
 				})
 				.then(response => response.json())
 				.then(json => {
-					this.turbine.push(json)
+					this.sensor.push(json)
 				})
 				.catch(err => {
-					console.error('Turbine POST ERROR:');
+					console.error('Sensor POST ERROR:');
 					console.error(err);
 				})
 
-			// Reset turbineForm
-			this.turbineForm = this.getEmptyTurbineForm();
+			// Reset sensorForm
+			this.sensorForm = this.getEmptySensorForm();
 		},
 
 
-		getEmptyTurbineForm() {
+		getEmptySensorForm() {
 			return {
-				// turbine_id: this.turbineData.id,
-				// turbineIdnull,
-				turbineName: null,
-				turbineDescription: null,
-				capacity: null,
-				rampUpTime: null,
-				maintenanceInterval: null
+				// sensor_id: this.sensorData.id,
+				// sensorIdnull,
+				sensorName: null,
+				sensorDescription: null,
+				manufacturer: null,
+				totalLifeExpectancyHours: null
 
 			}
 		},
-		gotoTurbine(tid) {
-			console.log("turbine id:" +
+		gotoSensor(tid) {
+			console.log("sensor id:" +
 				tid);
-			window.location = 'turbine.html?turbineId=' + tid;
+			window.location = 'sensor.html?sensorId=' + tid;
 		}
 	},
 	created() {
 
 		// Do data fetch
 		const url = new URL(window.location.href);
-		const turbineId = url.searchParams.get('turbineId');
-		console.log('Turbine: ' + turbineId);
-		this.turbineData.id = turbineId;
+		const sensorId = url.searchParams.get('sensorId');
+		console.log('Sensor: ' + sensorId);
+		this.sensorData.id = sensorId;
 
-		if (!turbineId) {
+		if (!sensorId) {
 			//TODO: Error? 404?
 			//e.g., window.location = '404.html';
 		}
 
-		// Populate turbineForm with default values
-		this.turbineForm = this.getEmptyTurbineForm();
+		// Populate sensorForm with default values
+		this.sensorForm = this.getEmptySensorForm();
 
 		// TODO: Fetch task-specific data
 		// fetch('api/task?id=4')
-		fetch('api/turbine.php?turbineId=' + turbineId)
+		fetch('api/sensor.php?sensorId=' + sensorId)
 			.then(response => response.json())
 			.then(json => {
-				turbineApp.turbine = json
+				sensorApp.sensor = json
 			})
 			.catch(err => {
-				console.error('Turbine FETCH ERROR:');
+				console.error('Sensor FETCH ERROR:');
 				console.error(err);
 			})
 	}
