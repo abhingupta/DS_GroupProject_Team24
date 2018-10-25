@@ -77,9 +77,9 @@ var clientApp = new Vue({
 		// Populate clientForm with default values
 		this.clientForm = this.getEmptyClientForm();
 
-		// TODO: Fetch task-specific data
+		// TODO: Fetch t1ask-specific data
 		// fetch('api/task?id=4')
-		fetch('api/client1.php?clientId=' + clientId)
+		fetch('api/client1.php')
 			.then(response => response.json())
 			.then(json => {
 				clientApp.client = json
