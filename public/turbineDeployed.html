@@ -35,9 +35,8 @@
           </tr>
         </thead>
         <tbody>
-
-          <td>{{c.turbineDeployedId}}</td>
           <tr v-for="c in turbineDeployed" :key="c.id" :id="'turbineDeployed-' + c.id" @click="gotoTurbine(c.id)">
+            <td>{{c.turbineDeployedId}}</td>
             <td>{{c.turbineId}}</td>
             <td>{{c.siteId}}</td>
             <td>{{c.serialNumber}}</td>
