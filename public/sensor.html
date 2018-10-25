@@ -28,13 +28,13 @@
             <th>totalLifeExpectancyHours</th>
           </tr>
         </thead>
-        <tbody v-for="c in sensor" :key="c.id">
-          <!-- <tr v-for="c in sensor" :key="c.id" :id="'sensor-' + sensor.id" v-bind:class=" sensor.current_sprint ?  'current_sprint': '' " @click="gotoSensor(sensor.id)"> -->
-          <td>{{c.sensorId}}</td>
-          <td>{{c.sensorName}}</td>
-          <td>{{c.sensorDescription}}</td>
-          <td>{{c.manufacturer}}</td>
-          <td>{{c.totalLifeExpectancyHours}}</td>
+        <tbody>
+          <tr v-for="c in sensor" :key="c.id" :id="'sensor-' +  c.sensorId" @click="gotoSensorTimeSeries(c.sensorId)">
+            <td>{{c.sensorId}}</td>
+            <td>{{c.sensorName}}</td>
+            <td>{{c.sensorDescription}}</td>
+            <td>{{c.manufacturer}}</td>
+            <td>{{c.totalLifeExpectancyHours}}</td>
         </tbody>
       </table>
 

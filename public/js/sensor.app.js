@@ -53,10 +53,10 @@ var sensorApp = new Vue({
 
 			}
 		},
-		gotoSensor(tid) {
+		gotoSensorTimeSeries(tid) {
 			console.log("sensor id:" +
 				tid);
-			window.location = 'sensor.html?sensorId=' + tid;
+			window.location = 'sensorTimeSeries.html?sensorTimeSeriesId=' + tid;
 		}
 	},
 	created() {
