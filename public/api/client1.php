@@ -62,9 +62,9 @@ $json1 = json_encode($hello, JSON_PRETTY_PRINT);
 
 // 3. Print
 header('Content-Type: application/json; charset=utf-8');
-print json_encode($json1);
+// print json_encode($json1);
 
-// echo $json1;
+echo $json1;
 // echo '<pre> buga buga1 buga';
 // var_dump($json1);
 // echo '</pre>';
