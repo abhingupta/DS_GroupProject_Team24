@@ -79,7 +79,7 @@
           <label for="client" class="col-sm-1 col-form-label">Client: </label>
           <div class="col-sm-6">
             <select id="client" v-model="clientForm.clientId" class="form-control" required>
-              <option v-for="t in clientList" :key="t.ClientId" :value="t.ClientId">{{ t.clientId }}</option>
+              <option v-for="t in client" :key="t.clientId" :value="t.clientId">{{ t.clientId }}</option>
             </select>
           </div>
         </div>
