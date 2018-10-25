@@ -90,5 +90,11 @@ th[role=columnheader]:not(.no-sort):hover:after {
 }
 
 .footer {
-  background-color: lightgrey;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgrey;
+    color: white;
+    text-align: center;
 }
