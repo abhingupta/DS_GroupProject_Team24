@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="c in sensorDeployed" :key="c.id" :id="'sensorDeployed-' + c.sensorDeployedid" @click="gotoSensor(c.sensorDeployedId)">
+          <tr v-for="c in sensorDeployed" :key="c.id" :id="'sensorDeployed-' + c.sensorDeployedId" @click="gotoSensor(c.sensorDeployedId)">
             <td>{{c.sensorDeployedId}}</td>
             <td>{{c.sensorId}}</td>
             <td>{{c.turbineDeployedId}}</td>
