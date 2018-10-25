@@ -29,14 +29,14 @@
             <th>maintenanceInterval</th>
           </tr>
         </thead>
-        <tbody v-for="c in turbine" :key="c.id">
-          <!-- <tr v-for="c in turbine" :key="c.id" :id="'turbine-' + turbine.id" v-bind:class=" turbine.current_sprint ?  'current_sprint': '' " @click="gotoTurbine(turbine.id)"> -->
-          <td>{{c.turbineId}}</td>
-          <td>{{c.turbineName}}</td>
-          <td>{{c.turbineDescription}}</td>
-          <td>{{c.capacity}}</td>
-          <td>{{c.rampUpTime}}</td>
-          <td>{{c.maintenanceInterval}}</td>
+        <tbody>
+          <tr v-for="c in turbine" :key="c.id" :id="'turbine-' + c.turbineDeployedId" @click="gotoSensorDeployed(c.turbineDeployedId)">
+            <td>{{c.turbineId}}</td>
+            <td>{{c.turbineName}}</td>
+            <td>{{c.turbineDescription}}</td>
+            <td>{{c.capacity}}</td>
+            <td>{{c.rampUpTime}}</td>
+            <td>{{c.maintenanceInterval}}</td>
         </tbody>
       </table>
 

@@ -55,10 +55,10 @@ var turbineApp = new Vue({
 
 			}
 		},
-		gotoTurbine(tid) {
-			console.log("turbine id:" +
+		gotoSensorDeployed(tid) {
+			console.log("Turbine Deployed id:" +
 				tid);
-			window.location = 'turbine.html?turbineId=' + tid;
+			window.location = 'sensorDeployed.html?sensorDeployedId=' + tid;
 		}
 	},
 	created() {

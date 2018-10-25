@@ -36,7 +36,7 @@ class SensorDeployed{
      // 1. Connect to the database
      $db = new PDO(DB_SERVER, DB_USER, DB_PW);
      // 2. Prepare the query
-     $sql = 'SELECT * FROM sensor_deployed WHERE sensorDeployedId = ?';
+     $sql = 'SELECT sd.* FROM sensor_deployed sd INNER JOIN turbine_deployed td ON td.turbineDeployedId = sd.turbineDeployedId INNER JOIN turbine t ON t.turbineId = td.turbineId WHERE t.turbineId = ?';
      $statement = $db->prepare($sql);
      // 3. Run the query
      $success = $statement->execute(
