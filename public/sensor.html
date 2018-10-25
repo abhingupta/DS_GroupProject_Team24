@@ -24,9 +24,8 @@
             <th>sensorId</th>
             <th>sensorName</th>
             <th>sensorDescription</th>
-            <th>capacity</th>
-            <th>rampUpTime</th>
-            <th>maintenanceInterval</th>
+            <th>manufacturer</th>
+            <th>totalLifeExpectancyHours</th>
           </tr>
         </thead>
         <tbody v-for="c in sensor" :key="c.id">
@@ -34,9 +33,8 @@
           <td>{{c.sensorId}}</td>
           <td>{{c.sensorName}}</td>
           <td>{{c.sensorDescription}}</td>
-          <td>{{c.capacity}}</td>
-          <td>{{c.rampUpTime}}</td>
-          <td>{{c.maintenanceInterval}}</td>
+          <td>{{c.manufacturer}}</td>
+          <td>{{c.totalLifeExpectancyHours}}</td>
         </tbody>
       </table>
 
