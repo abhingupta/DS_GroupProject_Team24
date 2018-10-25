@@ -67,7 +67,7 @@ var siteApp = new Vue({
 		const url = new URL(window.location.href);
 		const siteId = url.searchParams.get('siteId');
 		console.log('Site: ' + siteId);
-		this.siteData.id = siteId;
+		this.siteData.siteId = siteId;
 
 		if (!siteId) {
 			//TODO: Error? 404?
