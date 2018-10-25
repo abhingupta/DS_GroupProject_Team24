@@ -22,19 +22,29 @@
         <thead>
           <tr>
             <th>sensorTimeSeriesId</th>
-            <th>sensorTimeSeriesName</th>
-            <th>sensorTimeSeriesDescription</th>
-            <th>manufacturer</th>
-            <th>totalLifeExpectancyHours</th>
+            <th>sensorDeployedId</th>
+            <th>dataCollectedDate</th>
+            <th>output</th>
+            <th>heatRate</th>
+            <th>compressorEfficiency</th>
+            <th>availability</th>
+            <th>reliability</th>
+            <th>trips</th>
+            <th>starts</th>
           </tr>
         </thead>
         <tbody v-for="c in sensorTimeSeries" :key="c.id">
           <!-- <tr v-for="c in sensorTimeSeries" :key="c.id" :id="'sensorTimeSeries-' + sensorTimeSeries.id" v-bind:class=" sensorTimeSeries.current_sprint ?  'current_sprint': '' " @click="gotoSensorTimeSeries(sensorTimeSeries.id)"> -->
           <td>{{c.sensorTimeSeriesId}}</td>
-          <td>{{c.sensorTimeSeriesName}}</td>
-          <td>{{c.sensorTimeSeriesDescription}}</td>
-          <td>{{c.manufacturer}}</td>
-          <td>{{c.totalLifeExpectancyHours}}</td>
+          <td>{{c.sensorDeployedId}}</td>
+          <td>{{c.dataCollectedDate}}</td>
+          <td>{{c.output}}</td>
+          <td>{{c.heatRate}}</td>
+          <td>{{c.compressorEfficiency}}</td>
+          <td>{{c.availability}}</td>
+          <td>{{c.reliability}}</td>
+          <td>{{c.trips}}</td>
+          <td>{{c.starts}}</td>
         </tbody>
       </table>
 
