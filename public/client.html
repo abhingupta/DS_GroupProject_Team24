@@ -71,8 +71,19 @@
         </tbody>
       </table>
 
+
+
       <form @submit.prevent="
           handleClientForm" align="center" id="newClientForm">
+        <div class="form-group row">
+          <label for="client" class="col-sm-1 col-form-label">Client: </label>
+          <div class="col-sm-6">
+            <select id="client" v-model="clientForm.clientId" class="form-control" required>
+              <option v-for="t in clientList" :key="t.ClientId" :value="t.ClientId">{{ t.clientId }}</option>
+            </select>
+          </div>
+        </div>
+
         <div class="form-group">
           <label>Add a Notes</lable>
             <input id="notes" type="textarea" v-model="clientForm.notes" class="form-control" required>
