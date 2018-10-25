@@ -60,7 +60,7 @@ string json_last_error_msg();
 
 
 // 3. Print
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 print json_encode($json1);
 
 // echo $json1;
