@@ -13,20 +13,20 @@ var turbineDeployedApp = new Vue({
 			lastPlannedOutageDate: 'foo',
 			lastUnplannedOutageDate: 'foo'
 		},
-		turbine: [],
-		turbineForm: {}, // populated by this.getEmptyTurbineForm()
+		turbineDeployed: [],
+		turbineDeployedForm: {}, // populated by this.getEmptyTurbineForm()
 	},
 	computed: {
 
 	},
 	methods: {
-		handleTurbineForm(e) {
-			const s = JSON.stringify(this.TurbineForm);
+		handleTurbineDeployedForm(e) {
+			const s = JSON.stringify(this.TurbineDeployedForm);
 
 			console.log(s);
 
 			// POST to remote server
-			fetch('api/turbine.php', {
+			fetch('api/turbineDeployed.php', {
 					method: "POST", // *GET, POST, PUT, DELETE, etc.
 					headers: {
 						"Content-Type": "application/json; charset=utf-8"
@@ -35,19 +35,19 @@ var turbineDeployedApp = new Vue({
 				})
 				.then(response => response.json())
 				.then(json => {
-					this.turbine.push(json)
+					this.turbineDeployed.push(json)
 				})
 				.catch(err => {
-					console.error('Turbine POST ERROR:');
+					console.error('TurbineDeployed POST ERROR:');
 					console.error(err);
 				})
 
 			// Reset turbineForm
-			this.turbineForm = this.getEmptyTurbineForm();
+			this.turbineDeployedForm = this.getEmptyTurbineDeployedForm();
 		},
 
 
-		getEmptyTurbineForm() {
+		getEmptyTurbineDeployedForm() {
 			return {
 				// turbine_id: this.turbineData.id,
 				// turbineIdnull,
@@ -60,10 +60,10 @@ var turbineDeployedApp = new Vue({
 
 			}
 		},
-		gotoTurbine(tid) {
-			console.log("turbine id:" +
+		gotoTurbineDeployed(tid) {
+			console.log("turbine deployed id:" +
 				tid);
-			window.location = 'turbine.html?turbineId=' + tid;
+			window.location = 'turbineDeployed.html?turbineDeployedId=' + tid;
 		}
 	},
 	created() {
@@ -71,26 +71,26 @@ var turbineDeployedApp = new Vue({
 		// Do data fetch
 		const url = new URL(window.location.href);
 		const turbineId = url.searchParams.get('turbineId');
-		console.log('Turbine: ' + turbineId);
-		this.turbineData.id = turbineId;
+		console.log('Turbine Deployed: ' + turbineDeployedId);
+		this.turbineDeployedData.id = turbineDeployedId;
 
-		if (!turbineId) {
+		if (!turbineDeployedId) {
 			//TODO: Error? 404?
 			//e.g., window.location = '404.html';
 		}
 
 		// Populate turbineForm with default values
-		this.turbineForm = this.getEmptyTurbineForm();
+		this.turbineDeployedForm = this.getEmptyTurbineDeployedForm();
 
 		// TODO: Fetch task-specific data
 		// fetch('api/task?id=4')
-		fetch('api/turbine.php?turbineId=' + turbineId)
+		fetch('api/turbineDeployed.php?turbineDeployedId=' + turbineDeployedId)
 			.then(response => response.json())
 			.then(json => {
-				turbineApp.turbine = json
+				turbineDeployedApp.turbineDeployed = json
 			})
 			.catch(err => {
-				console.error('Turbine FETCH ERROR:');
+				console.error('TurbineDeployed FETCH ERROR:');
 				console.error(err);
 			})
 	}
