@@ -67,7 +67,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="s in site" :key="s.id" :id="'site-' + siteData.siteId" @click="gotoTurbineDeployed(siteData.siteId)">
+          <tr v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
             <td>{{s.siteId}}</td>
             <td>{{s.clientId}}</td>
             <td>{{s.siteName}}</td>
