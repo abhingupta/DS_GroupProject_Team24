@@ -4,12 +4,12 @@ var turbineDeployedApp = new Vue({
 	data: {
 		turbineDeployedData: {
 			turbineDeployedId: null,
-			turbineId: 'foo',
-			siteId: 'foo',
+			turbineId: null,
+			siteId: null,
 			serialNumber: 'foo',
 			deployedDate: 'foo',
-			totalFiredHours: 'foo',
-			totalStarts: 'foo',
+			totalFiredHours: null,
+			totalStarts: null,
 			lastPlannedOutageDate: 'foo',
 			lastUnplannedOutageDate: 'foo'
 		},
@@ -51,11 +51,12 @@ var turbineDeployedApp = new Vue({
 			return {
 				// turbine_id: this.turbineData.id,
 				// turbineIdnull,
-				turbineName: null,
-				turbineDescription: null,
-				capacity: null,
-				rampUpTime: null,
-				maintenanceInterval: null
+				serialNumber: null,
+				deployedDate: null,
+				totalFiredHours: null,
+				totalStarts: null,
+				lastPlannedOutageDate: null,
+				lastUnplannedOutageDate: null
 
 			}
 		},
