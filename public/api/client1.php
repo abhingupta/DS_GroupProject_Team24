@@ -22,9 +22,9 @@ $hello = Client1::getClientById();
 // foreach($hello as &$v) {
 //   $v['order_item_name'] = utf8_encode($v['order_item_name']);
 // }
-$hello['name'] = mb_convert_encoding($hello['name'], 'UTF-8', 'UTF-8');
+// $hello['name'] = mb_convert_encoding($hello['name'], 'UTF-8', 'UTF-8');
 
-$json1 = json_encode($hello, JSON_PRETTY_PRINT| JSON_UNESCAPED_UNICODE);
+$json1 = json_encode(utf8ize($hello), JSON_PRETTY_PRINT| JSON_UNESCAPED_UNICODE);
 
 if (json_last_error() !== JSON_ERROR_NONE) {
   echo json_last_error_msg();
