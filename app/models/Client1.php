@@ -64,7 +64,7 @@ class Client1{
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT c.*,cn.notes FROM client c INNER JOIN client_notes cn ON cn.clientId = c.clientId';
+    $sql = 'SELECT c.*,cn.notes FROM client c left JOIN client_notes cn ON cn.clientId = c.clientId';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute();
