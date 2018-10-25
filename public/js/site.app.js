@@ -55,10 +55,10 @@ var siteApp = new Vue({
 
 			}
 		},
-		gotoSite(tid) {
-			console.log("site id:" +
+		gotoTurbineDeployed(tid) {
+			console.log("TurbineDeployed id:" +
 				tid);
-			window.location = 'site.html?siteId=' + tid;
+			window.location = 'turbineDeployed.html?turbineDeployedId=' + tid;
 		}
 	},
 	created() {
