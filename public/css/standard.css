@@ -84,3 +84,11 @@ th[role=columnheader]:not(.no-sort):hover:after {
   visibility: visible;
   opacity: 1;
 }
+
+.navigation{
+  background-color: lightgrey;
+}
+
+.footer {
+  background-color: lightgrey;
+}
