@@ -7,16 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   exit;
 }
 
-// $turbineDeployedId = intval($_GET['turbineDeployedId'] ?? 0);
-//
-// if ($turbineDeployedId < 1) {
-//   throw new Exception('Invalid TurbineDeployed ID');
-// }
+$turbineDeployedId = intval($_GET['turbineDeployedId'] ?? 0);
 
-// 1. Go to the database and get all work associated with the $turbineDeployedId
-// $turbineDeployedArr = TurbineDeployed::getTurbineDeployedById($turbineDeployedId);
+if ($turbineDeployedId < 1) {
+  throw new Exception('Invalid TurbineDeployed ID');
+}
 
-$turbineDeployedArr = TurbineDeployed::getTurbineDeployedById();
+1. Go to the database and get all work associated with the $turbineDeployedId
+$turbineDeployedArr = TurbineDeployed::getTurbineDeployedById($turbineDeployedId);
+
+// $turbineDeployedArr = TurbineDeployed::getTurbineDeployedById();
 // 2. Convert to JSON
 $json = json_encode($turbineDeployedArr, JSON_PRETTY_PRINT);
 
