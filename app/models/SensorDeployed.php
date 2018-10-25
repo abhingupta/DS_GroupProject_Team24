@@ -32,7 +32,7 @@ class SensorDeployed{
     }
     $this->sensorDeployedId = $db->lastInsertId();
   }
-  public static function getClientById(int $sensorDeployedId) {
+  public static function getSensorDeployedById(int $sensorDeployedId) {
      // 1. Connect to the database
      $db = new PDO(DB_SERVER, DB_USER, DB_PW);
      // 2. Prepare the query
