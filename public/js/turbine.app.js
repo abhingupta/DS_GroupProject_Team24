@@ -49,9 +49,9 @@ var turbineApp = new Vue({
 				// turbineIdnull,
 				turbineName: null,
 				turbineDescription: null,
-				gicsSector: null,
-				gicsSubIndustry: null,
-				headquarter: null
+				capacity: null,
+				rampUpTime: null,
+				maintenanceInterval: null
 
 			}
 		},
