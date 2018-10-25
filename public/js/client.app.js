@@ -79,7 +79,7 @@ var clientApp = new Vue({
 
 		// TODO: Fetch task-specific data
 		// fetch('api/task?id=4')
-		fetch('api/client.php?clientId=' + clientId)
+		fetch('api/client1.php')
 			.then(response => response.json())
 			.then(json => {
 				clientApp.client = json
