@@ -1,15 +1,15 @@
-var sensorApp = new Vue({
-	el: '#sensorMain',
+var sensorDeployedApp = new Vue({
+	el: '#sensorDeployedMain',
 	data: {
-		sensorData: {
-			sensorId: null,
-			sensorName: 'foo',
-			sensorDescription: 'foo',
+		sensorDeployedData: {
+			sensorDeployedId: null,
+			sensorDeployedName: 'foo',
+			sensorDeployedDescription: 'foo',
 			manufacturer: 'foo',
 			totalLifeExpectancyHours: 'foo'
 		},
-		sensor: [],
-		sensorForm: {}, // populated by this.getEmptySensorForm()
+		sensorDeployed: [],
+		sensorDeployedForm: {}, // populated by this.getEmptySensorForm()
 	},
 	computed: {
 
@@ -21,7 +21,7 @@ var sensorApp = new Vue({
 			console.log(s);
 
 			// POST to remote server
-			fetch('api/sensor.php', {
+			fetch('api/sensorDeployed.php', {
 					method: "POST", // *GET, POST, PUT, DELETE, etc.
 					headers: {
 						"Content-Type": "application/json; charset=utf-8"
@@ -30,57 +30,57 @@ var sensorApp = new Vue({
 				})
 				.then(response => response.json())
 				.then(json => {
-					this.sensor.push(json)
+					this.sensorDeployed.push(json)
 				})
 				.catch(err => {
 					console.error('Sensor POST ERROR:');
 					console.error(err);
 				})
 
-			// Reset sensorForm
-			this.sensorForm = this.getEmptySensorForm();
+			// Reset sensorDeployedForm
+			this.sensorDeployedForm = this.getEmptySensorForm();
 		},
 
 
 		getEmptySensorForm() {
 			return {
-				// sensor_id: this.sensorData.id,
-				// sensorIdnull,
-				sensorName: null,
-				sensorDescription: null,
+				// sensorDeployed_id: this.sensorDeployedData.id,
+				// sensorDeployedIdnull,
+				sensorDeployedName: null,
+				sensorDeployedDescription: null,
 				manufacturer: null,
 				totalLifeExpectancyHours: null
 
 			}
 		},
 		gotoSensor(tid) {
-			console.log("sensor id:" +
+			console.log("sensorDeployed id:" +
 				tid);
-			window.location = 'sensor.html?sensorId=' + tid;
+			window.location = 'sensorDeployed.html?sensorDeployedId=' + tid;
 		}
 	},
 	created() {
 
 		// Do data fetch
 		const url = new URL(window.location.href);
-		const sensorId = url.searchParams.get('sensorId');
-		console.log('Sensor: ' + sensorId);
-		this.sensorData.id = sensorId;
+		const sensorDeployedId = url.searchParams.get('sensorDeployedId');
+		console.log('Sensor: ' + sensorDeployedId);
+		this.sensorDeployedData.id = sensorDeployedId;
 
-		if (!sensorId) {
+		if (!sensorDeployedId) {
 			//TODO: Error? 404?
 			//e.g., window.location = '404.html';
 		}
 
-		// Populate sensorForm with default values
-		this.sensorForm = this.getEmptySensorForm();
+		// Populate sensorDeployedForm with default values
+		this.sensorDeployedForm = this.getEmptySensorForm();
 
 		// TODO: Fetch task-specific data
 		// fetch('api/task?id=4')
-		fetch('api/sensor.php?sensorId=' + sensorId)
+		fetch('api/sensorDeployed.php?sensorDeployedId=' + sensorDeployedId)
 			.then(response => response.json())
 			.then(json => {
-				sensorApp.sensor = json
+				sensorDeployedApp.sensorDeployed = json
 			})
 			.catch(err => {
 				console.error('Sensor FETCH ERROR:');
