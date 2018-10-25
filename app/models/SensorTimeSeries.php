@@ -60,7 +60,7 @@ class SensorTimeSeries{
   //  $success = $statement->execute(
   //      [$sensorTimeSeriesId]
   //  );
-   public static function SensorTimeSeriesById() {
+   public static function SensorTimeSeriesById(int $sensorTimeSeriesId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
