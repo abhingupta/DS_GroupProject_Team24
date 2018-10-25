@@ -1,4 +1,3 @@
-
 var turbineDeployedApp = new Vue({
 	el: '#turbineDeployedMain',
 	data: {
@@ -70,7 +69,7 @@ var turbineDeployedApp = new Vue({
 
 		// Do data fetch
 		const url = new URL(window.location.href);
-		const turbineId = url.searchParams.get('turbineId');
+		const turbineDeployedId = url.searchParams.get('turbineDeployedId');
 		console.log('Turbine Deployed: ' + turbineDeployedId);
 		this.turbineDeployedData.id = turbineDeployedId;
 
