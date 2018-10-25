@@ -5,9 +5,9 @@ var turbineApp = new Vue({
 			turbineId: null,
 			turbineName: 'foo',
 			turbineDescription: 'foo',
-			gicsSector: 'foo',
-			gicsSubIndustry: 'foo',
-			headquarter: 'foo'
+			capacity: 'foo',
+			rampUpTime: 'foo',
+			maintenanceInterval: 'foo'
 		},
 		turbine: [],
 		turbineForm: {}, // populated by this.getEmptyTurbineForm()
