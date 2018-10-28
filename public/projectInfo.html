@@ -28,8 +28,8 @@
           <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
             <h2>{{s.siteName}}</h2>
 
-            <span>Primary Contact: {{s.primaryContact}}</span>
-            <span>Capacity: {{s.capacity}}</span>
+            <span>Primary Contact: {{s.primaryContact}}</span><br />
+            <span>Capacity: {{s.capacity}}</span><br />
             <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}</span>
 
           </div>
