@@ -48,7 +48,12 @@ class TurbineDeployedTest{
   $this-> totalFiredHours,
   $this-> totalStarts,
   $this-> lastPlannedOutageDate,
-  $this-> lastUnplannedOutageDate]);
+  $this-> lastUnplannedOutageDate,
+  $this-> turbineName,
+  $this-> turbineDescription,
+  $this-> capacity,
+  $this-> rampUpTime,
+  $this-> maintenanceInterval]);
   if(!$success){
     die('bad sql on insert');
   }
