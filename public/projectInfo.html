@@ -37,13 +37,28 @@
 
             <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
             </span>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col placeholder" v-for="s in turbine" :key="s.id">
                 {{s.turbineDeployedId}}
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
+        <table class=" table table-dark" border="4" id="turbineDeployedTable">
+          <tbody>
+            <tr v-for="c in turbine" :key="c.id">
+              <td>{{c.turbineDeployedId}}</td>
+              <td>{{c.turbineId}}</td>
+              <td>{{c.siteId}}</td>
+              <td>{{c.serialNumber}}</td>
+              <td>{{c.deployedDate}}</td>
+              <td>{{c.totalFiredHours}}</td>
+              <td>{{c.totalStarts}}</td>
+              <td>{{c.lastPlannedOutageDate}}</td>
+              <td>{{c.lastUnplannedOutageDate}}</td>
+          </tbody>
+        </table>
+
     </main>
 
     <!-- We need Bootstrap's modal JS, thus we also need jQuery -->
