@@ -37,21 +37,19 @@
 
             <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
             </span>
-
-          </div>
-          <div class="row">
-            <div class="col placeholder" v-for="s in turbine" :key="s.id">
-              check: {{s.turbineDeployedId}}
+            <div class="row">
+              <div class="col placeholder" v-for="s in turbine" :key="s.id">
+                check: {{s.turbineDeployedId}}
+              </div>
             </div>
           </div>
         </div>
         <table class=" table table-dark" border="4" id="turbineDeployedTable" v-for="c in turbine" :key="c.id">
-
           <thead>
             <tr>
-              <th>{{c.turbineDeployedId}}</th>
-              <th>{{c.turbineId}}</th>
-              <th>{{c.siteId}}</th>
+              <th>Turbine Deployed Id</th>
+              <th>Turbine Id</th>
+              <th>Site Id</th>
               <th>{{c.serialNumber}}</th>
               <th>{{c.deployedDate}}</th>
               <th>{{c.totalFiredHours}}</th>
