@@ -28,14 +28,14 @@
           <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
             <h2>{{s.siteName}}</h2>
 
-            <span>
-              <ion-icon name="contact"></ion-icon>Primary Contact: {{s.primaryContact}}
+
+            <ion-icon name="contact"></ion-icon><span>Primary Contact: {{s.primaryContact}}
             </span><br />
-            <span>
-              <ion-icon name="resize"></ion-icon>Capacity: {{s.capacity}}
+
+            <ion-icon name="resize"></ion-icon><span>Capacity: {{s.capacity}}
             </span><br />
-            <span>
-              <ion-icon name="home"></ion-icon>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
+
+            <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
             </span>
 
           </div>
