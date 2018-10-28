@@ -23,10 +23,9 @@
       <div v-for="s in site" :key="s.id">
         <div class="box">
           <h1 class="title">{{s.siteName}}</h1>
-          <div class="expand" v-expand="isExpanded">
-            <p>{{s.siteDescription}}</p>
-            <p>{{s.primaryContact}}</p>
-          </div>
+
+          <p>{{s.siteDescription}}</p>
+          <p>{{s.primaryContact}}</p>
           <div class="box-footer">
             <button @click="isExpanded = !isExpanded">{{ isExpanded ? 'Less' : 'More' }}</button>
           </div>
