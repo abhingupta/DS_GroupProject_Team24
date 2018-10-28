@@ -13,7 +13,7 @@ var siteApp = new Vue({
 		turbine: [],
 		sensor: [],
 		siteForm: {},
-		isExpanded: false // populated by this.getEmptySiteForm()
+		toggle: true // populated by this.getEmptySiteForm()
 	},
 	computed: {
 
