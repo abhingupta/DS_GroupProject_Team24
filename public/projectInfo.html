@@ -25,8 +25,9 @@
 
         <h3>Label</h3>
         <div class="row">
-          <div class="col boxOutline" v-for="s in site" :key="s.id">
-            {{s.siteName}}
+          <div class="col placeholder" v-for="s in site" :key="s.id">
+            <h2>{{s.siteName}}</h2>
+            <p>{{s.siteDescription}}</p>
 
           </div>
 
