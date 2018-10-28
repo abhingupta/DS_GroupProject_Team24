@@ -13,6 +13,7 @@ var siteApp = new Vue({
 		turbine: [],
 		sensordeployed: [],
 		sensor: [],
+		sensorts: [],
 		siteForm: {},
 		toggle: true // populated by this.getEmptySiteForm()
 	},
@@ -74,7 +75,7 @@ var siteApp = new Vue({
 		},
 
 		gotoSensorDeployed(tid) {
-			siteApp.toggle = false;
+			// siteApp.toggle = false;
 			console.log("TurbineDeployed id:" +
 				tid);
 			fetch('api/sensorDeployed.php?sensorDeployedId=' + tid)
@@ -104,6 +105,20 @@ var siteApp = new Vue({
 			siteApp.toggle = false;
 
 
+		},
+
+		gotoSensorTimeSeries(tid) {
+			console.log("TurbineDeployed id:" +
+				tid);
+			fetch('api/sensorTimeSeries.php?sensorTimeSeriesId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.sensorts = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
 		}
 	},
 	created() {
