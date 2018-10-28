@@ -83,9 +83,9 @@ public static function getTurbineDeployedById(int $turbineDeployedId) {
    $turbineDeployedItem =  new TurbineDeployedTest($row);
    array_push($arr, $turbineDeployedItem);
  }
- var_dump($sql);
- var_dump($success);
- print_r($arr);
+ // var_dump($sql);
+ // var_dump($success);
+ // print_r($arr);
 
  // 4.b. returnthe array of work objects
  return $arr;
