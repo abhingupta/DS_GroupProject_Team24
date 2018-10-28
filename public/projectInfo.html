@@ -78,12 +78,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="c in sensor" :key="c.id" :id="'sensorDeployed-' + c.sensorId">
+            <tr v-for="c in sensor" :key="c.id" :id="'sensorDeployed-' + c.sensorId" @click="gotoSensor(c.sensorId)">
               <td>{{c.sensorDeployedId}}</td>
               <td>{{c.sensorId}}</td>
               <td>{{c.turbineDeployedId}}</td>
               <td>{{c.serialNumber}}</td>
               <td>{{c.deployedDate}}</td>
+          </tbody>
+        </table>
+        <table class=" table table-dark" border="4" id="sensorTable">
+          <thead>
+            <tr>
+              <th>sensorId</th>
+              <th>sensorName</th>
+              <th>sensorDescription</th>
+              <th>manufacturer</th>
+              <th>totalLifeExpectancyHours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="c in sensor" :key="c.id" :id="'sensor-' +  c.sensorId" @click="gotoSensorTimeSeries(c.sensorId)">
+              <td>{{c.sensorId}}</td>
+              <td>{{c.sensorName}}</td>
+              <td>{{c.sensorDescription}}</td>
+              <td>{{c.manufacturer}}</td>
+              <td>{{c.totalLifeExpectancyHours}}</td>
           </tbody>
         </table>
 
