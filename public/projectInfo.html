@@ -78,7 +78,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="c in sensor" :key="c.id" :id="'sensorDeployed-' + c.sensorId" @click="gotoSensor(c.sensorId)">
+            <tr v-for="c in sensordeployed" :key="c.id" :id="'sensorDeployed-' + c.sensorId" @click="gotoSensor(c.sensorId)">
               <td>{{c.sensorDeployedId}}</td>
               <td>{{c.sensorId}}</td>
               <td>{{c.turbineDeployedId}}</td>
