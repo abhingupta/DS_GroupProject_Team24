@@ -10,6 +10,7 @@ var siteApp = new Vue({
 			headquarter: 'foo'
 		},
 		site: [],
+		turbine: [],
 		siteForm: {},
 		isExpanded: false // populated by this.getEmptySiteForm()
 	},
@@ -59,10 +60,10 @@ var siteApp = new Vue({
 		gotoTurbineDeployed(tid) {
 			console.log("TurbineDeployed id:" +
 				tid);
-			fetch('api/site.php?siteId=' + siteId)
+			fetch('api/turbineDeployed.php?turbineDeployedId=' + siteId)
 				.then(response => response.json())
 				.then(json => {
-					siteApp.site = json
+					siteApp.turbine = json
 				})
 				.catch(err => {
 					console.error('Site FETCH ERROR:');

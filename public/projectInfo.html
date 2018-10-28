@@ -22,7 +22,7 @@
 
       <div class="container-fluid">
 
-
+        <ion-icon name="home"></ion-icon>ahasd
         <h3>Label</h3>
         <div class="row">
           <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
@@ -37,7 +37,11 @@
 
             <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
             </span>
-
+            <div class="row">
+              <div class="col placeholder" v-for="s in turbine" :key="s.id">
+                {{s.turbineDeployedId}}
+              </div>
+            </div>
           </div>
         </div>
     </main>
