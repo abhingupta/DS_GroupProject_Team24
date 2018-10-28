@@ -27,12 +27,14 @@
         <div class="row" v-for="s in site" :key="s.id">
           <div class="box">
             <h1>{{s.siteName}}</h1>
-            <b-btn v-b-toggle.collapse1 variant="primary">More Info..</b-btn>
-            <b-collapse id="collapse1" class="mt-2">
-              <b-card>
-                <p class="card-text">{{s.siteDescription}}</p>
-              </b-card>
-            </b-collapse>
+            <div>
+              <btn v-b-toggle.collapse1 variant="primary">More Info..</b-btn>
+                <b-collapse id="collapse1" class="mt-2">
+                  <b-card>
+                    <p class="card-text">{{s.siteDescription}}</p>
+                  </b-card>
+                </b-collapse>
+            </div>
           </div>
           <div class="boxOutline">
             Heart Rate
