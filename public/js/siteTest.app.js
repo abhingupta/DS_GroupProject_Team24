@@ -73,6 +73,7 @@ var siteApp = new Vue({
 		},
 
 		gotoSensorDeployed(tid) {
+			siteApp.toggle = false;
 			console.log("TurbineDeployed id:" +
 				tid);
 			fetch('api/sensorDeployed.php?sensorDeployedId=' + tid)
