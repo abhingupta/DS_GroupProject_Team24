@@ -60,7 +60,7 @@ var siteApp = new Vue({
 		gotoTurbineDeployed(tid) {
 			console.log("TurbineDeployed id:" +
 				tid);
-			fetch('api/turbineDeployed.php?turbineDeployedId=' + tid)
+			fetch('api/turbineDeployedTest.php?turbineDeployedId=' + tid)
 				.then(response => response.json())
 				.then(json => {
 					siteApp.turbine = json
