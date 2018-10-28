@@ -62,7 +62,7 @@ public static function getTurbineDeployedById(int $turbineDeployedId) {
  $sql = 'SELECT td.*,t.turbineName,t.turbineDescription,t.capacity,t.rampUpTime,t.maintenanceInterval FROM turbine t INNER JOIN turbine_deployed td ON td.turbineId=t.turbineId  WHERE td.siteId = ?';
  $statement = $db->prepare($sql);
  // 3. Run the query
- var_dump(sql);
+ var_dump($sql);
  $success = $statement->execute(
      [$turbineDeployedId]
 
