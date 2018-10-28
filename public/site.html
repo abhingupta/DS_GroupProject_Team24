@@ -44,9 +44,24 @@
       <div>
         <h2 align="center" id="siteHeader">Sites</h2>
       </div>
+      <div class="row">
+        <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
+          <h2>{{s.siteName}}</h2>
 
 
-      <table class=" table table-dark" border="4" id="siteTable">
+          <ion-icon name="contact"></ion-icon><span>Primary Contact: {{s.primaryContact}}
+          </span><br />
+
+          <ion-icon name="resize"></ion-icon><span>Capacity: {{s.capacity}}
+          </span><br />
+
+          <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
+          </span>
+
+        </div>
+      </div>
+
+      <!-- <table class=" table table-dark" border="4" id="siteTable">
         <thead>
           <tr>
             <th>siteId</th>
@@ -82,7 +97,7 @@
             <td>{{s.addrZip}}</td>
             <td>{{s.addrCountry}}</td>
         </tbody>
-      </table>
+      </table> -->
 
     </main>
 
