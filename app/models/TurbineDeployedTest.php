@@ -31,7 +31,9 @@ class TurbineDeployedTest{
     $this->turbineDescription = $row['turbineDescription'];
     $this->capacity = $row['capacity'];
     $this->rampUpTime = $row['rampUpTime'];
-    $this->maintenanceInterval = $row['maintenanceInterval'];
+    // $this->maintenanceInterval = $row['maintenanceInterval'];
+    $this->maintenanceInterval = 'hello';
+
   }
 
   public function create(){
