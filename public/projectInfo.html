@@ -39,10 +39,10 @@
             </span>
 
           </div>
-        </div>
-        <div class="row">
-          <div class="col placeholder" v-for="s in turbine" :key="s.id">
-            check: {{s.turbineDeployedId}}
+          <div class="row">
+            <div class="col placeholder" v-for="s in turbine" :key="s.id">
+              check: {{s.turbineDeployedId}}
+            </div>
           </div>
         </div>
         <table class=" table table-dark" border="4" id="turbineDeployedTable" v-for="c in turbine" :key="c.id">
