@@ -59,7 +59,15 @@ var siteApp = new Vue({
 		gotoTurbineDeployed(tid) {
 			console.log("TurbineDeployed id:" +
 				tid);
-			window.location = 'turbineDeployed.html?turbineDeployedId=' + tid;
+			fetch('api/site.php?siteId=' + siteId)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.site = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
 		}
 	},
 	created() {
