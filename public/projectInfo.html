@@ -28,14 +28,13 @@
           <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
             <h2>{{s.siteName}}</h2>
 
-            <span>Primary Contact: {{s.primaryContact}}</span><br />
+            <span>
+              <ion-icon name="contact"></ion-icon>Primary Contact: {{s.primaryContact}}
+            </span><br />
             <span>Capacity: {{s.capacity}}</span><br />
             <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}</span>
 
           </div>
-
-          <br />
-
         </div>
     </main>
 
@@ -49,7 +48,10 @@
 
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
+
     <script src="js/siteTest.app.js"></script>
+
 
   </body>
 
