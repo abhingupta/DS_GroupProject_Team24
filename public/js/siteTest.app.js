@@ -1,9 +1,3 @@
-import {
-	Collapse
-} from 'bootstrap-vue/es/components';
-
-Vue.use(Collapse);
-
 var siteApp = new Vue({
 	el: '#siteMain',
 	data: {
