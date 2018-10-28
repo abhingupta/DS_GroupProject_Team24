@@ -31,9 +31,7 @@ class TurbineDeployedTest{
     $this->turbineDescription = $row['turbineDescription'];
     $this->capacity = $row['capacity'];
     $this->rampUpTime = $row['rampUpTime'];
-    // $this->maintenanceInterval = $row['maintenanceInterval'];
-    $this->maintenanceInterval = 'hello';
-
+    $this->maintenanceInterval = $row['maintenanceInterval'];
   }
 
   public function create(){
@@ -63,6 +61,7 @@ public static function getTurbineDeployedById(int $turbineDeployedId) {
  // 2. Prepare the query
  $sql = 'SELECT td.*,t.turbineName,t.turbineDescription,t.capacity,t.rampUpTime,t.maintenanceInterval FROM turbine t INNER JOIN turbine_deployed td ON td.turbineId=t.turbineId  WHERE td.siteId = ?';
  $statement = $db->prepare($sql);
+ console.log(sql);
  // 3. Run the query
  $success = $statement->execute(
      [$turbineDeployedId]
