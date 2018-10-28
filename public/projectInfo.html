@@ -27,8 +27,11 @@
         <div class="row">
           <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
             <h2>{{s.siteName}}</h2>
-            <p>{{s.siteDescription}}</p>
-
+            <ul>
+              <li>Primary Contact: {{s.primaryContact}}</li>
+              <li>Capacity: {{s.capacity}}</li>
+              <li>Address: {{addrLine1}}, {{addrCity}}, {{addrState}}, {{addrZip}}, {{addrCountry}}</li>
+            </ul>
           </div>
 
           <br />
