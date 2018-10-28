@@ -18,56 +18,72 @@
   </head>
 
   <body>
-    <div class="container-fluid">
+    <main id="siteMain" class="container-fluid">
+
+      <div class="container-fluid">
 
 
-      <h3>Label</h3>
-      <div class="row">
-        <div class="boxOutline">
-          Output
+        <h3>Label</h3>
+        <div class="row" v-for="s in site" :key="s.id">
+          <div class="boxOutline">
+            {{s.siteId}}
+          </div>
+          <div class="boxOutline">
+            Heart Rate
+          </div>
+          <div class="boxOutline">
+            Compress Efficiency
+          </div>
         </div>
-        <div class="boxOutline">
-          Heart Rate
+        <br />
+
+        <h3>Label</h3>
+        <div class="row">
+          <div class="boxOutline">
+            Available %
+          </div>
+          <div class="boxOutline">
+            Reliability %
+          </div>
         </div>
-        <div class="boxOutline">
-          Compress Efficiency
+        </br>
+
+        <h3>Label</h3>
+        <div class="row">
+          <div class="boxOutline">
+            Fixed Hours
+          </div>
+          <div class="boxOutline">
+            Starts
+          </div>
+          <div class="boxOutline">
+            Trips
+          </div>
+        </div>
+        </br>
+
+        <h3>Label</h3>
+        <div class="row">
+          <div class="boxOutline">
+            This will be notes about the turbine
+          </div>
+
         </div>
       </div>
-      <br />
+    </main>
 
-      <h3>Label</h3>
-      <div class="row">
-        <div class="boxOutline">
-          Available %
-        </div>
-        <div class="boxOutline">
-          Reliability %
-        </div>
-      </div>
-      </br>
+    <!-- We need Bootstrap's modal JS, thus we also need jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-      <h3>Label</h3>
-      <div class="row">
-        <div class="boxOutline">
-          Fixed Hours
-        </div>
-        <div class="boxOutline">
-          Starts
-        </div>
-        <div class="boxOutline">
-          Trips
-        </div>
-      </div>
-      </br>
+    <!-- moment.js via CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
-      <h3>Label</h3>
-      <div class="row">
-        <div class="boxOutline">
-          This will be notes about the turbine
-        </div>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/site.app.js"></script>
 
-      </div>
-    </div>
   </body>
 
 </html>
