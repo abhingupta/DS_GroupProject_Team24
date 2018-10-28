@@ -102,13 +102,14 @@ th[role=columnheader]:not(.no-sort):hover:after {
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px;
+  color: white;
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: black;
+  background-color: white;
   color: #fff;
   text-align: center;
   border-radius: 6px;
