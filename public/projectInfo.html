@@ -128,7 +128,9 @@
           <tbody>
             <tr v-for="c in sensor" :key="c.id" :id="'sensor-' +  c.sensorId" @click="gotoSensorTimeSeries(c.sensorId)">
               <td>{{c.sensorId}}</td>
-              <td> <a href="#" data-toggle="tooltip" title="Hooray!">{{c.sensorName}}</a>
+              <td class="tooltip"> {{c.sensorName}}
+                <span class="tooltiptext">{{c.sensorDescription}}</span>
+
               </td>
               <td>{{c.sensorDescription}}</td>
               <td>{{c.manufacturer}}</td>
