@@ -1,6 +1,6 @@
 <?php
 
-class TurbineDeployed{
+class TurbineDeployedTest{
   public $turbineDeployedId;
   public $turbineId;
   public $siteId;
