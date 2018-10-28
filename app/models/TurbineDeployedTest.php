@@ -62,7 +62,6 @@ public static function getTurbineDeployedById(int $turbineDeployedId) {
  $sql = 'SELECT td.*,t.turbineName,t.turbineDescription,t.capacity,t.rampUpTime,t.maintenanceInterval FROM turbine t INNER JOIN turbine_deployed td ON td.turbineId=t.turbineId  WHERE td.siteId = ?';
  $statement = $db->prepare($sql);
  // 3. Run the query
- var_dump($sql);
  $success = $statement->execute(
      [$turbineDeployedId]
 
@@ -81,10 +80,10 @@ public static function getTurbineDeployedById(int $turbineDeployedId) {
  $arr = [];
  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
    // 4.a. For each row, make a new work object
-   $turbineDeployedItem =  new TurbineDeployed($row);
+   $turbineDeployedItem =  new TurbineDeployedTest($row);
    array_push($arr, $turbineDeployedItem);
  }
- // 4.b. return the array of work objects
+ // 4.b. returnthe array of work objects
  return $arr;
 }
 }
