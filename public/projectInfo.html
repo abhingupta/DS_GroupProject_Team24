@@ -96,6 +96,17 @@
 
           </tbody>
         </table>
+
+        <div class="row">
+          <div class="col placeholder" v-for="s in senseall" :key="s.id" :id="'site-' + s.sensorId">
+            <h2>{{s.sensorName}}</h2>
+
+
+            <ion-icon name="date"></ion-icon><span>Deployed Date: {{s.deployedDate}}
+            </span><br />
+
+          </div>
+        </div><br />
         <table class=" table table-dark" border="4" id="sensorDeployedTable">
           <thead>
             <tr>

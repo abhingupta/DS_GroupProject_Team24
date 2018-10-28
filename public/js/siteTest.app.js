@@ -14,6 +14,7 @@ var siteApp = new Vue({
 		sensordeployed: [],
 		sensor: [],
 		sensorts: [],
+		senseall: [],
 		siteForm: {},
 		toggle: true // populated by this.getEmptySiteForm()
 	},
@@ -78,10 +79,10 @@ var siteApp = new Vue({
 			// siteApp.toggle = false;
 			console.log("TurbineDeployed id:" +
 				tid);
-			fetch('api/sensorDeployed.php?sensorDeployedId=' + tid)
+			fetch('api/sensorDeployedTest.php?sensorDeployedId=' + tid)
 				.then(response => response.json())
 				.then(json => {
-					siteApp.sensordeployed = json
+					siteApp.senseall = json
 				})
 				.catch(err => {
 					console.error('Site FETCH ERROR:');
