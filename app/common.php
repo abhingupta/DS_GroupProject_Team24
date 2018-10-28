@@ -18,6 +18,8 @@ require 'models/Turbine.php';
 
 // require 'models/Turbine.php';
 require 'models/TurbineDeployed.php';
+require 'models/TurbineDeployedTest.php';
+
 require 'models/SensorDeployed.php';
 require 'models/SensorTimeSeries.php';
 

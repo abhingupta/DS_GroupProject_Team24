@@ -49,7 +49,7 @@ public static function getTurbineDeployedById(int $turbineDeployedId) {
  // 1. Connect to the database
  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
  // 2. Prepare the query
- $sql = 'SELECT td.*,t.* FROM turbine t INNER JOIN turbine_deployed td ON td.turbineId=t.turbineId  WHERE siteId = ?';
+ $sql = 'SELECT td.*,t.* FROM turbine t INNER JOIN turbine_deployed td ON td.turbineId=t.turbineId  WHERE td.siteId = ?';
  $statement = $db->prepare($sql);
  // 3. Run the query
  $success = $statement->execute(
