@@ -69,6 +69,7 @@ INNER JOIN sensor_deployed sd
 ON sd.sensorDeployedId = st.sensorDeployedId
 INNER JOIN sensor s
 ON s.sensorId =sd.sensorId
+WHERE sd.turbineDeployedId = ?
 GROUP BY st.sensorDeployedId,s.sensorName
 ';
      $statement = $db->prepare($sql);
