@@ -4,12 +4,18 @@
   /* color: rgb(113, 173, 234); */
   color: white;
   text-align: center;
+  opacity: 0.8;
 }
 
 .boxOutline {
   border: 2px solid white;
   background-color: rgb(34, 37, 41);
   color: white;
+  opacity: 0.8;
+}
+
+table {
+  opacity: 0.8;
 }
 
 section {
