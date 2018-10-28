@@ -37,11 +37,11 @@
 
             <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
             </span>
-            <!-- <div class="row">
+            <div class="row">
               <div class="col placeholder" v-for="s in turbine" :key="s.id">
-                {{s.turbineDeployedId}}
+                check: {{s.turbineDeployedId}}
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
         <table class=" table table-dark" border="4" id="turbineDeployedTable" v-for="c in turbine" :key="c.id">
