@@ -90,7 +90,6 @@ var siteApp = new Vue({
 		},
 
 		gotoSensor(tid) {
-			siteApp.toggle = false;
 			console.log("TurbineDeployed id:" +
 				tid);
 			fetch('api/sensor.php?sensorId=' + tid)
@@ -102,6 +101,8 @@ var siteApp = new Vue({
 					console.error('Site FETCH ERROR:');
 					console.error(err);
 				})
+			siteApp.toggle = false;
+
 
 		}
 	},
