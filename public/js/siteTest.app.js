@@ -189,6 +189,8 @@ var siteApp = new Vue({
 					console.error('Site FETCH ERROR:');
 					console.error(err);
 				})
+			this.buildEffortChart();
+
 		}
 	},
 	created() {
