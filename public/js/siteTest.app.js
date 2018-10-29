@@ -74,8 +74,8 @@ var siteApp = new Vue({
 					console.error(err);
 				})
 		},
-		buildEffortChart() {
-			Highcharts.chart('effortCharts', {
+		buildOutputChart() {
+			Highcharts.chart('outputCharts', {
 				title: {
 					text: 'Cumulative efforts'
 				},
@@ -148,7 +148,7 @@ var siteApp = new Vue({
 					console.error('Site FETCH ERROR:');
 					console.error(err);
 				})
-			this.buildEffortChart();
+			// this.buildEffortChart();
 
 
 		},
@@ -165,7 +165,7 @@ var siteApp = new Vue({
 					console.error('Site FETCH ERROR:');
 					console.error(err);
 				})
-			this.buildEffortChart();
+			// this.buildEffortChart();
 
 		},
 
@@ -199,7 +199,7 @@ var siteApp = new Vue({
 					console.error(err);
 				})
 			this.formatWorkHours();
-			this.buildEffortChart();
+			this.buildOutputChart();
 
 		}
 	},
