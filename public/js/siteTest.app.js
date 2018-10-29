@@ -77,7 +77,7 @@ var siteApp = new Vue({
 		buildEffortChart() {
 			Highcharts.chart('effortCharts', {
 				title: {
-					text: 'Cumulative efforts'
+					text: 'Output over time'
 				},
 
 				xAxis: {
@@ -85,7 +85,7 @@ var siteApp = new Vue({
 				},
 				yAxis: {
 					title: {
-						text: 'Hours'
+						text: 'date'
 					}
 				},
 				legend: {
@@ -120,7 +120,7 @@ var siteApp = new Vue({
 
 				series: [{
 					type: 'area',
-					name: 'Effort(hrs)',
+					name: 'Output over time',
 					data: //needs to be [[date1, val1],[date2,val2]]
 						this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
 				}]
