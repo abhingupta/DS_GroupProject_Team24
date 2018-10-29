@@ -122,8 +122,7 @@ var siteApp = new Vue({
 					type: 'area',
 					name: 'Effort(hrs)',
 					data: //needs to be [[date1, val1],[date2,val2]]
-						this.sensorts
-					// .map(entry => [entry.dataCollectedDate, entry.output])
+						this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
 				}]
 			});
 		},
