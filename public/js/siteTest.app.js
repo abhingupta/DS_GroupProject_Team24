@@ -140,6 +140,9 @@ var siteApp = new Vue({
 					console.error(err);
 				})
 
+			this.buildEffortChart();
+
+
 		},
 		gotoSensorDeployed(tid) {
 			// siteApp.toggle = false;
