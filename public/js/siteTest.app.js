@@ -74,7 +74,58 @@ var siteApp = new Vue({
 					console.error(err);
 				})
 		},
+		buildEffortChart() {
+			Highcharts.chart('effortCharts', {
+				title: {
+					text: 'Cumulative efforts'
+				},
 
+				xAxis: {
+					type: 'datetime'
+				},
+				yAxis: {
+					title: {
+						text: 'Hours'
+					}
+				},
+				legend: {
+					enabled: true
+				},
+				plotOptions: {
+					area: {
+						fillColor: {
+							linearGradient: {
+								x1: 0,
+								y1: 0,
+								x2: 0,
+								y2: 1
+							},
+							stops: [
+								[0, Highcharts.getOptions().colors[0]],
+								[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+							]
+						},
+						marker: {
+							radius: 2
+						},
+						lineWidth: 1,
+						states: {
+							hover: {
+								lineWidth: 1
+							}
+						},
+						threshold: null
+					}
+				},
+
+				series: [{
+					type: 'area',
+					name: 'Effort(hrs)',
+					data: //needs to be [[date1, val1],[date2,val2]]
+						this.senseall.map(entry => [entry.deployedDate, entry.avgOutput])
+				}]
+			});
+		},
 		gotoSensorDeployed1(tid) {
 			// siteApp.toggle = false;
 			console.log("TurbineDeployed id:" +
