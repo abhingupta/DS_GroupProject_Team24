@@ -126,6 +126,15 @@ var siteApp = new Vue({
 				}]
 			});
 		},
+
+		formatWorkHours() {
+			this.sensorts.forEach(
+				function (entry) {
+					entry.dataCollectedDate = Date.parse(entry.dataCollectedDate);
+				}
+			);
+			console.log(this.workHours);
+		},
 		gotoSensorDeployed1(tid) {
 			// siteApp.toggle = false;
 			console.log("TurbineDeployed id:" +
@@ -189,6 +198,7 @@ var siteApp = new Vue({
 					console.error('Site FETCH ERROR:');
 					console.error(err);
 				})
+			this.formatWorkHours();
 			this.buildEffortChart();
 
 		}
