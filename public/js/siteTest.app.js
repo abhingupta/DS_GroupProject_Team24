@@ -122,7 +122,7 @@ var siteApp = new Vue({
 					type: 'area',
 					name: 'Effort(hrs)',
 					data: //needs to be [[date1, val1],[date2,val2]]
-						this.senseall.map(entry => [entry.deployedDate, entry.avgOutput])
+						this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
 				}]
 			});
 		},
