@@ -416,7 +416,7 @@ var siteApp = new Vue({
 
 				},
 				tooltip: {
-					pointFormat: '{series.data}'
+					// pointFormat: '{series.data}'
 				},
 				plotOptions: {
 					area: {
