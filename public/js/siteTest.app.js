@@ -402,8 +402,14 @@ var siteApp = new Vue({
 
 				},
 				yAxis: {
-					mins: 90,
+					min: 95,
+
 					title: {
+						style: {
+							// fontFamily: 'monospace',
+							color: '#ffffff',
+							fontWeight: 'bold'
+						},
 						text: ''
 					}
 
