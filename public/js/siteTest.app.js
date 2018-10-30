@@ -444,174 +444,172 @@ var siteApp = new Vue({
 			});
 		},
 
-		renderIcons() {
 
-			// Move icon
-			if (!this.series[0].icon) {
-				this.series[0].icon = this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8])
-					.attr({
-						'stroke': '#303030',
-						'stroke-linecap': 'round',
-						'stroke-linejoin': 'round',
-						'stroke-width': 2,
-						'zIndex': 10
-					})
-					.add(this.series[2].group);
-			}
-			this.series[0].icon.translate(
-				this.chartWidth / 2 - 10,
-				this.plotHeight / 2 - this.series[0].points[0].shapeArgs.innerR -
-				(this.series[0].points[0].shapeArgs.r - this.series[0].points[0].shapeArgs.innerR) / 2
-			);
-
-			// Exercise icon
-			if (!this.series[1].icon) {
-				this.series[1].icon = this.renderer.path(
-						['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8,
-							'M', 8, -8, 'L', 16, 0, 8, 8
-						]
-					)
-					.attr({
-						'stroke': '#ffffff',
-						'stroke-linecap': 'round',
-						'stroke-linejoin': 'round',
-						'stroke-width': 2,
-						'zIndex': 10
-					})
-					.add(this.series[2].group);
-			}
-			this.series[1].icon.translate(
-				this.chartWidth / 2 - 10,
-				this.plotHeight / 2 - this.series[1].points[0].shapeArgs.innerR -
-				(this.series[1].points[0].shapeArgs.r - this.series[1].points[0].shapeArgs.innerR) / 2
-			);
-
-			// Stand icon
-			if (!this.series[2].icon) {
-				this.series[2].icon = this.renderer.path(['M', 0, 8, 'L', 0, -8, 'M', -8, 0, 'L', 0, -8, 8, 0])
-					.attr({
-						'stroke': '#303030',
-						'stroke-linecap': 'round',
-						'stroke-linejoin': 'round',
-						'stroke-width': 2,
-						'zIndex': 10
-					})
-					.add(this.series[2].group);
-			}
-
-			this.series[2].icon.translate(
-				this.chartWidth / 2 - 10,
-				this.plotHeight / 2 - this.series[2].points[0].shapeArgs.innerR -
-				(this.series[2].points[0].shapeArgs.r - this.series[2].points[0].shapeArgs.innerR) / 2
-			);
-		},
 		buildAverageChart() {
 
+			/*
+			The purpose of this demo is to demonstrate how multiple charts on the same page
+			can be linked through DOM and Highcharts events and API methods. It takes a
+			standard Highcharts config with a small variation for each data set, and a
+			mouse/touch event handler to bind the charts together.
+			*/
 
-			Highcharts.chart('averageCharts', {
 
-				chart: {
-					type: 'solidgauge',
-					height: '110%',
-					events: {
-						render: renderIcons()
+
+			/**
+			 * In order to synchronize tooltips and crosshairs, override the
+			 * built-in events with handlers defined on the parent element.
+			 */
+			['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
+				document.getElementById('syncCharts').addEventListener(
+					eventType,
+					function (e) {
+						var chart,
+							point,
+							i,
+							event;
+
+						for (i = 0; i < Highcharts.charts.length; i = i + 1) {
+							chart = Highcharts.charts[i];
+							// Find coordinates within the chart
+							event = chart.pointer.normalize(e);
+							// Get the hovered point
+							point = chart.series[0].searchPoint(event, true);
+
+							if (point) {
+								point.highlight(e);
+							}
+						}
 					}
-				},
-
-				title: {
-					text: 'Activity',
-					style: {
-						fontSize: '24px'
-					}
-				},
-
-				tooltip: {
-					borderWidth: 0,
-					backgroundColor: 'none',
-					shadow: false,
-					style: {
-						fontSize: '16px'
-					},
-					pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
-					positioner: function (labelWidth) {
-						return {
-							x: (this.chart.chartWidth - labelWidth) / 2,
-							y: (this.chart.plotHeight / 2) + 15
-						};
-					}
-				},
-
-				pane: {
-					startAngle: 0,
-					endAngle: 360,
-					background: [{ // Track for Move
-						outerRadius: '112%',
-						innerRadius: '88%',
-						backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0])
-							.setOpacity(0.3)
-							.get(),
-						borderWidth: 0
-					}, { // Track for Exercise
-						outerRadius: '87%',
-						innerRadius: '63%',
-						backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1])
-							.setOpacity(0.3)
-							.get(),
-						borderWidth: 0
-					}, { // Track for Stand
-						outerRadius: '62%',
-						innerRadius: '38%',
-						backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2])
-							.setOpacity(0.3)
-							.get(),
-						borderWidth: 0
-					}]
-				},
-
-				yAxis: {
-					min: 0,
-					max: 100,
-					lineWidth: 0,
-					tickPositions: []
-				},
-
-				plotOptions: {
-					solidgauge: {
-						dataLabels: {
-							enabled: false
-						},
-						linecap: 'round',
-						stickyTracking: false,
-						rounded: true
-					}
-				},
-
-				series: [{
-					name: 'Move',
-					data: [{
-						color: Highcharts.getOptions().colors[0],
-						radius: '112%',
-						innerRadius: '88%',
-						y: 80
-					}]
-				}, {
-					name: 'Exercise',
-					data: [{
-						color: Highcharts.getOptions().colors[1],
-						radius: '87%',
-						innerRadius: '63%',
-						y: 65
-					}]
-				}, {
-					name: 'Stand',
-					data: [{
-						color: Highcharts.getOptions().colors[2],
-						radius: '62%',
-						innerRadius: '38%',
-						y: 100
-					}]
-				}]
+				);
 			});
+
+			/**
+			 * Override the reset function, we don't need to hide the tooltips and
+			 * crosshairs.
+			 */
+			Highcharts.Pointer.prototype.reset = function () {
+				return undefined;
+			};
+
+			/**
+			 * Highlight a point by showing tooltip, setting hover state and draw crosshair
+			 */
+			Highcharts.Point.prototype.highlight = function (event) {
+				event = this.series.chart.pointer.normalize(event);
+				this.onMouseOver(); // Show the hover marker
+				this.series.chart.tooltip.refresh(this); // Show the tooltip
+				this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
+			};
+
+			/**
+			 * Synchronize zooming through the setExtremes event handler.
+			 */
+			function syncExtremes(e) {
+				var thisChart = this.chart;
+
+				if (e.trigger !== 'syncExtremes') { // Prevent feedback loop
+					Highcharts.each(Highcharts.charts, function (chart) {
+						if (chart !== thisChart) {
+							if (chart.xAxis[0].setExtremes) { // It is null while updating
+								chart.xAxis[0].setExtremes(
+									e.min,
+									e.max,
+									undefined,
+									false, {
+										trigger: 'syncExtremes'
+									}
+								);
+							}
+						}
+					});
+				}
+			}
+
+			// Get the data. The contents of the data file can be viewed at
+			Highcharts.ajax({
+				url: 'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/activity.json',
+				dataType: 'text',
+				success: function (activity) {
+
+					activity = JSON.parse(activity);
+					activity.datasets.forEach(function (dataset, i) {
+
+						// Add X values
+						dataset.data = Highcharts.map(dataset.data, function (val, j) {
+							return [activity.xData[j], val];
+						});
+
+						var chartDiv = document.createElement('div');
+						chartDiv.className = 'chart';
+						document.getElementById('container').appendChild(chartDiv);
+
+						Highcharts.chart(chartDiv, {
+							chart: {
+								marginLeft: 40, // Keep all charts left aligned
+								spacingTop: 20,
+								spacingBottom: 20
+							},
+							title: {
+								text: dataset.name,
+								align: 'left',
+								margin: 0,
+								x: 30
+							},
+							credits: {
+								enabled: false
+							},
+							legend: {
+								enabled: false
+							},
+							xAxis: {
+								crosshair: true,
+								events: {
+									setExtremes: syncExtremes
+								},
+								labels: {
+									format: '{value} km'
+								}
+							},
+							yAxis: {
+								title: {
+									text: null
+								}
+							},
+							tooltip: {
+								positioner: function () {
+									return {
+										// right aligned
+										x: this.chart.chartWidth - this.label.width,
+										y: 10 // align to title
+									};
+								},
+								borderWidth: 0,
+								backgroundColor: 'none',
+								pointFormat: '{point.y}',
+								headerFormat: '',
+								shadow: false,
+								style: {
+									fontSize: '18px'
+								},
+								valueDecimals: dataset.valueDecimals
+							},
+							series: [{
+								data: dataset.data,
+								name: dataset.name,
+								type: dataset.type,
+								color: Highcharts.getOptions().colors[i],
+								fillOpacity: 0.3,
+								tooltip: {
+									valueSuffix: ' ' + dataset.unit
+								}
+							}]
+						});
+					});
+				}
+			});
+
+
 		},
 
 		formatWorkHours() {
