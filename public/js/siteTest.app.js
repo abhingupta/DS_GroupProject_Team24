@@ -129,7 +129,7 @@ var siteApp = new Vue({
 		buildHeatrateChart() {
 			Highcharts.chart('heatrateCharts', {
 				title: {
-					text: 'Output Chart'
+					text: 'Heatrate Chart'
 				},
 
 				xAxis: {
@@ -137,7 +137,7 @@ var siteApp = new Vue({
 				},
 				yAxis: {
 					title: {
-						text: 'Output'
+						text: 'Heatrate'
 					}
 				},
 				legend: {
