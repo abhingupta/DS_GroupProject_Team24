@@ -529,8 +529,8 @@ var siteApp = new Vue({
 			// this.renderIcons();
 
 			this.buildReliabilityChart();
-			this.buildHybridChart();
-			this.buildSyncChart();
+			// this.buildHybridChart();
+			// this.buildSyncChart();
 			// siteApp.toggle = false;
 		}
 	},
