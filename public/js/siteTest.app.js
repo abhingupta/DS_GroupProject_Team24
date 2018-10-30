@@ -391,7 +391,7 @@ var siteApp = new Vue({
 
 				chart: {
 					backgroundColor: 'transparent',
-					type: 'area'
+					type: 'line'
 				},
 				title: {
 					style: {
