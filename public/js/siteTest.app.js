@@ -529,7 +529,7 @@ var siteApp = new Vue({
 			// this.renderIcons();
 
 			this.buildReliabilityChart();
-			// this.buildHybridChart();
+			this.buildHybridChart();
 			// this.buildSyncChart();
 			// siteApp.toggle = false;
 		}
