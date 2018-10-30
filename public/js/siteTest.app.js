@@ -388,7 +388,9 @@ var siteApp = new Vue({
 
 		buildHybridChart() {
 			Highcharts.chart('hybridCharts', {
+
 				chart: {
+					backgroundColor: 'transparent',
 					type: 'area'
 				},
 				title: {
@@ -396,6 +398,7 @@ var siteApp = new Vue({
 				},
 
 				xAxis: {
+					type: 'datetime',
 					allowDecimals: true,
 					labels: {
 						formatter: function () {
@@ -406,12 +409,8 @@ var siteApp = new Vue({
 				yAxis: {
 					title: {
 						text: ''
-					},
-					labels: {
-						formatter: function () {
-							return this.value / 1000 + 'k';
-						}
 					}
+
 				},
 				tooltip: {
 					pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
