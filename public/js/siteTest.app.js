@@ -77,7 +77,7 @@ var siteApp = new Vue({
 		buildOutputChart() {
 			Highcharts.chart('outputCharts', {
 				title: {
-					text: 'Cumulative efforts'
+					text: 'Output Chart'
 				},
 
 				xAxis: {
@@ -85,7 +85,7 @@ var siteApp = new Vue({
 				},
 				yAxis: {
 					title: {
-						text: 'Hours'
+						text: 'Output'
 					}
 				},
 				legend: {
@@ -120,7 +120,7 @@ var siteApp = new Vue({
 
 				series: [{
 					type: 'area',
-					name: 'Effort(hrs)',
+					name: 'Output(day)',
 					data: //needs to be [[date1, val1],[date2,val2]]
 						this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
 				}]
@@ -200,7 +200,7 @@ var siteApp = new Vue({
 				})
 			this.formatWorkHours();
 			this.buildOutputChart();
-			siteApp.toggle = false;
+			// siteApp.toggle = false;
 		}
 	},
 	created() {
