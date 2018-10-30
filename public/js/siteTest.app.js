@@ -85,10 +85,11 @@ var siteApp = new Vue({
 
 					style: {
 						// fontFamily: 'monospace',
-						color: 'ffffff'
+						color: 'ffffff',
+						fontWeight: 'bold'
 					},
 					text: 'Output Chart',
-					color: 'white'
+					// color: 'white'
 				},
 
 				xAxis: {
@@ -143,6 +144,11 @@ var siteApp = new Vue({
 					backgroundColor: 'transparent'
 				},
 				title: {
+					style: {
+						// fontFamily: 'monospace',
+						color: 'ffffff',
+						fontWeight: 'bold'
+					},
 					text: 'Heatrate Chart'
 				},
 
@@ -199,6 +205,11 @@ var siteApp = new Vue({
 					backgroundColor: 'transparent'
 				},
 				title: {
+					style: {
+						// fontFamily: 'monospace',
+						color: 'ffffff',
+						fontWeight: 'bold'
+					},
 					text: 'Compressor Efficiency Chart'
 				},
 
@@ -257,6 +268,11 @@ var siteApp = new Vue({
 					backgroundColor: 'transparent'
 				},
 				title: {
+					style: {
+						// fontFamily: 'monospace',
+						color: 'ffffff',
+						fontWeight: 'bold'
+					},
 					text: 'Compressor Efficiency Chart'
 				},
 
@@ -314,6 +330,11 @@ var siteApp = new Vue({
 					backgroundColor: 'transparent'
 				},
 				title: {
+					style: {
+						// fontFamily: 'monospace',
+						color: 'ffffff',
+						fontWeight: 'bold'
+					},
 					text: 'Reliability Chart'
 				},
 
