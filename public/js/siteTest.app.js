@@ -227,7 +227,7 @@ var siteApp = new Vue({
 					type: 'area',
 					name: 'Compressor Efficiency(day)',
 					data: //needs to be [[date1, val1],[date2,val2]]
-						this.sensorts.map(entry => [entry.dataCollectedDate, entry.heatRate])
+						this.sensorts.map(entry => [entry.dataCollectedDate, entry.compressorEfficiency])
 				}]
 			});
 		},
