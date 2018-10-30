@@ -80,7 +80,8 @@ var siteApp = new Vue({
 					backgroundColor: 'transparent'
 				},
 				title: {
-					text: 'Output Chart'
+					text: 'Output Chart',
+					color: 'white'
 				},
 
 				xAxis: {
