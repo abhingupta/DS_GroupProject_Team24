@@ -294,7 +294,7 @@ var siteApp = new Vue({
 			);
 		},
 
-		buildCompressorChart() {
+		buildAvalibilityChart() {
 			Highcharts.chart('availabilityCharts', {
 
 				chart: {
@@ -478,6 +478,7 @@ var siteApp = new Vue({
 			this.buildOutputChart();
 			this.buildHeatrateChart();
 			this.buildCompressorChart();
+			this.buildAvalibilityChart();
 			// siteApp.toggle = false;
 		}
 	},
