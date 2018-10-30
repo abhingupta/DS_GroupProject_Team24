@@ -439,6 +439,7 @@ var siteApp = new Vue({
 			this.buildHeatrateChart();
 			this.buildCompressorChart();
 			this.buildAvalibilityChart();
+			this.buildReliabilityChart();
 			// siteApp.toggle = false;
 		}
 	},
