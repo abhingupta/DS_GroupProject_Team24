@@ -85,7 +85,7 @@ var siteApp = new Vue({
 
 					style: {
 						// fontFamily: 'monospace',
-						color: 'ffffff',
+						color: '#ffffff',
 						fontWeight: 'bold'
 					},
 					text: 'Output Chart',
@@ -146,7 +146,7 @@ var siteApp = new Vue({
 				title: {
 					style: {
 						// fontFamily: 'monospace',
-						color: 'ffffff',
+						color: '#ffffff',
 						fontWeight: 'bold'
 					},
 					text: 'Heatrate Chart'
@@ -207,7 +207,7 @@ var siteApp = new Vue({
 				title: {
 					style: {
 						// fontFamily: 'monospace',
-						color: 'ffffff',
+						color: '#ffffff',
 						fontWeight: 'bold'
 					},
 					text: 'Compressor Efficiency Chart'
@@ -270,10 +270,10 @@ var siteApp = new Vue({
 				title: {
 					style: {
 						// fontFamily: 'monospace',
-						color: 'ffffff',
+						color: '#ffffff',
 						fontWeight: 'bold'
 					},
-					text: 'Compressor Efficiency Chart'
+					text: 'Availability Chart'
 				},
 
 				xAxis: {
@@ -281,7 +281,7 @@ var siteApp = new Vue({
 				},
 				yAxis: {
 					title: {
-						text: 'Compressor Efficiency'
+						text: 'Availability'
 					}
 				},
 				legend: {
@@ -316,7 +316,7 @@ var siteApp = new Vue({
 
 				series: [{
 					type: 'area',
-					name: 'Compressor Efficiency(day)',
+					name: 'Availability(day)',
 					data: //needs to be [[date1, val1],[date2,val2]]
 						this.sensorts.map(entry => [entry.dataCollectedDate, entry.availability])
 				}]
@@ -332,7 +332,7 @@ var siteApp = new Vue({
 				title: {
 					style: {
 						// fontFamily: 'monospace',
-						color: 'ffffff',
+						color: '#ffffff',
 						fontWeight: 'bold'
 					},
 					text: 'Reliability Chart'
