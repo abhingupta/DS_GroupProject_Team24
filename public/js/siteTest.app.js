@@ -391,7 +391,7 @@ var siteApp = new Vue({
 
 				chart: {
 					backgroundColor: 'transparent',
-					type: 'line'
+					type: 'area'
 				},
 				title: {
 					style: {
@@ -416,7 +416,7 @@ var siteApp = new Vue({
 
 				},
 				tooltip: {
-					// pointFormat: '{series.data}'
+					pointFormat: '{series.data}'
 				},
 				plotOptions: {
 					area: {
