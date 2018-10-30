@@ -478,6 +478,7 @@ var siteApp = new Vue({
 			this.buildOutputChart();
 			this.buildHeatrateChart();
 			this.buildCompressorChart();
+			this.renderIcons();
 			this.buildAvalibilityChart();
 			// siteApp.toggle = false;
 		}
