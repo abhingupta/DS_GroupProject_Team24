@@ -111,7 +111,7 @@
 
           </tbody>
         </table>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col placeholder" v-for="c in turbine" :key="c.id" @click="gotoSensorDeployed1(c.turbineDeployedId)" v-show='toggle'>
             <h2>{{c.turbineName}}</h2><br />
 
@@ -123,7 +123,7 @@
             {{c.maintenanceInterval}} <br />
 
           </div>
-        </div><br />
+        </div><br /> -->
         <div class="row">
           <div class="col placeholder" v-for="s in senseall" :key="s.id" :id="'senseall-' + s.sensorId" @click="gotoSensorTimeSeries(s.sensorId)">
             <h2>{{s.sensorName}}</h2>
