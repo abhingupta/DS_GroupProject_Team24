@@ -77,7 +77,7 @@ var siteApp = new Vue({
 		buildOutputChart() {
 			Highcharts.chart('outputCharts', {
 				chart: {
-					backgroundColor: '#FCFFC5'
+					backgroundColor: 'transparent'
 				},
 				title: {
 					text: 'Output Chart'
