@@ -64,7 +64,7 @@ class SensorTimeSeries{
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT st.* FROM sensorTimeSeries st INNER JOIN sensor_deployed sd ON sd.sensorDeployedId=st.sensorDeployedId INNER JOIN sensor s ON s.sensorId = sd.sensorId WHERE s.sensorId = ?';
+    $sql = 'SELECT st.* FROM sensorTimeSeries st INNER JOIN sensor_deployed sd ON sd.sensorDeployedId=st.sensorDeployedId INNER JOIN sensor s ON s.sensorId = sd.sensorId WHERE s.sensorId = ? ORDER BY dataCollectedDate ASC';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute([$sensorTimeSeriesId]);
