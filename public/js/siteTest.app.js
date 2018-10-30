@@ -343,7 +343,7 @@ var siteApp = new Vue({
 				},
 				yAxis: {
 					title: {
-						text: 'Reliability Efficiency'
+						text: 'Reliability '
 					}
 				},
 				legend: {
@@ -394,6 +394,11 @@ var siteApp = new Vue({
 					type: 'area'
 				},
 				title: {
+					style: {
+						// fontFamily: 'monospace',
+						color: '#ffffff',
+						fontWeight: 'bold'
+					},
 					text: 'Availability and Reliability'
 				},
 
@@ -405,11 +410,7 @@ var siteApp = new Vue({
 					min: 95,
 
 					title: {
-						style: {
-							// fontFamily: 'monospace',
-							color: '#ffffff',
-							fontWeight: 'bold'
-						},
+
 						text: ''
 					}
 
@@ -436,6 +437,7 @@ var siteApp = new Vue({
 					data: this.sensorts.map(entry => [entry.dataCollectedDate, entry.availability])
 				}, {
 					name: 'Reliability',
+					color: '#FF0000',
 					data: this.sensorts.map(entry => [entry.dataCollectedDate, entry.reliability])
 				}]
 			});
