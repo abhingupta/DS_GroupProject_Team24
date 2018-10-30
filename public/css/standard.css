@@ -7,6 +7,17 @@
   opacity: 0.8;
 }
 
+.graph {
+  background-color: rgb(39, 42, 45);
+  border: 1px solid white;
+  /* color: rgb(113, 173, 234); */
+  color: white;
+  text-align: center;
+  opacity: 0.8;
+  height: 50px;
+  width: 50px;
+}
+
 .boxOutline {
   border: 2px solid white;
   background-color: rgb(34, 37, 41);
