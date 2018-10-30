@@ -386,6 +386,60 @@ var siteApp = new Vue({
 
 		},
 
+		buildHybridChart() {
+			Highcharts.chart('hybridCharts', {
+				chart: {
+					type: 'area'
+				},
+				title: {
+					text: 'Availability and Reliability'
+				},
+
+				xAxis: {
+					allowDecimals: true,
+					labels: {
+						formatter: function () {
+							return this.value; // clean, unformatted number for year
+						}
+					}
+				},
+				yAxis: {
+					title: {
+						text: ''
+					},
+					labels: {
+						formatter: function () {
+							return this.value / 1000 + 'k';
+						}
+					}
+				},
+				tooltip: {
+					pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+				},
+				plotOptions: {
+					area: {
+						marker: {
+							enabled: false,
+							symbol: 'circle',
+							radius: 2,
+							states: {
+								hover: {
+									enabled: true
+								}
+							}
+						}
+					}
+				},
+				series: [{
+					name: 'Availability',
+					data: this.sensorts.map(entry => [entry.availability])
+				}, {
+					name: 'Reliability',
+					data: this.sensorts.map(entry => [entry.reliability])
+				}]
+			});
+		},
+
 		formatWorkHours() {
 			this.sensorts.forEach(
 				function (entry) {
