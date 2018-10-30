@@ -200,7 +200,7 @@ var siteApp = new Vue({
 				})
 			this.formatWorkHours();
 			this.buildOutputChart();
-
+			siteApp.toggle = false;
 		}
 	},
 	created() {

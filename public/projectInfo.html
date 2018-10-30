@@ -22,7 +22,9 @@
 
       <div class="container-fluid">
 
-        <table class=" table table-dark" border="4" id="sensorTimeSeriesTable">
+        <!-- sensor time series data displays here -->
+
+        <!-- <table class=" table table-dark" border="4" id="sensorTimeSeriesTable">
           <thead>
             <tr>
               <th>sensorTimeSeriesId</th>
@@ -38,7 +40,7 @@
             </tr>
           </thead>
           <tbody v-for="c in sensorts" :key="c.id">
-            <!-- <tr v-for="c in sensorTimeSeries" :key="c.id" :id="'sensorTimeSeries-' + sensorTimeSeries.id" v-bind:class=" sensorTimeSeries.current_sprint ?  'current_sprint': '' " @click="gotoSensorTimeSeries(sensorTimeSeries.id)"> -->
+
             <td>{{c.sensorTimeSeriesId}}</td>
             <td>{{c.sensorDeployedId}}</td>
             <td>{{c.dataCollectedDate}}</td>
@@ -50,7 +52,7 @@
             <td>{{c.trips}}</td>
             <td>{{c.starts}}</td>
           </tbody>
-        </table>
+        </table> -->
 
         <div class="row" v-show='toggle'>
           <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
@@ -107,7 +109,10 @@
 
           </div>
         </div><br />
-        <table class=" table table-dark" border="4" id="sensorDeployedTable">
+
+        <!-- if displaying sensor by tabe -->
+
+        <!-- <table class=" table table-dark" border="4" id="sensorDeployedTable">
           <thead>
             <tr>
               <th>sensorDeployedId</th>
@@ -125,7 +130,7 @@
               <td>{{c.serialNumber}}</td>
               <td>{{c.deployedDate}}</td>
           </tbody>
-        </table>
+        </table> -->
         <table class=" table table-dark" border="4" id="sensorTable">
           <thead>
             <tr>
