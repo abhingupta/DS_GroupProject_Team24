@@ -78,8 +78,8 @@ var siteApp = new Vue({
 			Highcharts.chart('outputCharts', {
 
 				chart: {
-					backgroundColor: 'transparent',
-					color: white
+					backgroundColor: 'transparent'
+					// color: white
 				},
 				title: {
 
