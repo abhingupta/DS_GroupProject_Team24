@@ -445,7 +445,7 @@ var siteApp = new Vue({
 		},
 
 
-		buildAverageChart() {
+		buildSyncChart() {
 
 			/*
 			The purpose of this demo is to demonstrate how multiple charts on the same page
@@ -693,6 +693,7 @@ var siteApp = new Vue({
 
 			this.buildReliabilityChart();
 			this.buildHybridChart();
+			this.buildSyncChart();
 			// siteApp.toggle = false;
 		}
 	},
