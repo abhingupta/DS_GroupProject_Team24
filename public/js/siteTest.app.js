@@ -461,27 +461,30 @@ var siteApp = new Vue({
 			 * built-in events with handlers defined on the parent element.
 			 */
 			['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
-				document.getElementById('syncCharts').addEventListener(
-					eventType,
-					function (e) {
-						var chart,
-							point,
-							i,
-							event;
+				window.onload = function () {
 
-						for (i = 0; i < Highcharts.charts.length; i = i + 1) {
-							chart = Highcharts.charts[i];
-							// Find coordinates within the chart
-							event = chart.pointer.normalize(e);
-							// Get the hovered point
-							point = chart.series[0].searchPoint(event, true);
+					document.getElementById('syncCharts').addEventListener(
+						eventType,
+						function (e) {
+							var chart,
+								point,
+								i,
+								event;
 
-							if (point) {
-								point.highlight(e);
+							for (i = 0; i < Highcharts.charts.length; i = i + 1) {
+								chart = Highcharts.charts[i];
+								// Find coordinates within the chart
+								event = chart.pointer.normalize(e);
+								// Get the hovered point
+								point = chart.series[0].searchPoint(event, true);
+
+								if (point) {
+									point.highlight(e);
+								}
 							}
 						}
-					}
-				);
+					);
+				}
 			});
 
 			/**
