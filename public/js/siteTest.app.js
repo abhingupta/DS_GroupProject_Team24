@@ -507,13 +507,13 @@ var siteApp = new Vue({
 		buildAverageChart() {
 
 
-			Highcharts.chart('container', {
+			Highcharts.chart('averageCharts', {
 
 				chart: {
 					type: 'solidgauge',
 					height: '110%',
 					events: {
-						render: renderIcons
+						render: renderIcons()
 					}
 				},
 
