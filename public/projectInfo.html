@@ -22,8 +22,17 @@
 
       <div class="container-fluid">
         <div class="row" v-show='toggle'>
-          <div id="outputCharts" class="col graph"></div>
-          <div id="heatrateCharts" class="col graph">
+          <div id="outputCharts" class="col boxOutline"></div>
+          <div id="heatrateCharts" class="col boxOutline">
+          </div>
+          <div id="outputCharts" class="col boxOutline"></div>
+        </div>
+        <div class="row" v-show='toggle'>
+          <div id="heatrateCharts" class="col boxOutline">
+          </div>
+          <div id="heatrateCharts" class="col boxOutline">
+          </div>
+          <div id="heatrateCharts" class="col boxOutline">
           </div>
         </div>
         <!-- sensor time series data displays here -->
