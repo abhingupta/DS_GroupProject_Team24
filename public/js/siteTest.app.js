@@ -131,6 +131,9 @@ var siteApp = new Vue({
 		},
 		buildHeatrateChart() {
 			Highcharts.chart('heatrateCharts', {
+				chart: {
+					backgroundColor: 'transparent'
+				},
 				title: {
 					text: 'Heatrate Chart'
 				},
@@ -184,6 +187,9 @@ var siteApp = new Vue({
 
 		buildCompressorChart() {
 			Highcharts.chart('compressorEfficiencyCharts', {
+				chart: {
+					backgroundColor: 'transparent'
+				},
 				title: {
 					text: 'Compressor Efficiency Chart'
 				},
@@ -239,6 +245,9 @@ var siteApp = new Vue({
 
 		buildAvalibilityChart() {
 			Highcharts.chart('availabilityCharts', {
+				chart: {
+					backgroundColor: 'transparent'
+				},
 				title: {
 					text: 'Compressor Efficiency Chart'
 				},
