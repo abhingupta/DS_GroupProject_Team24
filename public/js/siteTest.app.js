@@ -235,7 +235,7 @@ var siteApp = new Vue({
 
 
 		buildAvalibilityChart() {
-			Highcharts.chart('compressorEfficiencyCharts', {
+			Highcharts.chart('availabilityCharts', {
 				title: {
 					text: 'Compressor Efficiency Chart'
 				},
