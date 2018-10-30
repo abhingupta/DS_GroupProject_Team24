@@ -432,10 +432,10 @@ var siteApp = new Vue({
 				},
 				series: [{
 					name: 'Availability',
-					data: this.sensorts.map(entry => [entry.availability])
+					data: this.sensorts.map(entry => [entry.dataCollectedDate, entry.availability])
 				}, {
 					name: 'Reliability',
-					data: this.sensorts.map(entry => [entry.reliability])
+					data: this.sensorts.map(entry => [entry.dataCollectedDate, entry.reliability])
 				}]
 			});
 		},
