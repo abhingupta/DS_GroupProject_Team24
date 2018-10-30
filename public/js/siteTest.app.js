@@ -398,15 +398,11 @@ var siteApp = new Vue({
 				},
 
 				xAxis: {
-					type: 'datetime',
-					allowDecimals: true,
-					labels: {
-						formatter: function () {
-							return this.value; // clean, unformatted number for year
-						}
-					}
+					type: 'datetime'
+
 				},
 				yAxis: {
+					mins: 90,
 					title: {
 						text: ''
 					}
