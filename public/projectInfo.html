@@ -23,11 +23,12 @@
       <div class="container-fluid">
         <div class="row">
           <div id="outputCharts" class="col placeholder">
+            <div id="heatrateCharts" class="col placeholder">
+            </div>
           </div>
-        </div>
-        <!-- sensor time series data displays here -->
+          <!-- sensor time series data displays here -->
 
-        <!-- <table class=" table table-dark" border="4" id="sensorTimeSeriesTable">
+          <!-- <table class=" table table-dark" border="4" id="sensorTimeSeriesTable">
           <thead>
             <tr>
               <th>sensorTimeSeriesId</th>
@@ -57,65 +58,65 @@
           </tbody>
         </table> -->
 
-        <div class="row" v-show='toggle'>
-          <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
-            <h2>{{s.siteName}}</h2>
+          <div class="row" v-show='toggle'>
+            <div class="col placeholder" v-for="s in site" :key="s.id" :id="'site-' + s.siteId" @click="gotoTurbineDeployed(s.siteId)">
+              <h2>{{s.siteName}}</h2>
 
 
-            <ion-icon name="contact"></ion-icon><span>Primary Contact: {{s.primaryContact}}
-            </span><br />
+              <ion-icon name="contact"></ion-icon><span>Primary Contact: {{s.primaryContact}}
+              </span><br />
 
-            <ion-icon name="resize"></ion-icon><span>Capacity: {{s.capacity}}
-            </span><br />
+              <ion-icon name="resize"></ion-icon><span>Capacity: {{s.capacity}}
+              </span><br />
 
-            <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
-            </span>
-          </div>
-        </div><br />
-        <table class=" table table-dark" border="4" id="turbineDeployedTable" v-for="c in turbine" :key="c.id" @click="gotoSensorDeployed1(c.turbineDeployedId)" v-show='toggle'>
-          <thead>
-            <tr>
-              <th>Turbine Deployed Id</th>
-              <th>Turbine Id</th>
-              <th>Site Id</th>
-              <th>{{c.serialNumber}}</th>
-              <th>{{c.deployedDate}}</th>
-              <th>{{c.totalFiredHours}}</th>
-              <th>{{c.totalStarts}}</th>
-              <th>{{c.lastPlannedOutageDate}}</th>
-              <th>{{c.lastUnplannedOutageDate}}</th>
-          </thead>
-          </tr>
-          <tbody>
-            <tr>
-              <td>{{c.turbineDeployedId}}</td>
-              <td>{{c.turbineId}}</td>
-              <td>{{c.siteId}}</td>
-              <td>{{c.serialNumber}}</td>
-              <td>{{c.deployedDate}}</td>
-              <td>{{c.totalFiredHours}}</td>
-              <td>{{c.totalStarts}}</td>
-              <td>{{c.lastPlannedOutageDate}}</td>
-              <td>{{c.turbineName}}</td>
-              <td>{{c.turbineDescription}}</td>
+              <ion-icon name="home"></ion-icon> <span>Address: {{s.addrLine1}}, {{s.addrCity}}, {{s.addrState}}, {{s.addrZip}}, {{s.addrCountry}}
+              </span>
+            </div>
+          </div><br />
+          <table class=" table table-dark" border="4" id="turbineDeployedTable" v-for="c in turbine" :key="c.id" @click="gotoSensorDeployed1(c.turbineDeployedId)" v-show='toggle'>
+            <thead>
+              <tr>
+                <th>Turbine Deployed Id</th>
+                <th>Turbine Id</th>
+                <th>Site Id</th>
+                <th>{{c.serialNumber}}</th>
+                <th>{{c.deployedDate}}</th>
+                <th>{{c.totalFiredHours}}</th>
+                <th>{{c.totalStarts}}</th>
+                <th>{{c.lastPlannedOutageDate}}</th>
+                <th>{{c.lastUnplannedOutageDate}}</th>
+            </thead>
+            </tr>
+            <tbody>
+              <tr>
+                <td>{{c.turbineDeployedId}}</td>
+                <td>{{c.turbineId}}</td>
+                <td>{{c.siteId}}</td>
+                <td>{{c.serialNumber}}</td>
+                <td>{{c.deployedDate}}</td>
+                <td>{{c.totalFiredHours}}</td>
+                <td>{{c.totalStarts}}</td>
+                <td>{{c.lastPlannedOutageDate}}</td>
+                <td>{{c.turbineName}}</td>
+                <td>{{c.turbineDescription}}</td>
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
 
-        <div class="row">
-          <div class="col placeholder" v-for="s in senseall" :key="s.id" :id="'senseall-' + s.sensorId" @click="gotoSensorTimeSeries(s.sensorId)">
-            <h2>{{s.sensorName}}</h2>
+          <div class="row">
+            <div class="col placeholder" v-for="s in senseall" :key="s.id" :id="'senseall-' + s.sensorId" @click="gotoSensorTimeSeries(s.sensorId)">
+              <h2>{{s.sensorName}}</h2>
 
 
-            <ion-icon name="date"></ion-icon><span>Deployed Date: {{s.deployedDate}}
-            </span><br />
+              <ion-icon name="date"></ion-icon><span>Deployed Date: {{s.deployedDate}}
+              </span><br />
 
-          </div>
-        </div><br />
+            </div>
+          </div><br />
 
-        <!-- if displaying sensor by tabe -->
+          <!-- if displaying sensor by tabe -->
 
-        <!-- <table class=" table table-dark" border="4" id="sensorDeployedTable">
+          <!-- <table class=" table table-dark" border="4" id="sensorDeployedTable">
           <thead>
             <tr>
               <th>sensorDeployedId</th>
@@ -135,9 +136,9 @@
           </tbody>
         </table> -->
 
-        <!-- SENSOR TABLE GOES HERE -->
+          <!-- SENSOR TABLE GOES HERE -->
 
-        <!-- <table class=" table table-dark" border="4" id="sensorTable">
+          <!-- <table class=" table table-dark" border="4" id="sensorTable">
           <thead>
             <tr>
               <th>sensorId</th>
