@@ -517,6 +517,7 @@ var siteApp = new Vue({
 			this.buildCompressorChart();
 			this.buildAvalibilityChart();
 			this.buildReliabilityChart();
+			this.buildHybridChart();
 			// siteApp.toggle = false;
 		}
 	},
