@@ -1,343 +1,291 @@
 var siteApp = new Vue({
-	el: '#siteMain',
-	data: {
-		siteData: {
-			siteId: null,
-			siteName: 'foo',
-			siteDescription: 'foo',
-			gicsSector: 'foo',
-			gicsSubIndustry: 'foo',
-			headquarter: 'foo'
-		},
-		site: [],
-		turbine: [],
-		sensordeployed: [],
-		sensor: [],
-		sensorts: [],
-		senseall: [],
-		siteForm: {},
-		toggle: true // populated by this.getEmptySiteForm()
-	},
-	computed: {
-
-	},
-	methods: {
-		handleSiteForm(e) {
-			const s = JSON.stringify(this.siteForm);
-
-			console.log(s);
-
-			// POST to remote server
-			fetch('api/site.php', {
-					method: "POST", // *GET, POST, PUT, DELETE, etc.
-					headers: {
-						"Content-Type": "application/json; charset=utf-8"
-					},
-					body: s // body data type must match "Content-Type" header
-				})
-				.then(response => response.json())
-				.then(json => {
-					this.site.push(json)
-				})
-				.catch(err => {
-					console.error('Site POST ERROR:');
-					console.error(err);
-				})
-
-			// Reset siteForm
-			this.siteForm = this.getEmptySiteForm();
-		},
-
-
-		getEmptySiteForm() {
-			return {
-				// site_id: this.siteData.id,
-				// siteIdnull,
-				siteName: null,
-				siteDescription: null,
-				gicsSector: null,
-				gicsSubIndustry: null,
-				headquarter: null
-
-			}
-		},
-		gotoTurbineDeployed(tid) {
-			console.log("TurbineDeployed id:" +
-				tid);
-			fetch('api/turbineDeployedTest.php?turbineDeployedId=' + tid)
-				.then(response => response.json())
-				.then(json => {
-					siteApp.turbine = json
-				})
-				.catch(err => {
-					console.error('Site FETCH ERROR:');
-					console.error(err);
-				})
-		},
-		buildOutputChart() {
-			Highcharts.chart('outputCharts', {
-				title: {
-					text: 'Output Chart'
+			el: '#siteMain',
+			data: {
+				siteData: {
+					siteId: null,
+					siteName: 'foo',
+					siteDescription: 'foo',
+					gicsSector: 'foo',
+					gicsSubIndustry: 'foo',
+					headquarter: 'foo'
 				},
+				site: [],
+				turbine: [],
+				sensordeployed: [],
+				sensor: [],
+				sensorts: [],
+				senseall: [],
+				siteForm: {},
+				toggle: true // populated by this.getEmptySiteForm()
+			},
+			computed: {
 
-				xAxis: {
-					type: 'datetime'
-				},
-				yAxis: {
-					title: {
-						text: 'Output'
-					}
-				},
-				legend: {
-					enabled: true
-				},
-				plotOptions: {
-					area: {
-						fillColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
+			},
+			methods: {
+				handleSiteForm(e) {
+					const s = JSON.stringify(this.siteForm);
+
+					console.log(s);
+
+					// POST to remote server
+					fetch('api/site.php', {
+							method: "POST", // *GET, POST, PUT, DELETE, etc.
+							headers: {
+								"Content-Type": "application/json; charset=utf-8"
 							},
-							stops: [
-								[0, Highcharts.getOptions().colors[0]],
-								[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-							]
-						},
-						marker: {
-							radius: 2
-						},
-						lineWidth: 1,
-						states: {
-							hover: {
-								lineWidth: 1
-							}
-						},
-						threshold: null
+							body: s // body data type must match "Content-Type" header
+						})
+						.then(response => response.json())
+						.then(json => {
+							this.site.push(json)
+						})
+						.catch(err => {
+							console.error('Site POST ERROR:');
+							console.error(err);
+						})
+
+					// Reset siteForm
+					this.siteForm = this.getEmptySiteForm();
+				},
+
+
+				getEmptySiteForm() {
+					return {
+						// site_id: this.siteData.id,
+						// siteIdnull,
+						siteName: null,
+						siteDescription: null,
+						gicsSector: null,
+						gicsSubIndustry: null,
+						headquarter: null
+
 					}
 				},
-
-				series: [{
-					type: 'area',
-					name: 'Output(day)',
-					data: //needs to be [[date1, val1],[date2,val2]]
-						this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
-				}]
-			});
-		},
-		buildHeatrateChart() {
-			Highcharts.chart('heatrateCharts', {
-				title: {
-					text: 'Heatrate Chart'
+				gotoTurbineDeployed(tid) {
+					console.log("TurbineDeployed id:" +
+						tid);
+					fetch('api/turbineDeployedTest.php?turbineDeployedId=' + tid)
+						.then(response => response.json())
+						.then(json => {
+							siteApp.turbine = json
+						})
+						.catch(err => {
+							console.error('Site FETCH ERROR:');
+							console.error(err);
+						})
 				},
-
-				xAxis: {
-					type: 'datetime'
-				},
-				yAxis: {
-					title: {
-						text: 'Heatrate'
-					}
-				},
-				legend: {
-					enabled: true
-				},
-				plotOptions: {
-					area: {
-						fillColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, Highcharts.getOptions().colors[0]],
-								[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-							]
-						},
-						marker: {
-							radius: 2
-						},
-						lineWidth: 1,
-						states: {
-							hover: {
-								lineWidth: 1
-							}
-						},
-						threshold: null
-					}
-				},
-
-				series: [{
-					type: 'area',
-					name: 'Output(day)',
-					data: //needs to be [[date1, val1],[date2,val2]]
-						this.sensorts.map(entry => [entry.dataCollectedDate, entry.heatRate])
-				}]
-			});
-		},
-
-		buildCompressorChart() {
-			Highcharts.chart('compressorEfficiencyCharts', {
-				title: {
-					text: 'Compressor Efficiency Chart'
-				},
-
-				xAxis: {
-					type: 'datetime'
-				},
-				yAxis: {
-					title: {
-						text: 'Compressor Efficiency'
-					}
-				},
-				legend: {
-					enabled: true
-				},
-				plotOptions: {
-					area: {
-						fillColor: {
-							linearGradient: {
-								x1: 0,
-								y1: 0,
-								x2: 0,
-								y2: 1
-							},
-							stops: [
-								[0, Highcharts.getOptions().colors[0]],
-								[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-							]
-						},
-						marker: {
-							radius: 2
-						},
-						lineWidth: 1,
-						states: {
-							hover: {
-								lineWidth: 1
-							}
-						},
-						threshold: null
-					}
-				},
-
-				series: [{
-					type: 'area',
-					name: 'Compressor Efficiency(day)',
-					data: //needs to be [[date1, val1],[date2,val2]]
-						this.sensorts.map(entry => [entry.dataCollectedDate, entry.compressorEfficiency])
-				}]
-			});
-		},
-
-
-
-		buildAvalibilityChart() {
-			Highcharts.chart('availabilityCharts', {
-
-					chart: {
-						type: 'gauge',
-						plotBackgroundColor: null,
-						plotBackgroundImage: null,
-						plotBorderWidth: 0,
-						plotShadow: false
-					},
-
-					title: {
-						text: 'Speedometer'
-					},
-
-					pane: {
-						startAngle: -150,
-						endAngle: 150,
-						background: [{
-							backgroundColor: {
-								linearGradient: {
-									x1: 0,
-									y1: 0,
-									x2: 0,
-									y2: 1
-								},
-								stops: [
-									[0, '#FFF'],
-									[1, '#333']
-								]
-							},
-							borderWidth: 0,
-							outerRadius: '109%'
-						}, {
-							backgroundColor: {
-								linearGradient: {
-									x1: 0,
-									y1: 0,
-									x2: 0,
-									y2: 1
-								},
-								stops: [
-									[0, '#333'],
-									[1, '#FFF']
-								]
-							},
-							borderWidth: 1,
-							outerRadius: '107%'
-						}, {
-							// default background
-						}, {
-							backgroundColor: '#DDD',
-							borderWidth: 0,
-							outerRadius: '105%',
-							innerRadius: '103%'
-						}]
-					},
-
-					// the value axis
-					yAxis: {
-						min: 0,
-						max: 200,
-
-						minorTickInterval: 'auto',
-						minorTickWidth: 1,
-						minorTickLength: 10,
-						minorTickPosition: 'inside',
-						minorTickColor: '#666',
-
-						tickPixelInterval: 30,
-						tickWidth: 2,
-						tickPosition: 'inside',
-						tickLength: 10,
-						tickColor: '#666',
-						labels: {
-							step: 2,
-							rotation: 'auto'
-						},
+				buildOutputChart() {
+					Highcharts.chart('outputCharts', {
 						title: {
-							text: 'km/h'
+							text: 'Output Chart'
 						},
-						plotBands: [{
-							from: 0,
-							to: 120,
-							color: '#55BF3B' // green
-						}, {
-							from: 120,
-							to: 160,
-							color: '#DDDF0D' // yellow
-						}, {
-							from: 160,
-							to: 200,
-							color: '#DF5353' // red
+
+						xAxis: {
+							type: 'datetime'
+						},
+						yAxis: {
+							title: {
+								text: 'Output'
+							}
+						},
+						legend: {
+							enabled: true
+						},
+						plotOptions: {
+							area: {
+								fillColor: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0, Highcharts.getOptions().colors[0]],
+										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+									]
+								},
+								marker: {
+									radius: 2
+								},
+								lineWidth: 1,
+								states: {
+									hover: {
+										lineWidth: 1
+									}
+								},
+								threshold: null
+							}
+						},
+
+						series: [{
+							type: 'area',
+							name: 'Output(day)',
+							data: //needs to be [[date1, val1],[date2,val2]]
+								this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
 						}]
-					},
+					});
+				},
+				buildHeatrateChart() {
+					Highcharts.chart('heatrateCharts', {
+						title: {
+							text: 'Heatrate Chart'
+						},
 
-					series: [{
-						name: 'Speed',
-						data: this.sensorts.map(entry => [entry.availability]),
-						tooltip: {
-							valueSuffix: ' km/h'
-						}
-					}]
+						xAxis: {
+							type: 'datetime'
+						},
+						yAxis: {
+							title: {
+								text: 'Heatrate'
+							}
+						},
+						legend: {
+							enabled: true
+						},
+						plotOptions: {
+							area: {
+								fillColor: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0, Highcharts.getOptions().colors[0]],
+										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+									]
+								},
+								marker: {
+									radius: 2
+								},
+								lineWidth: 1,
+								states: {
+									hover: {
+										lineWidth: 1
+									}
+								},
+								threshold: null
+							}
+						},
 
+						series: [{
+							type: 'area',
+							name: 'Output(day)',
+							data: //needs to be [[date1, val1],[date2,val2]]
+								this.sensorts.map(entry => [entry.dataCollectedDate, entry.heatRate])
+						}]
+					});
+				},
+
+				buildCompressorChart() {
+					Highcharts.chart('compressorEfficiencyCharts', {
+						title: {
+							text: 'Compressor Efficiency Chart'
+						},
+
+						xAxis: {
+							type: 'datetime'
+						},
+						yAxis: {
+							title: {
+								text: 'Compressor Efficiency'
+							}
+						},
+						legend: {
+							enabled: true
+						},
+						plotOptions: {
+							area: {
+								fillColor: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0, Highcharts.getOptions().colors[0]],
+										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+									]
+								},
+								marker: {
+									radius: 2
+								},
+								lineWidth: 1,
+								states: {
+									hover: {
+										lineWidth: 1
+									}
+								},
+								threshold: null
+							}
+						},
+
+						series: [{
+							type: 'area',
+							name: 'Compressor Efficiency(day)',
+							data: //needs to be [[date1, val1],[date2,val2]]
+								this.sensorts.map(entry => [entry.dataCollectedDate, entry.compressorEfficiency])
+						}]
+					});
+				},
+
+
+
+				buildAvalibilityChart() {
+
+					Highcharts.chart('compressorEfficiencyCharts', {
+						title: {
+							text: 'Compressor Efficiency Chart'
+						},
+
+						xAxis: {
+							type: 'datetime'
+						},
+						yAxis: {
+							title: {
+								text: 'Compressor Efficiency'
+							}
+						},
+						legend: {
+							enabled: true
+						},
+						plotOptions: {
+							area: {
+								fillColor: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0, Highcharts.getOptions().colors[0]],
+										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+									]
+								},
+								marker: {
+									radius: 2
+								},
+								lineWidth: 1,
+								states: {
+									hover: {
+										lineWidth: 1
+									}
+								},
+								threshold: null
+							}
+						},
+
+						series: [{
+							type: 'area',
+							name: 'Compressor Efficiency(day)',
+							data: //needs to be [[date1, val1],[date2,val2]]
+								this.sensorts.map(entry => [entry.dataCollectedDate, entry.availability])
+						}]
+					});
 				},
 				// Add some life
 				function (chart) {
