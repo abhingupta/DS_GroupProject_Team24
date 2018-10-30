@@ -78,6 +78,7 @@ var siteApp = new Vue({
 			Highcharts.chart('outputCharts', {
 
 				chart: {
+					zoomType: 'x',
 					backgroundColor: 'transparent'
 					// color: white
 				},
