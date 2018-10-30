@@ -76,6 +76,10 @@ var siteApp = new Vue({
 		},
 		buildOutputChart() {
 			Highcharts.chart('outputCharts', {
+				style: {
+					// fontFamily: 'monospace',
+					color: "white"
+				}
 				chart: {
 					backgroundColor: 'transparent',
 					color: 'white'
