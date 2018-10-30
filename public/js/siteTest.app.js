@@ -79,7 +79,7 @@ var siteApp = new Vue({
 				style: {
 					// fontFamily: 'monospace',
 					color: "white"
-				}
+				},
 				chart: {
 					backgroundColor: 'transparent',
 					color: 'white'
