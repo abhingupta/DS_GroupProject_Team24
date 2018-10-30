@@ -142,6 +142,7 @@ var siteApp = new Vue({
 		buildHeatrateChart() {
 			Highcharts.chart('heatrateCharts', {
 				chart: {
+					zoomType: 'x',
 					backgroundColor: 'transparent'
 				},
 				title: {
@@ -203,6 +204,8 @@ var siteApp = new Vue({
 		buildCompressorChart() {
 			Highcharts.chart('compressorEfficiencyCharts', {
 				chart: {
+					zoomType: 'x',
+
 					backgroundColor: 'transparent'
 				},
 				title: {
@@ -266,6 +269,8 @@ var siteApp = new Vue({
 		buildAvalibilityChart() {
 			Highcharts.chart('availabilityCharts', {
 				chart: {
+					zoomType: 'x',
+
 					backgroundColor: 'transparent'
 				},
 				title: {
@@ -328,6 +333,8 @@ var siteApp = new Vue({
 		buildReliabilityChart() {
 			Highcharts.chart('reliabilityCharts', {
 				chart: {
+					zoomType: 'x',
+
 					backgroundColor: 'transparent'
 				},
 				title: {
@@ -391,6 +398,8 @@ var siteApp = new Vue({
 			Highcharts.chart('hybridCharts', {
 
 				chart: {
+					zoomType: 'x',
+
 					backgroundColor: 'transparent',
 					type: 'area'
 				},
