@@ -1,471 +1,471 @@
 var siteApp = new Vue({
-			el: '#siteMain',
-			data: {
-				siteData: {
-					siteId: null,
-					siteName: 'foo',
-					siteDescription: 'foo',
-					gicsSector: 'foo',
-					gicsSubIndustry: 'foo',
-					headquarter: 'foo'
+	el: '#siteMain',
+	data: {
+		siteData: {
+			siteId: null,
+			siteName: 'foo',
+			siteDescription: 'foo',
+			gicsSector: 'foo',
+			gicsSubIndustry: 'foo',
+			headquarter: 'foo'
+		},
+		site: [],
+		turbine: [],
+		sensordeployed: [],
+		sensor: [],
+		sensorts: [],
+		senseall: [],
+		siteForm: {},
+		toggle: true // populated by this.getEmptySiteForm()
+	},
+	computed: {
+
+	},
+	methods: {
+		handleSiteForm(e) {
+			const s = JSON.stringify(this.siteForm);
+
+			console.log(s);
+
+			// POST to remote server
+			fetch('api/site.php', {
+					method: "POST", // *GET, POST, PUT, DELETE, etc.
+					headers: {
+						"Content-Type": "application/json; charset=utf-8"
+					},
+					body: s // body data type must match "Content-Type" header
+				})
+				.then(response => response.json())
+				.then(json => {
+					this.site.push(json)
+				})
+				.catch(err => {
+					console.error('Site POST ERROR:');
+					console.error(err);
+				})
+
+			// Reset siteForm
+			this.siteForm = this.getEmptySiteForm();
+		},
+
+
+		getEmptySiteForm() {
+			return {
+				// site_id: this.siteData.id,
+				// siteIdnull,
+				siteName: null,
+				siteDescription: null,
+				gicsSector: null,
+				gicsSubIndustry: null,
+				headquarter: null
+
+			}
+		},
+		gotoTurbineDeployed(tid) {
+			console.log("TurbineDeployed id:" +
+				tid);
+			fetch('api/turbineDeployedTest.php?turbineDeployedId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.turbine = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
+		},
+		buildOutputChart() {
+			Highcharts.chart('outputCharts', {
+				title: {
+					text: 'Output Chart'
 				},
-				site: [],
-				turbine: [],
-				sensordeployed: [],
-				sensor: [],
-				sensorts: [],
-				senseall: [],
-				siteForm: {},
-				toggle: true // populated by this.getEmptySiteForm()
-			},
-			computed: {
 
-			},
-			methods: {
-				handleSiteForm(e) {
-					const s = JSON.stringify(this.siteForm);
-
-					console.log(s);
-
-					// POST to remote server
-					fetch('api/site.php', {
-							method: "POST", // *GET, POST, PUT, DELETE, etc.
-							headers: {
-								"Content-Type": "application/json; charset=utf-8"
+				xAxis: {
+					type: 'datetime'
+				},
+				yAxis: {
+					title: {
+						text: 'Output'
+					}
+				},
+				legend: {
+					enabled: true
+				},
+				plotOptions: {
+					area: {
+						fillColor: {
+							linearGradient: {
+								x1: 0,
+								y1: 0,
+								x2: 0,
+								y2: 1
 							},
-							body: s // body data type must match "Content-Type" header
-						})
-						.then(response => response.json())
-						.then(json => {
-							this.site.push(json)
-						})
-						.catch(err => {
-							console.error('Site POST ERROR:');
-							console.error(err);
-						})
-
-					// Reset siteForm
-					this.siteForm = this.getEmptySiteForm();
-				},
-
-
-				getEmptySiteForm() {
-					return {
-						// site_id: this.siteData.id,
-						// siteIdnull,
-						siteName: null,
-						siteDescription: null,
-						gicsSector: null,
-						gicsSubIndustry: null,
-						headquarter: null
-
+							stops: [
+								[0, Highcharts.getOptions().colors[0]],
+								[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+							]
+						},
+						marker: {
+							radius: 2
+						},
+						lineWidth: 1,
+						states: {
+							hover: {
+								lineWidth: 1
+							}
+						},
+						threshold: null
 					}
 				},
-				gotoTurbineDeployed(tid) {
-					console.log("TurbineDeployed id:" +
-						tid);
-					fetch('api/turbineDeployedTest.php?turbineDeployedId=' + tid)
-						.then(response => response.json())
-						.then(json => {
-							siteApp.turbine = json
-						})
-						.catch(err => {
-							console.error('Site FETCH ERROR:');
-							console.error(err);
-						})
+
+				series: [{
+					type: 'area',
+					name: 'Output(day)',
+					data: //needs to be [[date1, val1],[date2,val2]]
+						this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
+				}]
+			});
+		},
+		buildHeatrateChart() {
+			Highcharts.chart('heatrateCharts', {
+				title: {
+					text: 'Heatrate Chart'
 				},
-				buildOutputChart() {
-					Highcharts.chart('outputCharts', {
-						title: {
-							text: 'Output Chart'
-						},
 
-						xAxis: {
-							type: 'datetime'
+				xAxis: {
+					type: 'datetime'
+				},
+				yAxis: {
+					title: {
+						text: 'Heatrate'
+					}
+				},
+				legend: {
+					enabled: true
+				},
+				plotOptions: {
+					area: {
+						fillColor: {
+							linearGradient: {
+								x1: 0,
+								y1: 0,
+								x2: 0,
+								y2: 1
+							},
+							stops: [
+								[0, Highcharts.getOptions().colors[0]],
+								[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+							]
 						},
-						yAxis: {
-							title: {
-								text: 'Output'
+						marker: {
+							radius: 2
+						},
+						lineWidth: 1,
+						states: {
+							hover: {
+								lineWidth: 1
 							}
 						},
-						legend: {
-							enabled: true
+						threshold: null
+					}
+				},
+
+				series: [{
+					type: 'area',
+					name: 'Output(day)',
+					data: //needs to be [[date1, val1],[date2,val2]]
+						this.sensorts.map(entry => [entry.dataCollectedDate, entry.heatRate])
+				}]
+			});
+		},
+
+		buildCompressorChart() {
+			Highcharts.chart('compressorEfficiencyCharts', {
+				title: {
+					text: 'Compressor Efficiency Chart'
+				},
+
+				xAxis: {
+					type: 'datetime'
+				},
+				yAxis: {
+					title: {
+						text: 'Compressor Efficiency'
+					}
+				},
+				legend: {
+					enabled: true
+				},
+				plotOptions: {
+					area: {
+						fillColor: {
+							linearGradient: {
+								x1: 0,
+								y1: 0,
+								x2: 0,
+								y2: 1
+							},
+							stops: [
+								[0, Highcharts.getOptions().colors[0]],
+								[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+							]
 						},
-						plotOptions: {
-							area: {
-								fillColor: {
-									linearGradient: {
-										x1: 0,
-										y1: 0,
-										x2: 0,
-										y2: 1
-									},
-									stops: [
-										[0, Highcharts.getOptions().colors[0]],
-										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-									]
-								},
-								marker: {
-									radius: 2
-								},
-								lineWidth: 1,
-								states: {
-									hover: {
-										lineWidth: 1
-									}
-								},
-								threshold: null
+						marker: {
+							radius: 2
+						},
+						lineWidth: 1,
+						states: {
+							hover: {
+								lineWidth: 1
 							}
 						},
+						threshold: null
+					}
+				},
 
-						series: [{
-							type: 'area',
-							name: 'Output(day)',
-							data: //needs to be [[date1, val1],[date2,val2]]
-								this.sensorts.map(entry => [entry.dataCollectedDate, entry.output])
+				series: [{
+					type: 'area',
+					name: 'Compressor Efficiency(day)',
+					data: //needs to be [[date1, val1],[date2,val2]]
+						this.sensorts.map(entry => [entry.dataCollectedDate, entry.compressorEfficiency])
+				}]
+			});
+		},
+
+
+
+		buildAvalibilityChart() {
+			Highcharts.chart('availabilityCharts', {
+
+					chart: {
+						type: 'gauge',
+						plotBackgroundColor: null,
+						plotBackgroundImage: null,
+						plotBorderWidth: 0,
+						plotShadow: false
+					},
+
+					title: {
+						text: 'Speedometer'
+					},
+
+					pane: {
+						startAngle: -150,
+						endAngle: 150,
+						background: [{
+							backgroundColor: {
+								linearGradient: {
+									x1: 0,
+									y1: 0,
+									x2: 0,
+									y2: 1
+								},
+								stops: [
+									[0, '#FFF'],
+									[1, '#333']
+								]
+							},
+							borderWidth: 0,
+							outerRadius: '109%'
+						}, {
+							backgroundColor: {
+								linearGradient: {
+									x1: 0,
+									y1: 0,
+									x2: 0,
+									y2: 1
+								},
+								stops: [
+									[0, '#333'],
+									[1, '#FFF']
+								]
+							},
+							borderWidth: 1,
+							outerRadius: '107%'
+						}, {
+							// default background
+						}, {
+							backgroundColor: '#DDD',
+							borderWidth: 0,
+							outerRadius: '105%',
+							innerRadius: '103%'
 						}]
-					});
-				},
-				buildHeatrateChart() {
-					Highcharts.chart('heatrateCharts', {
+					},
+
+					// the value axis
+					yAxis: {
+						min: 0,
+						max: 200,
+
+						minorTickInterval: 'auto',
+						minorTickWidth: 1,
+						minorTickLength: 10,
+						minorTickPosition: 'inside',
+						minorTickColor: '#666',
+
+						tickPixelInterval: 30,
+						tickWidth: 2,
+						tickPosition: 'inside',
+						tickLength: 10,
+						tickColor: '#666',
+						labels: {
+							step: 2,
+							rotation: 'auto'
+						},
 						title: {
-							text: 'Heatrate Chart'
+							text: 'km/h'
 						},
-
-						xAxis: {
-							type: 'datetime'
-						},
-						yAxis: {
-							title: {
-								text: 'Heatrate'
-							}
-						},
-						legend: {
-							enabled: true
-						},
-						plotOptions: {
-							area: {
-								fillColor: {
-									linearGradient: {
-										x1: 0,
-										y1: 0,
-										x2: 0,
-										y2: 1
-									},
-									stops: [
-										[0, Highcharts.getOptions().colors[0]],
-										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-									]
-								},
-								marker: {
-									radius: 2
-								},
-								lineWidth: 1,
-								states: {
-									hover: {
-										lineWidth: 1
-									}
-								},
-								threshold: null
-							}
-						},
-
-						series: [{
-							type: 'area',
-							name: 'Output(day)',
-							data: //needs to be [[date1, val1],[date2,val2]]
-								this.sensorts.map(entry => [entry.dataCollectedDate, entry.heatRate])
+						plotBands: [{
+							from: 0,
+							to: 120,
+							color: '#55BF3B' // green
+						}, {
+							from: 120,
+							to: 160,
+							color: '#DDDF0D' // yellow
+						}, {
+							from: 160,
+							to: 200,
+							color: '#DF5353' // red
 						}]
-					});
-				},
+					},
 
-				buildCompressorChart() {
-					Highcharts.chart('compressorEfficiencyCharts', {
-						title: {
-							text: 'Compressor Efficiency Chart'
-						},
-
-						xAxis: {
-							type: 'datetime'
-						},
-						yAxis: {
-							title: {
-								text: 'Compressor Efficiency'
-							}
-						},
-						legend: {
-							enabled: true
-						},
-						plotOptions: {
-							area: {
-								fillColor: {
-									linearGradient: {
-										x1: 0,
-										y1: 0,
-										x2: 0,
-										y2: 1
-									},
-									stops: [
-										[0, Highcharts.getOptions().colors[0]],
-										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-									]
-								},
-								marker: {
-									radius: 2
-								},
-								lineWidth: 1,
-								states: {
-									hover: {
-										lineWidth: 1
-									}
-								},
-								threshold: null
-							}
-						},
-
-						series: [{
-							type: 'area',
-							name: 'Compressor Efficiency(day)',
-							data: //needs to be [[date1, val1],[date2,val2]]
-								this.sensorts.map(entry => [entry.dataCollectedDate, entry.compressorEfficiency])
-						}]
-					});
-				},
-
-
-
-				buildAvalibilityChart() {
-					Highcharts.chart('availabilityCharts', {
-
-								chart: {
-									type: 'gauge',
-									plotBackgroundColor: null,
-									plotBackgroundImage: null,
-									plotBorderWidth: 0,
-									plotShadow: false
-								},
-
-								title: {
-									text: 'Speedometer'
-								},
-
-								pane: {
-									startAngle: -150,
-									endAngle: 150,
-									background: [{
-										backgroundColor: {
-											linearGradient: {
-												x1: 0,
-												y1: 0,
-												x2: 0,
-												y2: 1
-											},
-											stops: [
-												[0, '#FFF'],
-												[1, '#333']
-											]
-										},
-										borderWidth: 0,
-										outerRadius: '109%'
-									}, {
-										backgroundColor: {
-											linearGradient: {
-												x1: 0,
-												y1: 0,
-												x2: 0,
-												y2: 1
-											},
-											stops: [
-												[0, '#333'],
-												[1, '#FFF']
-											]
-										},
-										borderWidth: 1,
-										outerRadius: '107%'
-									}, {
-										// default background
-									}, {
-										backgroundColor: '#DDD',
-										borderWidth: 0,
-										outerRadius: '105%',
-										innerRadius: '103%'
-									}]
-								},
-
-								// the value axis
-								yAxis: {
-									min: 0,
-									max: 200,
-
-									minorTickInterval: 'auto',
-									minorTickWidth: 1,
-									minorTickLength: 10,
-									minorTickPosition: 'inside',
-									minorTickColor: '#666',
-
-									tickPixelInterval: 30,
-									tickWidth: 2,
-									tickPosition: 'inside',
-									tickLength: 10,
-									tickColor: '#666',
-									labels: {
-										step: 2,
-										rotation: 'auto'
-									},
-									title: {
-										text: 'km/h'
-									},
-									plotBands: [{
-										from: 0,
-										to: 120,
-										color: '#55BF3B' // green
-									}, {
-										from: 120,
-										to: 160,
-										color: '#DDDF0D' // yellow
-									}, {
-										from: 160,
-										to: 200,
-										color: '#DF5353' // red
-									}]
-								},
-
-								series: [{
-										name: 'Speed',
-										data: this.sensorts.map(entry => [entry.availability),
-											tooltip: {
-												valueSuffix: ' km/h'
-											}
-										}]
-
-								},
-								// Add some life
-								function (chart) {
-									if (!chart.renderer.forExport) {
-										setInterval(function () {
-											var point = chart.series[0].points[0],
-												newVal,
-												inc = Math.round((Math.random() - 0.5) * 20);
-
-											newVal = point.y + inc;
-											if (newVal < 0 || newVal > 200) {
-												newVal = point.y - inc;
-											}
-
-											point.update(newVal);
-
-										}, 3000);
-									}
-								});
-
-						},
-
-						formatWorkHours() {
-							this.sensorts.forEach(
-								function (entry) {
-									entry.dataCollectedDate = Date.parse(entry.dataCollectedDate);
-								}
-							);
-							console.log(this.workHours);
-						},
-						gotoSensorDeployed1(tid) {
-							// siteApp.toggle = false;
-							console.log("TurbineDeployed id:" +
-								tid);
-							fetch('api/sensorDeployedTest.php?sensorDeployedId=' + tid)
-								.then(response => response.json())
-								.then(json => {
-									siteApp.senseall = json
-								})
-								.catch(err => {
-									console.error('Site FETCH ERROR:');
-									console.error(err);
-								})
-							// this.buildEffortChart();
-
-
-						},
-						gotoSensorDeployed(tid) {
-							// siteApp.toggle = false;
-							console.log("TurbineDeployed id:" +
-								tid);
-							fetch('api/sensorDeployedTest.php?sensorDeployedId=' + tid)
-								.then(response => response.json())
-								.then(json => {
-									siteApp.sensordeployed = json
-								})
-								.catch(err => {
-									console.error('Site FETCH ERROR:');
-									console.error(err);
-								})
-							// this.buildEffortChart();
-
-						},
-
-						gotoSensor(tid) {
-							console.log("TurbineDeployed id:" +
-								tid);
-							fetch('api/sensor.php?sensorId=' + tid)
-								.then(response => response.json())
-								.then(json => {
-									siteApp.sensor = json
-								})
-								.catch(err => {
-									console.error('Site FETCH ERROR:');
-									console.error(err);
-								})
-							siteApp.toggle = false;
-
-
-						},
-
-						gotoSensorTimeSeries(tid) {
-							console.log("TurbineDeployed id:" +
-								tid);
-							fetch('api/sensorTimeSeries.php?sensorTimeSeriesId=' + tid)
-								.then(response => response.json())
-								.then(json => {
-									siteApp.sensorts = json
-								})
-								.catch(err => {
-									console.error('Site FETCH ERROR:');
-									console.error(err);
-								})
-							this.formatWorkHours();
-							this.buildOutputChart();
-							this.buildHeatrateChart();
-							this.buildCompressorChart();
-							this.buildAvalibilityChart();
-							// siteApp.toggle = false;
+					series: [{
+						name: 'Speed',
+						data: this.sensorts.map(entry => [entry.availability]),
+						tooltip: {
+							valueSuffix: ' km/h'
 						}
+					}]
+
 				},
-				created() {
+				// Add some life
+				function (chart) {
+					if (!chart.renderer.forExport) {
+						setInterval(function () {
+							var point = chart.series[0].points[0],
+								newVal,
+								inc = Math.round((Math.random() - 0.5) * 20);
 
-					// Do data fetch
-					const url = new URL(window.location.href);
-					const siteId = url.searchParams.get('siteId');
-					console.log('Site: ' + siteId);
-					this.siteData.siteId = siteId;
+							newVal = point.y + inc;
+							if (newVal < 0 || newVal > 200) {
+								newVal = point.y - inc;
+							}
 
-					if (!siteId) {
-						//TODO: Error? 404?
-						//e.g., window.location = '404.html';
+							point.update(newVal);
+
+						}, 3000);
 					}
+				});
 
-					// Populate siteForm with default values
-					this.siteForm = this.getEmptySiteForm();
+		},
 
-					// TODO: Fetch task-specific data
-					// fetch('api/task?id=4')
-					fetch('api/site.php?siteId=' + siteId)
-						.then(response => response.json())
-						.then(json => {
-							siteApp.site = json
-						})
-						.catch(err => {
-							console.error('Site FETCH ERROR:');
-							console.error(err);
-						})
-					// this.buildEffortChart();
+		formatWorkHours() {
+			this.sensorts.forEach(
+				function (entry) {
+					entry.dataCollectedDate = Date.parse(entry.dataCollectedDate);
 				}
+			);
+			console.log(this.workHours);
+		},
+		gotoSensorDeployed1(tid) {
+			// siteApp.toggle = false;
+			console.log("TurbineDeployed id:" +
+				tid);
+			fetch('api/sensorDeployedTest.php?sensorDeployedId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.senseall = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
+			// this.buildEffortChart();
+
+
+		},
+		gotoSensorDeployed(tid) {
+			// siteApp.toggle = false;
+			console.log("TurbineDeployed id:" +
+				tid);
+			fetch('api/sensorDeployedTest.php?sensorDeployedId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.sensordeployed = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
+			// this.buildEffortChart();
+
+		},
+
+		gotoSensor(tid) {
+			console.log("TurbineDeployed id:" +
+				tid);
+			fetch('api/sensor.php?sensorId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.sensor = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
+			siteApp.toggle = false;
+
+
+		},
+
+		gotoSensorTimeSeries(tid) {
+			console.log("TurbineDeployed id:" +
+				tid);
+			fetch('api/sensorTimeSeries.php?sensorTimeSeriesId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.sensorts = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
+			this.formatWorkHours();
+			this.buildOutputChart();
+			this.buildHeatrateChart();
+			this.buildCompressorChart();
+			this.buildAvalibilityChart();
+			// siteApp.toggle = false;
+		}
+	},
+	created() {
+
+		// Do data fetch
+		const url = new URL(window.location.href);
+		const siteId = url.searchParams.get('siteId');
+		console.log('Site: ' + siteId);
+		this.siteData.siteId = siteId;
+
+		if (!siteId) {
+			//TODO: Error? 404?
+			//e.g., window.location = '404.html';
+		}
+
+		// Populate siteForm with default values
+		this.siteForm = this.getEmptySiteForm();
+
+		// TODO: Fetch task-specific data
+		// fetch('api/task?id=4')
+		fetch('api/site.php?siteId=' + siteId)
+			.then(response => response.json())
+			.then(json => {
+				siteApp.site = json
 			})
+			.catch(err => {
+				console.error('Site FETCH ERROR:');
+				console.error(err);
+			})
+		// this.buildEffortChart();
+	}
+})
