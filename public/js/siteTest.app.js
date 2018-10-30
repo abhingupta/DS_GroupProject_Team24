@@ -689,8 +689,8 @@ var siteApp = new Vue({
 			this.buildHeatrateChart();
 			this.buildCompressorChart();
 			// this.buildAvalibilityChart();
-			this.buildAverageChart();
-			this.renderIcons();
+			// this.buildAverageChart();
+			// this.renderIcons();
 
 			this.buildReliabilityChart();
 			this.buildHybridChart();
