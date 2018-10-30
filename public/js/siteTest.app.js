@@ -416,7 +416,7 @@ var siteApp = new Vue({
 
 				},
 				tooltip: {
-					pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+					pointFormat: '{series.data}'
 				},
 				plotOptions: {
 					area: {
