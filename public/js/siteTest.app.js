@@ -434,10 +434,11 @@ var siteApp = new Vue({
 				},
 				series: [{
 					name: 'Availability',
+					color: '#31908E',
 					data: this.sensorts.map(entry => [entry.dataCollectedDate, entry.availability])
 				}, {
 					name: 'Reliability',
-					color: '#FF0000',
+					color: '#93EC83',
 					data: this.sensorts.map(entry => [entry.dataCollectedDate, entry.reliability])
 				}]
 			});
