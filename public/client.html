@@ -61,24 +61,27 @@
 
       <form @submit.prevent="
           handleClientForm" align="center" id="newClientForm">
-        <div class="form-group row">
-          <label for="client" class="col-sm-1 col-form-label">Client: </label>
-          <div class="col-sm-6">
+        <div class="container-login bg-dark text-white">
+          <div class="form-group">
+            <label for="client">Client: </label>
+
             <select id="client" v-model="clientForm.clientId" class="form-control" required>
               <option v-for="t in client" :key="t.clientId" :value="t.clientId">{{ t.clientName }}</option>
             </select>
+
           </div>
-        </div>
 
-        <div class="form-group">
-          <label>Add Notes</lable>
-            <input id="notes" type="textarea" v-model="clientForm.notes" class="form-control" required>
-        </div>
+          <div class="form-group">
+            <label>Add Notes</lable>
+              <input id="notes" type="textarea" v-model="clientForm.notes" class="form-control" required>
+          </div>
 
 
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <button type="submit" class="btn" id="submitNewComment" onClick="window.location.reload()">Save changes</button>
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+
+          <button type="submit" class="btn" id="submitNewComment" onClick="window.location.reload()">Save changes</button>
       </form>
+      </div>
 
     </main>
 
