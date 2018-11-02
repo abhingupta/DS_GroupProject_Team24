@@ -601,7 +601,7 @@ var siteApp = new Vue({
 			// this.buildAvalibilityChart();
 			// this.buildAverageChart();
 			// this.renderIcons();
-			this.buildReliabilityChart();
+			// this.buildReliabilityChart();
 			this.buildfiredHoursChart();
 
 			this.buildHybridChart();
