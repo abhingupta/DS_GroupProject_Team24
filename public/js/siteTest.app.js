@@ -600,7 +600,7 @@ var siteApp = new Vue({
 			// this.buildAverageChart();
 			// this.renderIcons();
 
-			this.buildReliabilityChart();
+			this.buildfiredHoursChart();
 			this.buildHybridChart();
 			// this.buildSyncChart();
 			// siteApp.toggle = false;
