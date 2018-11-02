@@ -101,44 +101,47 @@
         </table> -->
       <div class="row">
         <div class="col placeholder" v-for="c in turbine" :key="c.id" @click="gotoSensorDeployed1(c.turbineDeployedId)" v-show='toggle'>
-          <span class="tooltiptext">{{c.turbineDescription}}</span>
+          <div class="tooltip">
+            <span class="tooltiptext">{{c.turbineDescription}}</span>
+            <div>
+
+            </div>
+
+            <h2>Turbine Name: {{c.turbineName}}</h2><br />
+            Serial Number: {{c.serialNumber}}<br />
+            Capacity: {{c.capacity}}<br />
+            Ramp-up Time: {{c.rampUpTime}} <br />
+            Total Fired Hours: {{c.totalFiredHours}} <br />
+            Total Starts: {{c.totalStarts}} <br />
+            Maintenance Interval: {{c.maintenanceInterval}} <br />
+
+          </div>
+        </div><br />
+        <div class="row">
+          <div class="col placeholder" v-for="s in senseall" :key="s.id" :id="'senseall-' + s.sensorId" @click="gotoSensorTimeSeries(s.sensorId)">
+            <h2>{{s.sensorName}}</h2>
 
 
-          <h2>Turbine Name: {{c.turbineName}}</h2><br />
-          Serial Number: {{c.serialNumber}}<br />
-          Capacity: {{c.capacity}}<br />
-          Ramp-up Time: {{c.rampUpTime}} <br />
-          Total Fired Hours: {{c.totalFiredHours}} <br />
-          Total Starts: {{c.totalStarts}} <br />
-          Maintenance Interval: {{c.maintenanceInterval}} <br />
+            <ion-icon name="date"></ion-icon><span>Deployed Date: {{s.deployedDate}}
+            </span><br />
 
-        </div>
-      </div><br />
-      <div class="row">
-        <div class="col placeholder" v-for="s in senseall" :key="s.id" :id="'senseall-' + s.sensorId" @click="gotoSensorTimeSeries(s.sensorId)">
-          <h2>{{s.sensorName}}</h2>
-
-
-          <ion-icon name="date"></ion-icon><span>Deployed Date: {{s.deployedDate}}
-          </span><br />
-
-        </div>
-      </div><br />
-      <div class="row">
-        <div class="col placeholder" v-for="s in senseavg" :key="s.id" :id="'senseavg-' + s.sensorId">
-          <h3>Average Output: {{s.avgOutput}}</h2><br />
-            <h3>Average Heatrate: {{s.avgHeatrate}}</h2><br />
-              <h3>Average Compressor Efficiency: {{s.avgCompressorefficiency}}</h2><br />
-                <h3>Average Availability: {{s.avgAvailability}}</h2><br />
-                  <h3>Average Reliability: {{s.avgReliability}}</h2><br />
+          </div>
+        </div><br />
+        <div class="row">
+          <div class="col placeholder" v-for="s in senseavg" :key="s.id" :id="'senseavg-' + s.sensorId">
+            <h3>Average Output: {{s.avgOutput}}</h2><br />
+              <h3>Average Heatrate: {{s.avgHeatrate}}</h2><br />
+                <h3>Average Compressor Efficiency: {{s.avgCompressorefficiency}}</h2><br />
+                  <h3>Average Availability: {{s.avgAvailability}}</h2><br />
+                    <h3>Average Reliability: {{s.avgReliability}}</h2><br />
 
 
-        </div>
-      </div><br />
+          </div>
+        </div><br />
 
-      <!-- if displaying sensor by tabe -->
+        <!-- if displaying sensor by tabe -->
 
-      <!-- <table class=" table table-dark" border="4" id="sensorDeployedTable">
+        <!-- <table class=" table table-dark" border="4" id="sensorDeployedTable">
           <thead>
             <tr>
               <th>sensorDeployedId</th>
@@ -158,9 +161,9 @@
           </tbody>
         </table> -->
 
-      <!-- SENSOR TABLE GOES HERE -->
+        <!-- SENSOR TABLE GOES HERE -->
 
-      <!-- <table class=" table table-dark" border="4" id="sensorTable">
+        <!-- <table class=" table table-dark" border="4" id="sensorTable">
           <thead>
             <tr>
               <th>sensorId</th>
@@ -181,22 +184,22 @@
           </tbody>
         </table> -->
 
-      <div class="row" v-show='toggle'>
-        <div id="outputCharts" class="col boxOutline"></div>
-        <div id="heatrateCharts" class="col boxOutline">
+        <div class="row" v-show='toggle'>
+          <div id="outputCharts" class="col boxOutline"></div>
+          <div id="heatrateCharts" class="col boxOutline">
+          </div>
+          <div id="compressorEfficiencyCharts" class="col boxOutline"></div>
         </div>
-        <div id="compressorEfficiencyCharts" class="col boxOutline"></div>
-      </div>
-      <div class="row" v-show='toggle'>
-        <div id="hybridCharts" class="col boxOutline">
-        </div>
-        <div id="fireChart" class="col boxOutline">
-        </div>
-        <!-- <div id="reliabilityCharts" class="col boxOutline">
+        <div class="row" v-show='toggle'>
+          <div id="hybridCharts" class="col boxOutline">
+          </div>
+          <div id="fireChart" class="col boxOutline">
+          </div>
+          <!-- <div id="reliabilityCharts" class="col boxOutline">
           </div> -->
-        <!-- <div id="syncCharts" class="col boxOutline">
+          <!-- <div id="syncCharts" class="col boxOutline">
           </div> -->
-      </div>
+        </div>
       </div>
 
     </main>
