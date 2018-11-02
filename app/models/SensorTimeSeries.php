@@ -23,6 +23,7 @@ class SensorTimeSeries{
     $this->heatRate = floatval($row['heatRate']);
     $this->compressorEfficiency = floatval($row['compressorEfficiency']);
     $this->availability = floatval($row['availability']);
+      $this->firedHours = floatval($row['firedHours']);
     $this->reliability = floatval($row['reliability']);
     $this->trips = intval($row['trips']);
     $this->starts = intval($row['starts']);
