@@ -60,7 +60,7 @@ var clientApp = new Vue({
 		gotoSite(tid) {
 			console.log("site id:" +
 				tid);
-			window.location = 'site.html?siteId=' + tid;
+			window.location = 'projectInfo.html?siteId=' + tid;
 		}
 	},
 	created() {
