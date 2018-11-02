@@ -267,15 +267,17 @@ div.container-login {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: dark;
+  background-color: black;
   color: white;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
+  opacity: 0.8;
 }
 
 #myBtn:hover {
-  background-color: dark;
+  background-color: black;
+  opacity: 1.0;
 }
 
 /* CSS source https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_blurred_bg*/
