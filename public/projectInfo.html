@@ -102,15 +102,12 @@
       <div class="row">
         <div class="col placeholder" v-for="c in turbine" :key="c.id" @click="gotoSensorDeployed1(c.turbineDeployedId)" v-show='toggle'>
 
-          <div class="tooltip">
+          <h1 class="tooltip">
             <ion-icon name="information-circle-outline"></ion-icon>
             <span class="tooltiptext">{{c.turbineDescription}}</span>
+          </h1>
 
-
-            <h2>
-
-          </div>Turbine Name: {{c.turbineName}}
-          </h2><br />
+          <h2>Turbine Name: {{c.turbineName}}</h2><br />
           Serial Number: {{c.serialNumber}}<br />
           Capacity: {{c.capacity}}<br />
           Ramp-up Time: {{c.rampUpTime}} <br />
