@@ -208,6 +208,7 @@ var siteApp = new Vue({
 
 				series: [{
 					type: 'area',
+					color: '#e03c3f',
 					name: 'Output(day)',
 					data: //needs to be [[date1, val1],[date2,val2]]
 						this.sensorts.map(entry => [entry.dataCollectedDate, entry.heatRate])
