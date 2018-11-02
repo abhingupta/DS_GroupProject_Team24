@@ -47,23 +47,19 @@
         <br>
 
         <div class="container-login bg-dark text-white">
-          <div class="row">
+          <form action="client.html">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 
-
-            <form class="form-inline" action="client.html">
-              <label class="col-sm-2">ID:</label><br />
-              <input class="col-sm-8" placeholder="Enter ID">
-              <label>Password:</label>
-              <input type="password" class="col-sm-8" placeholder="Enter password">
-          </div>
-          <div class="row">
-            <div class="col">
-
-
-
-              <button type="submit" class="btn bg-secondary text-white">View Clients</button>
             </div>
-          </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">View clients</button>
+          </form>
           </form>
         </div>
       </div>
