@@ -22,6 +22,8 @@ require 'models/TurbineDeployedTest.php';
 
 require 'models/SensorDeployed.php';
 require 'models/SensorDeployedTest.php';
+require 'models/SensorAvg.php';
+
 
 require 'models/SensorTimeSeries.php';
 

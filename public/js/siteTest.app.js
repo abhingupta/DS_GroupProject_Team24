@@ -610,9 +610,9 @@ var siteApp = new Vue({
 					console.error(err);
 				})
 
-			console.log("sensor id:" +
+			console.log("sensorDeployed id:" +
 				tid);
-			fetch('api/sensorDeployedTest.php?sensorDeployedId=' + tid)
+			fetch('api/sensorAvg.php?sensorDeployedId=' + tid)
 				.then(response => response.json())
 				.then(json => {
 					siteApp.senseavg = json

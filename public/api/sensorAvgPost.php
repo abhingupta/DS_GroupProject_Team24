@@ -1,6 +1,6 @@
 <?php
 
-$sensorDeployed = new SensorDeployedTest($_POST);
+$sensorDeployed = new SensorAvg($_POST);
 
 $sensorDeployed->create();
 
