@@ -650,6 +650,16 @@ var siteApp = new Vue({
 				console.error('Site FETCH ERROR:');
 				console.error(err);
 			})
+
+		fetch('api/client.php?clientId=' + siteId)
+			.then(response => response.json())
+			.then(json => {
+				siteApp.client = json
+			})
+			.catch(err => {
+				console.error('Site FETCH ERROR:');
+				console.error(err);
+			})
 		// this.buildEffortChart();
 	}
 })
