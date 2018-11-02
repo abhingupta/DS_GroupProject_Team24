@@ -12,67 +12,83 @@
   </head>
 
   <body>
-    <div class="titletext">
-      <p class="title">
-        <img src="img/turbinePhoto.png" height="50px" alt="turbinePhoto"/>
-        Alternative Green Systems
-      <img src="img/turbinePhoto.png" height="50px" alt="turbinePhoto"/>
-      </p>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#" align="center">Alternate Green Systems</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link " href="index.html">Home </a>
+          <!-- <a class="nav-item nav-link" href="aboutus.html">About Us</a> -->
+          <a class="nav-item nav-link active" href="client.html">Client Dashboard<span class="sr-only">(current)</span></a>
+        </div>
+      </div>
+    </nav>
 
-      <!-- <nav class="navigation">
+    <!-- <nav class="navigation">
         <a href="client.html">Clients</a>
         <a href="site.html?siteId=2">Sites</a>
         <a href="turbine.html">Turbines</a>
         <a href="sensor.html">Sensors</a>
       </nav> -->
 
-      <div class="bg-image">
-        <img src="img/windTurbine.jpg" alt="Wind Turbine" width="100%" height="100%">
+    <div class="bg-image">
+      <img src="img/windTurbine.jpg" alt="Wind Turbine" width="100%" height="100%">
 
-        <div class="bg-text">
-          <p class="infoTitle">About the company</p>
+      <div class="bg-text">
+        <p class="infoTitle">About the company</p>
 
         <div class="container-fluid">
-          <p class="info">AGS is a world leader in green power generation, with a focus on efficient harnessing of natural energy sources. Today, AGS technology delivers as much as 20% of U.S. electricity through multiple power providers. The company is growing rapidly as the world turns to green sources of energy. </p>
+          <p class="info">AGS is a world leader in green power generation, with a focus on efficient harnessing of natural energy sources. Today, AGS technology delivers as much as 20% of U.S. electricity through multiple power providers. The
+            company is growing rapidly as the world turns to green sources of energy. </p>
         </div>
         <br>
 
-        <div class = "container-login">
+        <div class="container-login">
           <form class="form-inline" action="">
-            <label class = "col-sm-2"  >ID:</label>
-            <input class = "col-sm-8" placeholder="Enter ID">
-            <label class = "col-sm-2" >Password:</label>
-            <input type="password" class = "col-sm-8" placeholder="Enter password">
+            <label class="col-sm-2">ID:</label>
+            <input class="col-sm-8" placeholder="Enter ID">
+            <label class="col-sm-2">Password:</label>
+            <input type="password" class="col-sm-8" placeholder="Enter password">
             <br>
             <button>View Clients</button>
           </form>
         </div>
-        </div>
+      </div>
 
 
-        </div>
-  <!-- /* source https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top*/       -->
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    </div>
+    <!-- /* source https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top*/       -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <footer class="footer bg-dark">
+      <div class="container">
+        <span>Team 24</span>
+      </div>
+    </footer>
 
-        <script>
-          // When the user scrolls down 20px from the top of the document, show the button
-          window.onscroll = function() {scrollFunction()};
 
-          function scrollFunction() {
-              if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                  document.getElementById("myBtn").style.display = "block";
-              } else {
-                  document.getElementById("myBtn").style.display = "none";
-              }
-          }
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {
+        scrollFunction()
+      };
 
-          // When the user clicks on the button, scroll to the top of the document
-          function topFunction() {
-              document.body.scrollTop = 0;
-              document.documentElement.scrollTop = 0;
-          }
-          </script>
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("myBtn").style.display = "block";
+        }
+        else {
+          document.getElementById("myBtn").style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
 
 
     <!-- We need Bootstrap's modal JS, thus we also need jQuery -->
