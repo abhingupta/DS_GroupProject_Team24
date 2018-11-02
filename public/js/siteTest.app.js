@@ -599,10 +599,9 @@ var siteApp = new Vue({
 			// this.buildAvalibilityChart();
 			// this.buildAverageChart();
 			// this.renderIcons();
-			this.buildReliabilityChart() l
+			this.buildReliabilityChart();
 			this.buildHybridChart();
 			this.buildfiredHoursChart();
-
 			// this.buildSyncChart();
 			// siteApp.toggle = false;
 		}
