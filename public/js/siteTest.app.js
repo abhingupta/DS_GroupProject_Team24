@@ -17,6 +17,7 @@ var siteApp = new Vue({
 		sensorts: [],
 		senseall: [],
 		siteForm: {},
+		senseavg: [],
 		toggle: true // populated by this.getEmptySiteForm()
 	},
 	computed: {
@@ -608,6 +609,19 @@ var siteApp = new Vue({
 					console.error('Site FETCH ERROR:');
 					console.error(err);
 				})
+
+			console.log("sensor id:" +
+				tid);
+			fetch('api/sensorDeployedTest.php?sensorDeployedId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.senseavg = json
+				})
+				.catch(err => {
+					console.error('Site FETCH ERROR:');
+					console.error(err);
+				})
+
 			this.formatWorkHours();
 			this.buildOutputChart();
 			this.buildHeatrateChart();
