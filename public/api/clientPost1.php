@@ -2,7 +2,7 @@
 
 $client = new Client1($_POST);
 
-$client->create();
+$client->update();
 // $client->update();
 
 echo json_encode($client);
