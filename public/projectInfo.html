@@ -101,21 +101,20 @@
         </table> -->
       <div class="row">
         <div class="col placeholder" v-for="c in turbine" :key="c.id" @click="gotoSensorDeployed1(c.turbineDeployedId)" v-show='toggle'>
+
           <div class="tooltip">
             <span class="tooltiptext">{{c.turbineDescription}}</span>
           </div>
 
+          <h2>Turbine Name: {{c.turbineName}}</h2><br />
+          Serial Number: {{c.serialNumber}}<br />
+          Capacity: {{c.capacity}}<br />
+          Ramp-up Time: {{c.rampUpTime}} <br />
+          Total Fired Hours: {{c.totalFiredHours}} <br />
+          Total Starts: {{c.totalStarts}} <br />
+          Maintenance Interval: {{c.maintenanceInterval}} <br />
+
         </div>
-
-        <h2>Turbine Name: {{c.turbineName}}</h2><br />
-        Serial Number: {{c.serialNumber}}<br />
-        Capacity: {{c.capacity}}<br />
-        Ramp-up Time: {{c.rampUpTime}} <br />
-        Total Fired Hours: {{c.totalFiredHours}} <br />
-        Total Starts: {{c.totalStarts}} <br />
-        Maintenance Interval: {{c.maintenanceInterval}} <br />
-
-      </div>
       </div><br />
       <div class="row">
         <div class="col placeholder" v-for="s in senseall" :key="s.id" :id="'senseall-' + s.sensorId" @click="gotoSensorTimeSeries(s.sensorId)">
