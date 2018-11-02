@@ -280,4 +280,8 @@ div.container-login {
   opacity: 1.0;
 }
 
+.clientButton {
+  display: block;
+}
+
 /* CSS source https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_blurred_bg*/
