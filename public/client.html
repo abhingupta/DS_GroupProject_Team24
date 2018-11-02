@@ -63,7 +63,7 @@
           handleClientForm" align="center" id="newClientForm">
         <div class="container-login bg-dark text-white">
           <div class="form-group">
-            <label for="client">Client: </label>
+            <label for="client">Client </label>
 
             <select id="client" v-model="clientForm.clientId" class="form-control" required>
               <option v-for="t in client" :key="t.clientId" :value="t.clientId">{{ t.clientName }}</option>
@@ -73,7 +73,7 @@
 
           <div class="form-group">
             <label>Add Notes</lable>
-              <input id="notes" type="textarea" v-model="clientForm.notes" class="form-control" required>
+              <input id="notes" type="textarea" v-model="clientForm.notes" class="form-control col-sm-12" required>
           </div>
 
 
