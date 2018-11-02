@@ -38,6 +38,25 @@ class Client1{
     }
     $this->sensorId = $db->lastInsertId();
   }
+
+  public function update(){
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+    $sql = 'UPDATE client SET notes = ? where clientId=?';
+
+    $statement = $db->prepare($sql);
+    $success = $statement->execute([
+    $this-> clientId,
+    // $this-> clientName,
+    // $this-> clientDescription,
+    // $this-> gicsSector,
+    // $this-> gicsSubIndustry,
+    // $this-> headquarter,
+    $this-> notes]);
+    if(!$success){
+      die('bad sql on insert');
+    }
+    $this->sensorId = $db->lastInsertId();
+  }
   // public static function getClient1ById(int $sensorId) {
   //  // 1. Connect to the database
   //  $db = new PDO(DB_SERVER, DB_USER, DB_PW);
