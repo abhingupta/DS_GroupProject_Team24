@@ -13,6 +13,7 @@ var siteApp = new Vue({
 		turbine: [],
 		sensordeployed: [],
 		sensor: [],
+		client: [],
 		sensorts: [],
 		senseall: [],
 		siteForm: {},
