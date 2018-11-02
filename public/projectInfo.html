@@ -18,6 +18,9 @@
   </head>
 
   <body>
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <a class="navbar-brand" href="#">Fixed top</a>
+    </nav>
     <main id="siteMain" class="container-fluid">
       <span v-for="s in client" :key="s.id" :id="'site-' + s.clientId">
         <h1 align="center"> {{s.clientName}}'s dashboard </h1>
