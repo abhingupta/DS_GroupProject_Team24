@@ -46,13 +46,13 @@
         <br>
 
         <div class="container-login">
-          <form class="form-inline" action="">
+          <form class="form-inline" action="client.html">
             <label class="col-sm-2">ID:</label>
             <input class="col-sm-8" placeholder="Enter ID">
             <label class="col-sm-2">Password:</label>
             <input type="password" class="col-sm-8" placeholder="Enter password">
             <br>
-            <button>View Clients</button>
+            <button type="submit">View Clients</button>
           </form>
         </div>
       </div>
@@ -60,7 +60,7 @@
 
     </div>
     <!-- /* source https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top*/       -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     <footer class="footer bg-dark">
       <div class="container">
         <span>Team 24</span>
@@ -68,27 +68,6 @@
     </footer>
 
 
-    <script>
-      // When the user scrolls down 20px from the top of the document, show the button
-      window.onscroll = function() {
-        scrollFunction()
-      };
-
-      function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          document.getElementById("myBtn").style.display = "block";
-        }
-        else {
-          document.getElementById("myBtn").style.display = "none";
-        }
-      }
-
-      // When the user clicks on the button, scroll to the top of the document
-      function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-    </script>
 
 
     <!-- We need Bootstrap's modal JS, thus we also need jQuery -->
