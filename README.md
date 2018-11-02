@@ -1,2 +1,7 @@
 # DS_GroupProject_Team24
+http://ec2-54-214-54-163.us-west-2.compute.amazonaws.com
+1) For the login: Input anything and click view clients. Or click on view clients on the top of the page.
+2) Client 1 has no data linked to it, so it will return an empty website. Please click on client 2.
+
+
 KSB, MSIS '19, D&amp;S core group project
