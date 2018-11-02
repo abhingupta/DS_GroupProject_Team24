@@ -476,7 +476,7 @@ var siteApp = new Vue({
 					type: 'datetime'
 				},
 				yAxis: {
-					min: 0,
+					min: 14,
 					max: 20,
 					title: {
 						text: 'Fired hours'
