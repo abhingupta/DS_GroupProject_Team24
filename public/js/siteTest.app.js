@@ -457,7 +457,7 @@ var siteApp = new Vue({
 
 
 		buildfiredHoursChart() {
-			Highcharts.chart('firedHoursCharts', {
+			Highcharts.chart('fireChart', {
 				chart: {
 					zoomType: 'x',
 
@@ -601,7 +601,7 @@ var siteApp = new Vue({
 			// this.renderIcons();
 			this.buildReliabilityChart() l
 			this.buildHybridChart();
-			// this.buildfiredHoursChart();
+			this.buildfiredHoursChart();
 
 			// this.buildSyncChart();
 			// siteApp.toggle = false;
