@@ -14,6 +14,7 @@ class Site{
   public $addrState;
   public $addrZip;
   public $addrCountry;
+  public $clientName;
 
   public function __construct($row){
     $this->siteId = isset($row['siteId']) ? intval($row['siteId']) : null;
@@ -29,6 +30,7 @@ class Site{
     $this->addrState = $row['addrState'];
     $this->addrZip = intval($row['addrZip']);
     $this->addrCountry = $row['addrCountry'];
+      $this->clientName = $row['clientName'];
   }
   public function create(){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -68,7 +70,7 @@ class Site{
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM site where clientId = ?';
+    $sql = 'SELECT s.*, c.clientName FROM site s INNER JOIN client c ON c.clientId=s.clientId where s.clientId = ?';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute(

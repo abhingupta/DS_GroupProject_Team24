@@ -625,7 +625,7 @@ var siteApp = new Vue({
 	created() {
 
 		// Do data fetch
-		this.gotoClient(2);
+		// this.gotoClient(2);
 		const url = new URL(window.location.href);
 		const siteId = url.searchParams.get('siteId');
 		console.log('Site: ' + siteId);
