@@ -75,6 +75,19 @@ var siteApp = new Vue({
 					console.error(err);
 				})
 		},
+		gotoClient(tid) {
+			console.log("Client id:" +
+				tid);
+			fetch('api/Client.php?turbineDeployedId=' + tid)
+				.then(response => response.json())
+				.then(json => {
+					siteApp.client = json
+				})
+				.catch(err => {
+					console.error('Client FETCH ERROR:');
+					console.error(err);
+				})
+		},
 		buildOutputChart() {
 			Highcharts.chart('outputCharts', {
 
@@ -612,6 +625,7 @@ var siteApp = new Vue({
 	created() {
 
 		// Do data fetch
+		this.gotoClient(2);
 		const url = new URL(window.location.href);
 		const siteId = url.searchParams.get('siteId');
 		console.log('Site: ' + siteId);
