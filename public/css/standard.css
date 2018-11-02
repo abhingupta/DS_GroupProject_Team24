@@ -198,7 +198,7 @@ footer {
   /* Black w/opacity/see-through */
   /* color: black; */
   /* font-weight: bold; */
-  border: 3px solid #f1f1f1;
+  border: 3px solid white;
   position: absolute;
   top: 60%;
   left: 50%;
@@ -213,7 +213,7 @@ footer {
   /* display: inline-block; */
   /* flex-flow: row wrap; */
   /* align-items: center; */
-  color: black;
+  color: white;
 }
 
 .form-inline label {
