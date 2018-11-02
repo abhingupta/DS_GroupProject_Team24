@@ -78,7 +78,7 @@ var siteApp = new Vue({
 		gotoClient(tid) {
 			console.log("Client id:" +
 				tid);
-			fetch('api/Client.php?turbineDeployedId=' + tid)
+			fetch('api/Client.php?tclientId=' + tid)
 				.then(response => response.json())
 				.then(json => {
 					siteApp.client = json
