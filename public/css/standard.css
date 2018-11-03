@@ -5,6 +5,7 @@
   color: white;
   text-align: center;
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .graph {
